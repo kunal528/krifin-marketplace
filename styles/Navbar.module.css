@@ -11,7 +11,7 @@
     padding: 35px 20px 0px 20px;
     transition: all 0.5s ease-in-out;
     background-color: #00000034;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 
 .container.drawer{
@@ -93,7 +93,7 @@
 }
 
 .dropdownItem:hover {
-    color: #9A64F3;
+    color: #3D00B7;
 }
 
 .menuItem {
@@ -105,5 +105,5 @@
 }
 
 .menuItem:hover {
-    color: #9A64F3;
+    color: #3D00B7;
 }

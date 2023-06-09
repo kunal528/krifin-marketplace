@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  padding: 45px 55px;
+  gap: 30px 116px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo {
+  width: 300px;
+  transition: all 0.5s ease;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 22.4px;
+  color: #565656;
+  margin-bottom: 50px;
+}
+
+.socials {
+  display: flex;
+  gap: 0 30px;
+}
+
+.social {
+  width: 40px;
+  height: 40px;
+}
+
+.header {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.menuItem {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #3d3d3d;
+  margin-bottom: 15px;
+}
+
+.menuItem:hover {
+  color: #fff;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  border-radius: 45px;
+  padding: 7px;
+  background: #fff;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  flex: 1;
+  outline: none;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #3d3d3d;
+  border-radius: 45px;
+}
+
+.input::placeholder {
+  color: #959595;
+}
+
+.button {
+  padding: 10px 21px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.065em;
+
+  background: #3d00b7;
+  border-radius: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
