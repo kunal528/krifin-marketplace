@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0 20px;
+  gap: 20px;
   flex-wrap: wrap;
   padding: 0 150px;
   margin-bottom: 100px;
@@ -65,4 +65,79 @@
   letter-spacing: 0em;
   text-align: left;
   color: #565656;
+}
+
+.discoverSection {
+  padding: 0 110px;
+  margin-bottom: 100px;
+}
+
+.discoverHeader {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+.filters {
+  display: flex;
+  gap: 0 15px;
+  margin-bottom: 50px;
+}
+
+.filter {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  background: #dcdcdc33;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.filter.active {
+  background: #3d00b7;
+  color: white;
+}
+
+.filter:hover {
+  background: #3d00b7;
+  color: white;
+}
+
+.buttonOutlined {
+  padding: 12px 60px;
+  border-radius: 45px;
+  background: transparent;
+  color: #3d00b7;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid #3d00b7;
+}
+
+.partnerOfferSection {
+  padding: 0 60px;
+  margin-bottom: 150px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.partnerOfferHeader {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 47px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 80px;
+  margin-top: 40px;
 }
