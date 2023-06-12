@@ -1,0 +1,39 @@
+.cardoneContainer{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* padding-top: 20; */
+    background: #222222;
+    border-radius: 5%;
+    margin:20px auto;
+    width: 307.95px;
+    height: 425.62px;
+    /* left: 1177.05px;
+    top: 1245.15px; */
+    border: 1px solid #EAEAEA;
+    z-index: 1;
+    /* position: relative; */
+}
+
+.image{
+    padding: 0 auto;
+    margin-top: 20px;
+    /* z-index: 2; */
+    /* position: relative; */
+}
+
+.overImg{
+    position: relative;
+    top: -10;
+}
+.content{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+    padding: 0px 30px;
+}
