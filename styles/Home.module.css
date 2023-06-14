@@ -8,7 +8,7 @@
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
-  padding: 0 150px;
+  padding: 0 110px;
   margin-bottom: 100px;
 }
 
@@ -122,8 +122,88 @@
   border: 1px solid #3d00b7;
 }
 
+.benefitsSection {
+  margin: 100px 110px;
+  background: #d9e0ec33;
+  padding: 100px 60px;
+  display: flex;
+  gap: 20px 60px;
+  flex-wrap: wrap;
+}
+
+.benefitsHeader {
+  max-width: 398px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 41px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 60px;
+}
+
+.benefit {
+  display: flex;
+  gap: 0 15px;
+}
+
+.benefitLogo {
+  width: 36px;
+  height: 36px;
+}
+
+.benefitTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.benefitDesc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  max-width: 203px;
+  color: #9f9191;
+}
+
+.otherBenefits {
+  display: flex;
+  max-width: 300px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.otherBenefitsHeader {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 125px;
+  margin-bottom: 10px;
+}
+
+.otherBenefitsDesc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 125px;
+  color: #9f9191;
+}
+
 .partnerOfferSection {
-  padding: 0 60px;
+  padding: 0 110px;
   margin-bottom: 150px;
   display: flex;
   gap: 20px;
