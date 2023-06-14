@@ -1,14 +1,34 @@
-import React from 'react'
-import styles from './Cardone.module.css';
+"use client";
+import React, { useEffect, useState } from 'react'
+import styles from '../../styles/Cardone.module.css';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const CardOne = ({image, name, rate, city, country, price}) => {
+const CardOne = ({image, name, rate, city, country, price, type}) => {
+  const [variable, setVariable] = useState(false);
+
+  useEffect(() => {
+    setVariable(prevVariable => {
+      if (type === "") {
+        return false;
+      } else {
+        return true;
+      }
+    });
+  }, [type]);
+  
   return (
+    
     <div className={styles.cardoneContainer}>
+        {variable && <span className={styles.ribbon}>
+          <p style={{marginLeft: '3px'}}>{type}</p></span>}
+          
         <div className={styles.image}>
+        {/* {variable && <span className={styles.ribbonTwo}>
+          <p style={{marginLeft: '5px', marginRight: '5px'}}>Commercial</p></span>} */}
           <Image src={image} alt="Picture of the author" width={250} height={250} style={{borderRadius: '20px'}}/>
+          
           <div className={styles.overImg}>
             <Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={30} height={30} style={{borderRadius: '100%', top: '-25px', marginLeft: '-130px',position: 'absolute', zIndex: '3', border: '0.7px solid black'}}/>
             <Image src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={30} height={30} style={{borderRadius: '100%', top: '-25px', marginLeft: '-110px',  position: 'absolute', zIndex: '4', border: '0.7px solid black'}}/>
@@ -32,6 +52,7 @@ const CardOne = ({image, name, rate, city, country, price}) => {
           </div>
         </div>
     </div>
+    
   )
 }
 

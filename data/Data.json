@@ -16,7 +16,8 @@
         "City": "Delhi",
         "Country" : "India",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type": "Premium"
     },
     {
         "id": 2,
@@ -35,7 +36,8 @@
         "City": "Delhi",
         "Country" : "India",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type": "Commercial"
     },
     {
         "id": 3,
@@ -54,7 +56,8 @@
         "City": "Palermo",
         "Country" : "Italy",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type" : ""
     },
     {
         "id": 4,
@@ -73,7 +76,8 @@
         "City": "Los Angeles",
         "Country" : "USA",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type" : ""
     },
     {
         "id": 5,
@@ -92,7 +96,8 @@
         "City": "Maharashtra",
         "Country" : "India",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type": "Premium"
     },
     {
         "id": 6,
@@ -111,10 +116,11 @@
         "City": "Madhya Pradesh",
         "Country" : "India",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type": "Premium"
     },
     {
-        "id": 1,
+        "id": 7,
         "name": "Taj Mahal",
         "image" : "https://images.pexels.com/photos/3881104/pexels-photo-3881104.jpeg?auto=compress&cs=tinysrgb&w=600",
         "address" : "",
@@ -130,10 +136,11 @@
         "City": "Delhi",
         "Country" : "India",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type": "Premium"
     },
     {
-        "id": 2,
+        "id": 8,
         "name": "Apex Mall",
         "image" : "https://images.pexels.com/photos/2954405/pexels-photo-2954405.jpeg?auto=compress&cs=tinysrgb&w=600",
         "address" : "",
@@ -149,10 +156,11 @@
         "City": "Delhi",
         "Country" : "India",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+    "Type": ""
     },
     {
-        "id": 3,
+        "id": 9,
         "name": "This NFT",
         "image" : "https://images.pexels.com/photos/3124079/pexels-photo-3124079.jpeg?auto=compress&cs=tinysrgb&w=600",
         "address" : "",
@@ -168,10 +176,11 @@
         "City": "Palermo",
         "Country" : "Italy",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type": ""
     },
     {
-        "id": 4,
+        "id": 10,
         "name": "KingCrupto",
         "image" : "https://images.pexels.com/photos/730778/pexels-photo-730778.jpeg?auto=compress&cs=tinysrgb&w=600",
         "address" : "",
@@ -187,6 +196,7 @@
         "City": "Los Angeles",
         "Country" : "USA",
         "Description" : "",
-        "CalltoAction" : ""
+        "CalltoAction" : "",
+        "Type": "Commercial"
     }
 ]
