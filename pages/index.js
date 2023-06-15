@@ -10,7 +10,9 @@ export default function Home() {
     <div className={styles.container}>
       
       {data.map((data, i)=>(
-        <CardOne key={i} image={data.image} name={data.name} rate={data.pretaxYield} city={data.City} country={data.Country} price={data.perNFTvalue} type={data.Type}/>
+        <CardOne onClick={()=>{
+          
+        }} key={i} image={data.image} name={data.name} rate={data.pretaxYield} city={data.City} country={data.Country} price={data.perNFTvalue} type={data.Type}/>
       ))}
 
       
