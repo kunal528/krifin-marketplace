@@ -4,23 +4,25 @@ import Link from 'next/link'
 import useWeb3 from '../../lib/useWeb3'
 
 const Navbar = () => {
-    const { web3} = useWeb3();
+    const { web3 } = useWeb3();
     const [showDropdown, setShowDropdown] = React.useState(false);
     return (
         <div className={styles.container}>
-            <img src="./png/logo.png" alt="Logo" className={styles.logo} />
+            <Link href="/">
+                <img src="./png/logo.png" alt="Logo" className={styles.logo} />
+            </Link>
             <div className={styles.actions}>
                 <Link href="#" className={styles.menuItem}>About</Link>
-                <Link href="#" className={styles.menuItem}>Invest</Link>
+                <Link href="/invest" className={styles.menuItem}>Invest</Link>
                 <Link href="#" className={styles.menuItem}>Trade</Link>
                 <Link href="#" className={styles.menuItem}>Map</Link>
-                <Link href="#" className={styles.menuItem}>Contact</Link>
-                {web3 ? 
-                <img src={"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"} style={{ height: '40px', width: '40px', borderRadius: '75%', objectFit: 'cover',}} alt="your image" /> 
-                : <div className={styles.connectButton}>Connect</div>}
+                <Link href="/contact" className={styles.menuItem}>Contact</Link>
+                {web3 ?
+                    <img src={"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"} style={{ height: '40px', width: '40px', borderRadius: '75%', objectFit: 'cover', }} alt="your image" />
+                    : <div className={styles.connectButton}>Connect</div>}
                 {/* dropdown of chains */}
-                <div className={styles.connectButton} onClick={() => { setShowDropdown(val => !val) }}> 
-                <img src='./png/grid.png' height={25} width={25} />
+                <div className={styles.connectButton} onClick={() => { setShowDropdown(val => !val) }}>
+                    <img src='./png/grid.png' height={25} width={25} />
                 </div>
                 <div className={`${styles.dropdown} ${showDropdown ? '' : ` ${styles.hide}`}`}>
                     <div className={styles.dropdownHeader}>METAMAAP</div>
