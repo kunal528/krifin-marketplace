@@ -6,12 +6,12 @@ const Footer = () => {
     return (
         <div className={styles.container}>
             <div style={{ maxWidth: '420px' }}>
-                <img src="./png/logo.png" alt="Logo" className={styles.logo} />
+                <img src="/png/logo.png" alt="Logo" className={styles.logo} />
                 <div className={styles.description}>The world’s first and largest digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive digital items.</div>
                 <div className={styles.socials}>
-                    <img src="./png/instagram.png" alt="Instagram" className={styles.social} />
-                    <img src="./png/twitter.png" alt="Twitter" className={styles.social} />
-                    <img src="./png/linkedIn.png" alt="LinkedIn" className={styles.social} />
+                    <img src="/png/instagram.png" alt="Instagram" className={styles.social} />
+                    <img src="/png/twitter.png" alt="Twitter" className={styles.social} />
+                    <img src="/png/linkedIn.png" alt="LinkedIn" className={styles.social} />
                 </div>
             </div>
             <div style={{ maxWidth: '142px' }}>
