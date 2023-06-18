@@ -3,6 +3,7 @@ import CardOne from '../components/Cardone/CardOne'
 import data from '../data/Data.json'
 import Layout from '../components/Layout';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const [filters, setFilters] = useState([
@@ -15,8 +16,6 @@ export default function Home() {
     { name: 'Show more +', selected: false },
   ])
   return (
-    
-    
     <div className={styles.main}>
       <div className={styles.mainSection}>
         <div style={{ maxWidth: '562px' }}>

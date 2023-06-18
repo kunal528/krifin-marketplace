@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Cardone.module.css';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const CardOne = ({image, name, rate, city, country, price, type}) => {
@@ -40,7 +40,7 @@ const CardOne = ({image, name, rate, city, country, price, type}) => {
           <p style={{color: 'white', fontSize: '25px'}} className='heading'>{name}</p>
           <div>
             <div className='place' style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', margin: '10px 0px'}}>
-                <p style={{color: '#00AC4F', fontSize: '15px'}}><FontAwesomeIcon icon="fa-duotone fa-diamond-half" rotation={90} />{rate}</p>
+                <p style={{color: '#00AC4F', fontSize: '15px'}}>{rate}</p>
               <p style={{color: 'white', fontSize: '15px'}}>{city}, {country}</p>
               
             </div>

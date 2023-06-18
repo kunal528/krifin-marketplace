@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/Product.module.css'
+import styles from '../../../styles/Product.module.css'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
