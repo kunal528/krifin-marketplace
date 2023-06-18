@@ -4,6 +4,7 @@ import data from '../data/Data.json'
 import Layout from '../components/Layout';
 import { useState } from 'react';
 import Image from 'next/image';
+import NFTCard from '../components/cards/NFTCard';
 
 export default function Home() {
   const [filters, setFilters] = useState([
@@ -50,16 +51,33 @@ export default function Home() {
             ))
           }
         </div>
-        <div className={styles.container}>
-      
-      {data.map((data, i)=>(
-        <CardOne onClick={()=>{
-          
-        }} key={i} image={data.image} name={data.name} rate={data.pretaxYield} city={data.City} country={data.Country} price={data.perNFTvalue} type={data.Type}/>
-      ))}
+        <div className={styles.nfts}>
+          {
+            Array(12).fill(0).map((_, index) => (
+              <NFTCard key={index} nft={{
+                "id": 1,
+                "name": "Taj Mahal",
+                "image": "https://images.pexels.com/photos/3881104/pexels-photo-3881104.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "address": "",
+                "assetType": "utility",
+                "perNFTvalue": "980.00",
+                "pretaxYield": "20.5",
+                "AE": 1,
+                "AEStablePeriod": "",
+                "RepaymentSession": "",
+                "Developer": "",
+                "CurrentMajorHolder": "",
+                "Management": "",
+                "city": "Delhi",
+                "country": "India",
+                "Description": "",
+                "CalltoAction": "",
+                "type": "Premium"
+              }} />
+            ))
+          }
 
-      
-    </div>
+        </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div className={styles.buttonOutlined}>More NFTs</div>
         </div>
