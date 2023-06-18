@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <div className={styles.container}>
             <Link href="/">
-                <img src="./png/logo.png" alt="Logo" className={styles.logo} />
+                <img src="/png/logo.png" alt="Logo" className={styles.logo} />
             </Link>
             <div className={styles.actions}>
                 <Link href="#" className={styles.menuItem}>About</Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
                     : <div className={styles.connectButton}>Connect</div>}
                 {/* dropdown of chains */}
                 <div className={styles.connectButton} onClick={() => { setShowDropdown(val => !val) }}>
-                    <img src='./png/grid.png' height={25} width={25} />
+                    <img src='/png/grid.png' height={25} width={25} />
                 </div>
                 <div className={`${styles.dropdown} ${showDropdown ? '' : ` ${styles.hide}`}`}>
                     <div className={styles.dropdownHeader}>METAMAAP</div>

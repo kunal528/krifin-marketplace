@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/NFTCard.module.css';
+import Link from 'next/link';
 
 
 
@@ -18,7 +19,7 @@ const NFTCard = ({ nft }) => {
 
     return (
 
-        <div className={styles.container}>
+        <Link href="/product/1" className={styles.container}>
             {variable && <div className={styles.ribbon}>
                 {nft.type}</div>}
 
@@ -47,7 +48,7 @@ const NFTCard = ({ nft }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
 
     )
 }

@@ -1,117 +1,125 @@
-.description{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* justify-content: space-between; */
-    height: 100%;
-    flex-basis: 50%;
-    /* padding: 0px 20px; */
-    margin: 20px 0px;
-    color: 'white'
+.container {
+  padding: 0 110px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.descriptionData{
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 0px;
-    padding: 0px 200px;
-    color: white;
-    text-align: center;
+.name {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  letter-spacing: 0.22em;
+  text-align: left;
+  margin-bottom: 30px;
 }
 
-.endDetails{
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    color: #14C8B0;
-    margin: 30px 200px 10px;
-    word-spacing: 20px;
+.image {
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+  height: 688px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 50px;
 }
 
-.card{
-    height: '100vh';
-    flex-basis: 45%;
-    padding: 50px 50px;
-    margin: 20px 0px;
-    width: '80%';
-    text-align: center;
-    background: #151515;
-    border: '2px solid white';
-    border-radius: 20px;
-    /* flex-direction: column; */
-    align-items: center;
+.description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
-.cardContent{
-    display: flex;
-    flex-direction: row;
-    
-    justify-content: space-between;
-    
-    margin: 30px 0px;
-    /* text-align: right; */
-    
+.card {
+  padding: 50px 50px;
+  text-align: center;
+  flex: 1;
+  background: #151515;
+  border: 1px solid white;
+  border-radius: 30px;
 }
 
-.cardContentData{
-    /* flex-basis: '33.3%'; */
-    /* text-align: right; */
-    /* width: 100%; */
-    flex-basis: 50%;
-    /* padding: 0px 20px; */
-    /* margin: 20px 0px; */
-    /* color: 'white' */
-    text-align: left;
-}
-.card > p{
-    color: white;
-    margin-top: 20px;
+.header {
+  color: #06dbac;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: 0.22em;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.card > .topHeading{
-    color: #06DBAC;
-    font-size: 20px;
-    letter-spacing: 8px;
+.subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.heading{
-    color: #06DBAC;
-    /* margin: 20px; */
-    text-align: left;
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.cardContent > .cardContentData > p{
-    color: white;
-    margin-top: 20px;
+.divider {
+  border: 1px solid #ffffff;
+  width: 100%;
+  margin: 30px 0px;
 }
 
-.buttonSection{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 100px;
+.stats {
+  flex: 1;
+  text-align: left;
 }
 
-.buttonFav{
-    padding: 15px 30px;
-    border-radius: 30px;
-    border: 2px solid white;
-    background: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
+.statTitle {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #06dbac;
+  text-align: left;
+  margin-bottom: 50px;
 }
 
-.buttonBuy{
-    background: linear-gradient(99.74deg, #5539A8 5.23%, #BD00FF 92.7%);
-    border-radius: 54.698px;
-    display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10.9396px 35.0067px;
-gap: 10.94px;
-color: white;
-font-size: 20px;
-cursor: pointer;
+.statDesc {
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.price {
+  padding: 12px 24px;
+  border-radius: 15px;
+  background: #323232;
+
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.buttonSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-top: 50px;
+}
+
+.buy {
+  background: linear-gradient(99.74deg, #5539a8 5.23%, #bd00ff 92.7%);
+  border-radius: 55px;
+  padding: 5px 20px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  cursor: pointer;
 }
