@@ -11,7 +11,9 @@ const Layout = ({ children }) => {
     const ignoreSearch = [
         '/contact',
         '/how-it-works',
+        '/profile',
     ]
+    console.log(router.pathname)
     return (
         <div>
             <Head>
@@ -24,7 +26,7 @@ const Layout = ({ children }) => {
             </Head>
             <Navbar />
             <div className={styles.app}>
-                {!ignoreSearch.includes(router.pathname) &&  <Search />}
+                {!ignoreSearch.includes(router.pathname) && <Search />}
                 {children}
                 <Footer />
             </div>

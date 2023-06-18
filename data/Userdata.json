@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Giri Ranjan",
+        "intro" : "Blockchain Enthusiast who loves art ,Blues Music,Tech & Finance",
+        "image" : "",
+        "assetDetails" : [
+            {
+                "id" : 1,
+                "name" : "Heart & Sol",
+                "tokensOwned" : 10,
+                "price" : "30.234",
+                "image" : "https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=600"
+            },
+            {
+                "id" : 2,
+                "name" : "Taj Mahal",
+                "tokensOwned" : 2,
+                "price" : "980.00",
+                "type" : "Premium",
+                "image" : "https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=600"
+            },
+            {
+                "id" : 3,
+                "name" : "Rover Amusement Park",
+                "tokensOwned" : 5,
+                "price" : "150.42",
+                "image" : "https://images.pexels.com/photos/40547/fair-fairground-ferris-wheel-carousel-40547.jpeg?auto=compress&cs=tinysrgb&w=600"
+            },
+            {
+                "id" : 4,
+                "name" : "KingCrypto",
+                "tokensOwned" : 5,
+                "price" : "480.34",
+                "image" : "https://images.pexels.com/photos/163792/model-planes-airplanes-miniatur-wunderland-hamburg-163792.jpeg?auto=compress&cs=tinysrgb&w=600"
+            },
+            {
+                "id" : 5,
+                "name" : "Kempegowda Museum",
+                "tokensOwned" : 7,
+                "price" : "320.34",
+                "image" : "https://images.pexels.com/photos/1310110/pexels-photo-1310110.jpeg?auto=compress&cs=tinysrgb&w=600"
+            },
+            {
+                "id" : 6,
+                "name" : "Embassy Tech Village",
+                "tokensOwned" : 8,
+                "price" : "270.334",
+                "image" : "https://images.pexels.com/photos/1400249/pexels-photo-1400249.jpeg?auto=compress&cs=tinysrgb&w=600"
+            },
+            {
+                "id" : 7,
+                "name" : "Ajanta Caves",
+                "tokensOwned" : 1,
+                "price" : "945.80",
+                "type" : "Premium",
+                "image" : "https://images.pexels.com/photos/2563594/pexels-photo-2563594.jpeg?auto=compress&cs=tinysrgb&w=600"
+            },
+            {
+                "id" : 8,
+                "name" : "Moodlift Cafe",
+                "tokensOwned" : 30,
+                "price" : "3.34",
+                "image" : "https://images.pexels.com/photos/3968056/pexels-photo-3968056.jpeg?auto=compress&cs=tinysrgb&w=600"
+            }
+        ]
+     }
+]

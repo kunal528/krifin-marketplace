@@ -229,3 +229,68 @@
   margin-bottom: 80px;
   margin-top: 40px;
 }
+
+.benefitsColOne {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.benefitsColTwo {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.randomAssets {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 60vh;
+  width: 95%;
+  margin: 20px auto;
+  /* background: blue; */
+}
+
+.randomAssetsColOne {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 110px;
+  margin-bottom: 100px;
+}
+
+.randomAssetsColOneData {
+  display: grid;
+  grid-template-columns: 0fr 1fr auto;
+  margin-top: 20px;
+}
+
+.placeDetail {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.priceDetail {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 80px;
+  margin-top: 10px;
+  justify-content: space-between;
+  /* color: #3A3A3A; */
+  color: "white";
+}
+
+.randomAssetsColTwo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
