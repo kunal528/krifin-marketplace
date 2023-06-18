@@ -19,9 +19,9 @@ const dashboard = () => {
     <div>
       {userData.map((data, i)=>(
         <div className={styles.dashboardMain}>
-        <Image src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=600" height={600} width={1400} alt="banner image" style={{position : 'relative', zIndex: 0}}/>
+        <Image src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=600" height={400} width={1600} alt="banner image" style={{position : 'relative', zIndex: 0, objectFit: 'cover'}}/>
         <div className={styles.dashboardUser}>
-        <Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={200} height={220} style={{borderRadius: '100%', border: '2px solid white', marginTop: '-150px', position: 'relative'}}/>
+        <Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={200} height={220} style={{borderRadius: '100%', border: '2px solid white', marginTop: '-150px', position: 'relative',  objectFit: 'cover'  }}/>
         <div className={styles.dashboardUserContent}>
           <p style={{letterSpacing: '10px', fontSize: '30px', marginBottom: '30px'}}>Giri Ranjan</p>
           <p>Blockchain Enthusiast who loves art ,Blues Music,Tech & Finance</p>
