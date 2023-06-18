@@ -1,0 +1,117 @@
+.description{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: space-between; */
+    height: 100%;
+    flex-basis: 50%;
+    /* padding: 0px 20px; */
+    margin: 20px 0px;
+    color: 'white'
+}
+
+.descriptionData{
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 0px 200px;
+    color: white;
+    text-align: center;
+}
+
+.endDetails{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    color: #14C8B0;
+    margin: 30px 200px 10px;
+    word-spacing: 20px;
+}
+
+.card{
+    height: '100vh';
+    flex-basis: 45%;
+    padding: 50px 50px;
+    margin: 20px 0px;
+    width: '80%';
+    text-align: center;
+    background: #151515;
+    border: '2px solid white';
+    border-radius: 20px;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+.cardContent{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    
+    margin: 30px 0px;
+    /* text-align: right; */
+    
+}
+
+.cardContentData{
+    /* flex-basis: '33.3%'; */
+    /* text-align: right; */
+    /* width: 100%; */
+    flex-basis: 50%;
+    /* padding: 0px 20px; */
+    /* margin: 20px 0px; */
+    /* color: 'white' */
+    text-align: left;
+}
+.card > p{
+    color: white;
+    margin-top: 20px;
+}
+
+.card > .topHeading{
+    color: #06DBAC;
+    font-size: 20px;
+    letter-spacing: 8px;
+}
+
+.heading{
+    color: #06DBAC;
+    /* margin: 20px; */
+    text-align: left;
+}
+
+.cardContent > .cardContentData > p{
+    color: white;
+    margin-top: 20px;
+}
+
+.buttonSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.buttonFav{
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: 2px solid white;
+    background: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonBuy{
+    background: linear-gradient(99.74deg, #5539A8 5.23%, #BD00FF 92.7%);
+    border-radius: 54.698px;
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10.9396px 35.0067px;
+gap: 10.94px;
+color: white;
+font-size: 20px;
+cursor: pointer;
+}
