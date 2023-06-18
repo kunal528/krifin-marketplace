@@ -1,9 +1,7 @@
 import styles from '../styles/Home.module.css'
-import CardOne from '../components/Cardone/CardOne'
 import data from '../data/Data.json'
 import Layout from '../components/Layout';
 import { useState } from 'react';
-import Image from 'next/image';
 import NFTCard from '../components/cards/NFTCard';
 
 export default function Home() {
@@ -17,7 +15,7 @@ export default function Home() {
     { name: 'Show more +', selected: false },
   ])
   return (
-    <div className={styles.main}>
+    <div>
       <div className={styles.mainSection}>
         <div style={{ maxWidth: '562px' }}>
           <div className={styles.header}>Buy, Sell and Invest in Real Estate Tokens & REIT</div>
@@ -123,19 +121,20 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* don't touch other areas and code the css bottom */}
       {/* this is in progress... needs to be completed */}
-    <div className={styles.randomAssets}>
+      <div className={styles.randomAssets}>
         <div className={styles.randomAssetsColOne}>
-          <Image src="https://images.pexels.com/photos/284991/pexels-photo-284991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={350} height={350} style={{borderRadius: '20px'}}/>
+          <img src="https://images.pexels.com/photos/284991/pexels-photo-284991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={350} height={350} style={{ borderRadius: '20px' }} />
           <div className={styles.randomAssetsColOneData}>
-            <Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={50} height={50} style={{borderRadius: '100%', border: '0.7px solid black'}}/>
+            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={50} height={50} style={{ borderRadius: '100%', border: '0.7px solid black' }} />
             <div className={styles.placeDetail}>
-              <p style={{fontSize: '20px', fontWeight: 400}}>AVB Mansion</p>
-              <p style={{fontSize: '10px', marginTop: '8px', color: 'white'}}>Mumbai India</p>
+              <p style={{ fontSize: '20px', fontWeight: 400 }}>AVB Mansion</p>
+              <p style={{ fontSize: '10px', marginTop: '8px', color: 'white' }}>Mumbai India</p>
             </div>
             <div className={styles.priceDetail}>
-              <p style={{fontSize: '12px', fontWeight: 400}}>Valuation</p>
-              <p style={{fontSize: '15px', fontWeight: 600}}>25000000EUR</p>
+              <p style={{ fontSize: '12px', fontWeight: 400 }}>Valuation</p>
+              <p style={{ fontSize: '15px', fontWeight: 600 }}>25000000EUR</p>
             </div>
           </div>
         </div>
@@ -143,9 +142,10 @@ export default function Home() {
 
         </div>
         <div className={styles.randomAssetsColThree}></div>
+      </div>
       <div className={styles.partnerOfferSection}>
-        <img src="./png/partner-offer.png" alt="Partner" />
-        <div style={{ maxWidth: '610px' }}>
+        <img src="./png/partner-offer.png" width={562} alt="Partner" />
+        <div style={{ maxWidth: '562px' }}>
           <div className={styles.partnerOfferHeader}>Want to partner with us ?</div>
           <div className={styles.description} style={{ marginBottom: '30px' }}>We partner with  open-end real estate investment trust focused on managing a portfolio of retail and mixed-use retail community and neighbourhood centres, generally in the mid-market range of $10 to $50 million, from both primary and secondary markets across Dubai, Europe, and United Kingdom.</div>
           <div style={{ display: 'flex', marginBottom: '30px' }}>
@@ -154,7 +154,6 @@ export default function Home() {
         </div>
       </div>
     </div>
-  </div>
   )
 }
 

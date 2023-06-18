@@ -3,73 +3,64 @@
         "name": "Giri Ranjan",
         "intro" : "Blockchain Enthusiast who loves art ,Blues Music,Tech & Finance",
         "image" : "",
-        "insta" : "",
-        "linkedin" : "",
-        "fb" : "",
-        "twitter" : "",
         "assetDetails" : [
             {
                 "id" : 1,
                 "name" : "Heart & Sol",
-                "numberofTokens" : 10,
-                "priceperNFT" : "30.234",
-                "type" : "Commercial",
-                "img" : "https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "tokensOwned" : 10,
+                "price" : "30.234",
+                "image" : "https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=600"
             },
             {
                 "id" : 2,
                 "name" : "Taj Mahal",
-                "numberofTokens" : 2,
-                "priceperNFT" : "980.00",
+                "tokensOwned" : 2,
+                "price" : "980.00",
                 "type" : "Premium",
-                "img" : "https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "image" : "https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=600"
             },
             {
                 "id" : 3,
                 "name" : "Rover Amusement Park",
-                "numberofTokens" : 5,
-                "priceperNFT" : "150.42",
-                "type" : "Commercial",
-                "img" : "https://images.pexels.com/photos/40547/fair-fairground-ferris-wheel-carousel-40547.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "tokensOwned" : 5,
+                "price" : "150.42",
+                "image" : "https://images.pexels.com/photos/40547/fair-fairground-ferris-wheel-carousel-40547.jpeg?auto=compress&cs=tinysrgb&w=600"
             },
             {
                 "id" : 4,
                 "name" : "KingCrypto",
-                "numberofTokens" : 5,
-                "priceperNFT" : "480.34",
-                "type" : "Commercial",
-                "img" : "https://images.pexels.com/photos/163792/model-planes-airplanes-miniatur-wunderland-hamburg-163792.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "tokensOwned" : 5,
+                "price" : "480.34",
+                "image" : "https://images.pexels.com/photos/163792/model-planes-airplanes-miniatur-wunderland-hamburg-163792.jpeg?auto=compress&cs=tinysrgb&w=600"
             },
             {
                 "id" : 5,
                 "name" : "Kempegowda Museum",
-                "numberofTokens" : 7,
-                "priceperNFT" : "320.34",
-                "type" : "Commercial",
-                "img" : "https://images.pexels.com/photos/1310110/pexels-photo-1310110.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "tokensOwned" : 7,
+                "price" : "320.34",
+                "image" : "https://images.pexels.com/photos/1310110/pexels-photo-1310110.jpeg?auto=compress&cs=tinysrgb&w=600"
             },
             {
                 "id" : 6,
                 "name" : "Embassy Tech Village",
-                "numberofTokens" : 8,
-                "priceperNFT" : "270.334",
-                "type" : "Commercial",
-                "img" : "https://images.pexels.com/photos/1400249/pexels-photo-1400249.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "tokensOwned" : 8,
+                "price" : "270.334",
+                "image" : "https://images.pexels.com/photos/1400249/pexels-photo-1400249.jpeg?auto=compress&cs=tinysrgb&w=600"
             },
             {
                 "id" : 7,
                 "name" : "Ajanta Caves",
-                "numberofTokens" : 1,
-                "priceperNFT" : "945.80",
+                "tokensOwned" : 1,
+                "price" : "945.80",
                 "type" : "Premium",
-                "img" : "https://images.pexels.com/photos/2563594/pexels-photo-2563594.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "image" : "https://images.pexels.com/photos/2563594/pexels-photo-2563594.jpeg?auto=compress&cs=tinysrgb&w=600"
             },
             {
                 "id" : 8,
                 "name" : "Moodlift Cafe",
-                "numberofTokens" : 30,
-                "priceperNFT" : "3.34",
-                "img" : "https://images.pexels.com/photos/3968056/pexels-photo-3968056.jpeg?auto=compress&cs=tinysrgb&w=600"
+                "tokensOwned" : 30,
+                "price" : "3.34",
+                "image" : "https://images.pexels.com/photos/3968056/pexels-photo-3968056.jpeg?auto=compress&cs=tinysrgb&w=600"
             }
         ]
      }

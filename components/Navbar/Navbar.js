@@ -18,7 +18,7 @@ const Navbar = () => {
                 <Link href="#" className={styles.menuItem}>Map</Link>
                 <Link href="/contact" className={styles.menuItem}>Contact</Link>
                 {web3 ?
-                    <img src={"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"} style={{ height: '40px', width: '40px', borderRadius: '75%', objectFit: 'cover', }} alt="your image" />
+                    <Link href="/profile"><img src={"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"} style={{ height: '40px', width: '40px', borderRadius: '75%', objectFit: 'cover', }} alt="your image" /></Link>
                     : <div className={styles.connectButton}>Connect</div>}
                 {/* dropdown of chains */}
                 <div className={styles.connectButton} onClick={() => { setShowDropdown(val => !val) }}>
