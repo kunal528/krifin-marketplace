@@ -4,8 +4,14 @@ import Navbar from './Navbar/Navbar'
 import Footer from './Footer/Footer'
 import Head from 'next/head'
 import Search from './Search/Search'
+import { useRouter } from 'next/router'
 
 const Layout = ({ children }) => {
+    const router = useRouter();
+    const ignoreSearch = [
+        '/contact',
+        '/how-it-works',
+    ]
     return (
         <div>
             <Head>
@@ -18,7 +24,7 @@ const Layout = ({ children }) => {
             </Head>
             <Navbar />
             <div className={styles.app}>
-                <Search />
+                {!ignoreSearch.includes(router.pathname) &&  <Search />}
                 {children}
                 <Footer />
             </div>

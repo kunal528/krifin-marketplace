@@ -16,7 +16,7 @@ const Navbar = () => {
                 <Link href="/invest" className={styles.menuItem}>Invest</Link>
                 <Link href="#" className={styles.menuItem}>Trade</Link>
                 <Link href="#" className={styles.menuItem}>Map</Link>
-                <Link href="#" className={styles.menuItem}>Contact</Link>
+                <Link href="/contact" className={styles.menuItem}>Contact</Link>
                 {web3 ?
                     <img src={"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"} style={{ height: '40px', width: '40px', borderRadius: '75%', objectFit: 'cover', }} alt="your image" />
                     : <div className={styles.connectButton}>Connect</div>}

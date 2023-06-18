@@ -1,0 +1,43 @@
+.container {
+  padding: 75px 115px;
+}
+
+.header1 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.495em;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header2 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.mainSection {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 60px 0;
+}
+
+.image {
+  height: 239px;
+  width: 318px;
+  border-radius: 34px;
+}
+
+
+.description {
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 30px;
+}
