@@ -12,23 +12,26 @@ function HowITWorks() {
                     <div className={styles.header1} style={{ textAlign: 'left' }}>INVESTORS</div>
                     <div className={styles.description}>
                         <ol>
-                            <li>Explore luxury assets fractional NFTs  in the primary and secondary markets. Read about the asset and its valuation report.</li>
+                            <li><b>Explore luxury assets fractional NFTs  in the primary and secondary markets. Read about the asset and its valuation report.</b><br />View all listed NFTs & collections that are currently either up for sale through initial asset offering (IAO) where you can make custom offers or directly buy fractional NFTs traded in the secondary market
+                            </li>
+                            <li>
+                                <b>IAO bid is accepted [Primary Market]</b>
+                                <br />When your bid is accepted, your principal is sent to the owner. The real world asset is put in a secure vault and the NFT of the asset is either:
+                            </li>
+                            <ul>
+                                <li>Loan IAO: NFT placed in a secure escrow smart contract for the duration of loan and Debt bonds investor receives Fractional NFT with expiration on maturity period</li>
+                                <li>Equity IAO: Fractional NFT ownership is transferred to the investor/new owner</li>
+                            </ul>
+                            <li><b>Loan Investors - Earn interest</b><br />When the borrower repays the loan, you will automatically receive your principal plus the interest in your wallet!
+                            </li>
+                            <li><b>Equity Investors</b>
+                                <br />
+                                Like equity, Increase in valuation of an asset allows you to sell or trade your ownership rights in the secondary asset market  for a higher price.
+                                <br />
+                                These assets include - Gold, Real estate, Jewelry, Art and Collectibles with approved market valuation to perform positively in the market.
+                            </li>
                         </ol>
-                        View all listed NFTs & collections that are currently either up for sale through initial asset offering (IAO) where you can make custom offers or directly buy fractional NFTs traded in the secondary market
-                        <ol>
-                            <li>IAO bid is accepted [Primary Market]</li>
-                        </ol>
-                        When your bid is accepted, your principal is sent to the owner. The real world asset is put in a secure vault and the NFT of the asset is either:
-                        <ol>
-                            <li>Loan IAO: NFT placed in a secure escrow smart contract for the duration of loan and Debt bonds investor receives Fractional NFT with expiration on maturity period</li>
-                            <li>Equity IAO: Fractional NFT ownership is transferred to the investor/new owner</li>
-                            <li>Loan Investors - Earn interest</li>
-                        </ol>
-                        When the borrower repays the loan, you will automatically receive your principal plus the interest in your wallet!
-                        Equity Investors<br />
-                        Like equity, Increase in valuation of an asset allows you to sell or trade your ownership rights in the secondary asset market  for a higher price.
-                        <br />
-                        These assets include - Gold, Real estate, Jewelry, Art and Collectibles with approved market valuation to perform positively in the market.
+
                     </div>
                     <div className={styles.header1} style={{ textAlign: 'left' }}>HNI Borrowers</div>
                     <div className={styles.description}>

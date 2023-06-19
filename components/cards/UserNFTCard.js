@@ -19,6 +19,7 @@ const UserNFTCard = ({ nft }) => {
 
   return (
 
+    
     <Link href="product/1" className={styles.container}>
       {variable && <div className={styles.ribbon}>
         {nft.type}</div>}
