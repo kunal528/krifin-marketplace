@@ -12,10 +12,10 @@ const Navbar = () => {
                 <img src="/png/logo.png" alt="Logo" className={styles.logo} />
             </Link>
             <div className={styles.actions}>
-                <Link href="#" className={styles.menuItem}>About</Link>
+                <Link href="/about" className={styles.menuItem}>About</Link>
                 <Link href="/invest" className={styles.menuItem}>Invest</Link>
                 <Link href="#" className={styles.menuItem}>Trade</Link>
-                <Link href="#" className={styles.menuItem}>Map</Link>
+                {/* <Link href="#" className={styles.menuItem}>Map</Link> */}
                 <Link href="/contact" className={styles.menuItem}>Contact</Link>
                 {web3 ?
                     <Link href="/profile"><img src={"https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"} style={{ height: '40px', width: '40px', borderRadius: '75%', objectFit: 'cover', }} alt="your image" /></Link>
