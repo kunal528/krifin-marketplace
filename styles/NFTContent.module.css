@@ -1,0 +1,25 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.aboutAsset{
+    display: flex;
+    flex-direction: row;
+}
+
+.aboutAssetImage{
+    flex-basis: 40%;
+}
+.aboutAssetTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+.aboutAssetDescription{
+    flex-basis: 60%;
+}
