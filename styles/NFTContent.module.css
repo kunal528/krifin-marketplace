@@ -23,3 +23,10 @@
 .aboutAssetDescription{
     flex-basis: 60%;
 }
+
+.sellerInfoCards{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
