@@ -14,7 +14,7 @@ const Navbar = () => {
             <div className={styles.actions}>
                 <Link href="/about" className={styles.menuItem}>About</Link>
                 <Link href="/invest" className={styles.menuItem}>Invest</Link>
-                <Link href="#" className={styles.menuItem}>Trade</Link>
+                <Link href="/marketplace" className={styles.menuItem}>Trade</Link>
                 {/* <Link href="#" className={styles.menuItem}>Map</Link> */}
                 <Link href="/contact" className={styles.menuItem}>Contact</Link>
                 {web3 ?
