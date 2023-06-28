@@ -19,6 +19,7 @@
     align-items: baseline;
     justify-content: flex-start;
     flex-grow: 1;
+    margin-bottom: 5px;
 }
 .aboutAssetDescription{
     flex-basis: 60%;
