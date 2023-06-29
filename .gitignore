@@ -42,3 +42,5 @@ firebase.json
 firestore.indexes.json
 database.rules.json
 .gitignore
+krifin-marketplace-firebase-adminsdk-ihipb-6ca83a8dd4.json
+script.js
