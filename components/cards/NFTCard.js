@@ -8,7 +8,7 @@ const NFTCard = ({ nft }) => {
 
     return (
 
-        <Link href="/product/1" className={styles.container}>
+        <Link href={`/product/${nft.id}`} className={styles.container}>
             {nft.premium && <div className={styles.ribbon}>
                 {'Premium'}</div>}
 

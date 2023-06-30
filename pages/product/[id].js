@@ -12,7 +12,7 @@ const Product = () => {
     const { getNFT } = useFirebase()
     const router = useRouter()
 
-    const {id} = router.query
+    const { id } = router.query
 
     useEffect(() => {
         getNFT(id).then((res) => {
@@ -25,6 +25,7 @@ const Product = () => {
         purchaseToken(nft.id, quantity, nft.price)
     }
 
+    
     return (
         <div className={styles.container}>
             <div style={{ maxWidth: '592px' }}>
@@ -104,8 +105,8 @@ const Product = () => {
                     </div>
                 </div>
                 <div className={styles.buttonSection}>
-                <input type="number" placeholder="Quantity" className={styles.input}  onChange={(e) => setQuantity(e.target.value)} value={quantity}/>
-                <div className={styles.buy} onClick={handleSubmit}>BUY NOW</div>
+                    <input type="number" placeholder="Quantity" className={styles.input} onChange={(e) => setQuantity(e.target.value)} value={quantity} />
+                    <div className={styles.buy} onClick={handleSubmit}>BUY NOW</div>
                 </div>
             </div>
 
