@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
         '/contact',
         '/how-it-works',
         '/profile',
+        '/marketplace'
     ]
     console.log(router.pathname)
     return (

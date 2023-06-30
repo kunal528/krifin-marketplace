@@ -1,10 +1,9 @@
 .container {
   display: flex;
   padding: 45px 55px;
-  gap: 30px;
-  width: 100%;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
+  gap: 30px 116px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .logo {

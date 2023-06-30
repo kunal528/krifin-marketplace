@@ -5,6 +5,7 @@ import styles from "../../styles/Marketplace.module.css";
 import Image from "next/image";
 import NFTOptionCard from "../../components/cards/NFTOptionCard";
 import NFTContent from "../../components/NFTContent";
+import Layout from '../../components/Layout';
 
 const Marketplace = () => {
   const [data, setData] = useState(null);
@@ -46,7 +47,7 @@ const Marketplace = () => {
   }, [object]);
   return (
     <div>
-      <Navbar />
+      
       <div className={styles.container}>
         <div className={styles.searchAssets}>
           <p className={styles.title}>Krifin Marketplace</p>
@@ -124,9 +125,13 @@ const Marketplace = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
 
 export default Marketplace;
+Marketplace.getLayout = function getLayout(page) {
+  return (
+      <Layout>{page}</Layout>
+  )
+}
