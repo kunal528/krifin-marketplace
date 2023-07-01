@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import styles from '../../styles/NFTContent.module.css'
+import styles from '../../styles/NFTContentBuy.module.css'
 import Image from 'next/image'
 import SellerCards from '../cards/SellerCards'
 // import {GoogleMap, useLoadScript, Marker} from 
 
-const NFTContent = ({name, img, city, country, desp, valuation, perNFTValue, id, Type, pretaxYield, ae, seller, developedBy, }) => {
+const NFTContentBuy = ({name, img, city, country, desp, valuation, perNFTValue, id, Type, pretaxYield, ae, seller, developedBy, }) => {
   
   return (
     <div className={styles.mainContent}>
@@ -75,4 +75,4 @@ const NFTContent = ({name, img, city, country, desp, valuation, perNFTValue, id,
   )
 }
 
-export default NFTContent
+export default NFTContentBuy

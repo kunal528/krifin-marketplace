@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import styles from "../../styles/Marketplace.module.css";
 import Image from "next/image";
 import NFTOptionCard from "../../components/cards/NFTOptionCard";
-import NFTContent from "../../components/NFTContent";
+import NFTContentBuy from "../../components/NFTContentBuy";
+import NFTContentSell from "../../components/NFTContentSell";
 import Layout from '../../components/Layout';
+import NFTtemplate from "../../components/cards/NFTtemplate";
 
 const Marketplace = () => {
   const [data, setData] = useState(null);
   const [object, setObject] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
+  const [active, setActive] = useState("buy");
   useEffect(() => {
     //why async function ?
     //as everytime we make a request to the server, it takes some time to get the response and returns a promise
@@ -27,6 +28,16 @@ const Marketplace = () => {
 
     fetchData();
   }, []);
+
+  const sellData = async (email) => {
+    try {
+      const response = await fetch("/api/retrieveData/");
+      const responseData = await response.json();
+      setData(responseData);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
+  }
 
   const handleDocumentClick = async (item) => {
     try {
@@ -83,6 +94,11 @@ const Marketplace = () => {
               margin: "4px 0px",
             }}
           />
+          <div className={styles.options}>
+            <div className={styles.option} onClick={()=>setActive("buy")}>BUY</div>
+            <div className={styles.option} onClick={()=>setActive("sell")}>SELL</div>
+          </div>
+          <hr className={active === "buy" ? styles.activeLineBuy : styles.activeLineSell} />
           <div className={styles.allnfts}>
             <div className={styles.allnftscard}>
               {filteredData &&
@@ -105,25 +121,42 @@ const Marketplace = () => {
           </div>
         </div>
         <div className={styles.displayAsset}>
-          {object ? (
-            <NFTContent
-              name={object.name}
-              img={object.image}
-              city={object.City}
-              country={object.Country}
-              valuation={object.assetValution}
-              perNFTValue={object.perNFTvalue}
-              id={object.id}
-              Type={object.Type}
-              pretaxYield={object.pretaxYield}
-              ae={object.AE}
-              developedBy={object.Developer}
-              seller={object.seller}
-            />
-          ) : (
-            <NFTContent />
-          )}
-        </div>
+  {object ? (
+    active === "buy" ? (
+      <NFTContentBuy
+        name={object.name}
+        img={object.image}
+        city={object.City}
+        country={object.Country}
+        valuation={object.assetValution}
+        perNFTValue={object.perNFTvalue}
+        id={object.id}
+        Type={object.Type}
+        pretaxYield={object.pretaxYield}
+        ae={object.AE}
+        developedBy={object.Developer}
+        seller={object.seller}
+      />
+    ) : (
+      <NFTContentSell 
+      name={object.name}
+        img={object.image}
+        city={object.City}
+        country={object.Country}
+        valuation={object.assetValution}
+        perNFTValue={object.perNFTvalue}
+        id={object.id}
+        Type={object.Type}
+        pretaxYield={object.pretaxYield}
+        ae={object.AE}
+        developedBy={object.Developer}
+        seller={object.seller}/>
+    )
+  ) : (
+    <NFTtemplate />
+  )}
+</div>
+
       </div>
     </div>
   );

@@ -3,10 +3,9 @@ import {getDoc, doc} from "firebase/firestore";
 
 const retrieveData = async (req,{params}) => {
   // const snapshot = collection(firestore, 'alltradeAssets');
-    const id = params.trim();
+    const email = params.trim();
     console.log("id is:", id)
   try {
-    
     const documentRef = doc(firestore, 'alltradeAssets', id);
     const documentSnapshot = await getDoc(documentRef);
     const documentData = documentSnapshot.data();
