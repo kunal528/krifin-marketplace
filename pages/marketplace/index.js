@@ -6,28 +6,33 @@ import NFTContentBuy from "../../components/NFTContentBuy";
 import NFTContentSell from "../../components/NFTContentSell";
 import Layout from '../../components/Layout';
 import NFTtemplate from "../../components/cards/NFTtemplate";
+import useWeb3 from "../../lib/useWeb3";
+// import getWeb3 from "../../lib/getWeb3";
 
 const Marketplace = () => {
   const [data, setData] = useState(null);
   const [object, setObject] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [active, setActive] = useState("buy");
+  const [loading, setLoading] = useState(true);
+  const [isWeb3, setisWeb3] = useState(false);
+
+  const { allOrders } = useWeb3();
   useEffect(() => {
-    //why async function ?
-    //as everytime we make a request to the server, it takes some time to get the response and returns a promise
-    //and promise needs to be resolved
     const fetchData = async () => {
       try {
         const response = await fetch("/api/retrieveData");
         const responseData = await response.json();
         setData(responseData);
+        const orders = await allOrders();
+        console.log("orders are:", orders);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       }
     };
-
     fetchData();
   }, []);
+
 
   const sellData = async (email) => {
     try {
