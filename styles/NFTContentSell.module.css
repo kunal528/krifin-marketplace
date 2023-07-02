@@ -1,0 +1,86 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.aboutAsset{
+    display: flex;
+    flex-direction: row;
+}
+
+.aboutAssetImage{
+    flex-basis: 40%;
+}
+.aboutAssetTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-grow: 1;
+    margin-bottom: 5px;
+}
+.aboutAssetDescription{
+    flex-basis: 60%;
+}
+
+.sellNow{
+    margin: 5px auto;
+}
+
+.sellNowHeading{
+    font-size: 20px;
+}
+
+.sellingDetailsFields{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.sellingPrice{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #151515;
+    padding: 0px;
+    width: 450px;
+    border-radius: 10px;
+}
+
+.sellingPriceHeading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    width: 150px;
+}
+.verticalLine {
+    border-left: 1px solid white;
+    height: 50px;
+    /* margin: -10px 0px; */
+    margin: 0 5px;
+    opacity: 0.5;
+  }
+.sellNowButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.sellButton{
+    text-align: center;
+    padding: 10px;
+    width: 40%;
+    /* height: 50px; */
+    border-radius: 10px;
+    background-color: #EF403C;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

@@ -19,7 +19,15 @@
     align-items: baseline;
     justify-content: flex-start;
     flex-grow: 1;
+    margin-bottom: 5px;
 }
 .aboutAssetDescription{
     flex-basis: 60%;
+}
+
+.sellerInfoCards{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
 }

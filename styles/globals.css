@@ -20,3 +20,9 @@ a {
 ol ul {
   margin: 0;
 }
+
+.leaflet-container {
+  width: 350px;
+  height: 350px;
+  border-radius: 5px;
+}

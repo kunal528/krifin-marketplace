@@ -33,3 +33,14 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+datascript.sh
+firestore.rules
+krifin-marketplace-eae80-firebase-adminsdk-q3rnl-72e15218b8.json
+.firebaserc
+firebase.json
+firestore.indexes.json
+database.rules.json
+.gitignore
+krifin-marketplace-firebase-adminsdk-ihipb-6ca83a8dd4.json
+script.js
