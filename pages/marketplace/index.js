@@ -28,6 +28,7 @@ const Marketplace = () => {
 
         const orders = await allOrders();
         //then here, we just need to set the responseData 
+        // setData(orders); -> we need to use this instead of the above setData
         console.log("orders are:", orders);
 
         //also here itself, I'll be getting all the NFT's owned by the user

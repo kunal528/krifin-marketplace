@@ -1,11 +1,14 @@
 import { firestore } from "../../../firebaseConfig";
 import {collection, getDocs} from "firebase/firestore";
+import useFirebase from "../../../lib/useFirebase";
 
 const retrieveData = async (req, res) => {
+  // const {getAllTradeAssets} = useFirebase();
   try {
-    const snapshot = collection(firestore, 'alltradeAssets');
+    // const fdata = await getAllTradeAssets();
+    // console.log("trade assets data", fdata)
     // console.log("snapshot data captured:", snapshot)
-    
+    const snapshot = collection(firestore, 'alltradeAssets');
     const dataAll = await getDocs(snapshot);
     const data = dataAll.docs.map((doc) => doc.data());
     console.log("data is:", data)

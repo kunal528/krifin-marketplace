@@ -34,6 +34,8 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+//this is the firebase config for the krifin-marketplace-eae80, which I have created from my account
 const firebaseConfig = {
   apiKey: "AIzaSyDcSmgXnkdla9seu11Y4jJhysZ_uqFeSsc",
   authDomain: "krifin-marketplace-eae80.firebaseapp.com",
