@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 
 const Product = () => {
     const [quantity, setQuantity] = React.useState(0)
-    const { purchaseToken } = useWeb3()
+    const { purchaseToken, web3, marketplaceContract } = useWeb3()
     const [nft, setNFT] = React.useState(null)
     const { getNFT } = useFirebase()
     const router = useRouter()
@@ -15,43 +15,44 @@ const Product = () => {
     const { id } = router.query
 
     useEffect(() => {
-        getNFT(id).then((res) => {
-            setNFT(res)
-        });
-    }, [])
+        if (parseInt(id) > 0) {
+            getNFT(id).then((res) => {
+                setNFT(res)
+            });
+        }
+    }, [id])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         purchaseToken(nft.id, quantity, nft.price)
     }
 
-    
+    if (!nft) {
+        return <div>Loading</div>
+    }
     return (
         <div className={styles.container}>
             <div style={{ maxWidth: '592px' }}>
-                <div className={styles.name}>Sundar Luxury Villa</div>
-                <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" alt="Picture of the author" className={styles.image} />
-                <div className={styles.description}>
-                    Owners of villa NFTs don't actually have a pair of physical villa
-                    but possess digital avatars of the villa . Mention details about the property.  </div>
+                <div className={styles.name}>{nft.name}</div>
+                <img src={nft.image} alt="Picture of the author" className={styles.image} />
+                <div className={styles.description}>{nft.description}</div>
             </div>
             <div className={styles.card}>
-                <div className={styles.header}>SUNDAR LUXURY VILLA</div>
-                <div className={styles.subtitle}>Owners of villa NFTs don't actually have a pair of physical villa
-                    but possess digital avatars of the villa </div>
+                <div className={styles.header}>{nft.name}</div>
+                <div className={styles.subtitle}>{nft.description}</div>
 
                 <div className={styles.row}>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>City, Country</div>
-                        <div className={styles.statDesc}>Vienna, Austria</div>
+                        <div className={styles.statDesc}>{nft.city}, {nft.country}</div>
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>Asset Type</div>
-                        <div className={styles.statDesc}>Utility Token</div>
+                        <div className={styles.statDesc}>{nft.assetType}</div>
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle} >Asset Valuation</div>
-                        <div className={styles.price}>EUR 2,654,000.00</div>
+                        <div className={styles.price}>EUR {nft.totalAssetValue}</div>
                     </div>
                 </div>
                 <div className={styles.divider} />
@@ -62,26 +63,26 @@ const Product = () => {
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>Investment Value</div>
-                        <div className={styles.statDesc}></div>
+                        <div className={styles.statDesc}>{nft.price} MATIC</div>
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle} >Active Earnings (AE)</div>
-                        <div className={styles.statDesc}>Yes</div>
+                        <div className={styles.statDesc}>{nft.activeEarning ? 'Yes' : 'No'}</div>
                     </div>
                 </div>
                 <div className={styles.divider} />
                 <div className={styles.row}>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>AE Repayment Period</div>
-                        <div className={styles.statDesc}>24 Months</div>
+                        <div className={styles.statDesc}>{nft.repaymentSession}</div>
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>AE Stability Period</div>
-                        <div className={styles.statDesc}>12 Months</div>
+                        <div className={styles.statDesc}>{nft.stablePeriod}</div>
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>AE Type</div>
-                        <div className={styles.statDesc}>House Rental</div>
+                        <div className={styles.statDesc}>{nft.type}</div>
                     </div>
                 </div>
                 <div className={styles.divider} />
@@ -89,19 +90,21 @@ const Product = () => {
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>Address : </div>
                     </div>
+                    <div className={styles.statDesc}>{nft.address}</div>
                 </div>
                 <div className={styles.divider} />
                 <div className={styles.row}>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>Number of Tokens</div>
-                        <div className={styles.statDesc}>10,000</div>
+                        <div className={styles.statDesc}>{nft.totalSupply}</div>
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>Majority Stakeholder</div>
+                        <div className={styles.statDesc}>{nft.majorityShareholder}</div>
                     </div>
                     <div className={styles.stats}>
                         <div className={styles.statTitle}>Carpet Area</div>
-                        <div className={styles.statDesc}>560 sq. ft.</div>
+                        <div className={styles.statDesc}>{nft.area} sq. ft.</div>
                     </div>
                 </div>
                 <div className={styles.buttonSection}>
