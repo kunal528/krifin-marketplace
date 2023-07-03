@@ -1,11 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../styles/NFTContentBuy.module.css'
 import Image from 'next/image'
 import SellerCards from '../cards/SellerCards'
+import useWeb3 from '../../lib/useWeb3'
+import { useRouter } from 'next/router'
 // import {GoogleMap, useLoadScript, Marker} from 
 
-const NFTContentBuy = ({name, img, city, country, desp, valuation, perNFTValue, id, Type, pretaxYield, ae, seller, developedBy, }) => {
-  
+const NFTContentBuy = ({name, img, city, country, desp, valuation, perNFTValue, id, Type, pretaxYield, ae, seller, developedBy, tokenId}) => {
+  const router = useRouter();
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const handleOrderPlaced = (value) => {
+    setOrderPlaced(value); //will be getting the value from useWeb3 hook
+    alert("Buy order placed Successfully!");
+    router.reload();
+  };
+    const {buyOrder} = useWeb3({ onOrderPlaced: handleOrderPlaced });
+  const buynow = async(tokenId, quantity, seller)=>{
+    await buyOrder(tokenId, quantity, seller);
+  }
   return (
     <div className={styles.mainContent}>
         <div className={styles.aboutAsset}>
@@ -17,7 +29,7 @@ const NFTContentBuy = ({name, img, city, country, desp, valuation, perNFTValue, 
                 <Image src={img ? img : "https://images.pexels.com/photos/3881104/pexels-photo-3881104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} height={350} width={420} style={{borderRadius: '20px', objectFit: 'cover', border: '1.5px solid white'}}/>
             </div>
             <div className={styles.aboutAssetDescription}>
-              <div className={styles.investButton} style={{textAlign: 'right'}} onClick={()=>{}}><span style={{background: '#292929', padding: '10px'}}>INVEST NOW</span></div>
+              <div className={styles.investButton} style={{textAlign: 'right'}} onClick={()=>{buynow(tokenId, quantity, seller)}}><span style={{background: '#292929', padding: '10px', marginTop: '30px'}}>INVEST NOW</span></div>
               <div className={styles.aboutAssetDescriptionTitle} style={{margin: '10px 0px', fontSize: '20px', fontWeight: '400'}}>Description</div>
               <div className={styles.aboutAssetDescriptionContent} style={{}}>
               Owners of sneaker NFTs don't actually have a pair of physical sneakers but possess digital 

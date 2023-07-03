@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/NFTContentSell.module.css";
 import Image from "next/image";
-import SellerCards from "../cards/SellerCards";
+import useWeb3 from "../../lib/useWeb3";
+import { useRouter } from "next/router";
 // import {GoogleMap, useLoadScript, Marker} from
+
+
 
 const NFTContentSell = ({
   name,
@@ -18,7 +21,16 @@ const NFTContentSell = ({
   ae,
   seller,
   developedBy,
+  tokenId
 }) => {
+  const router = useRouter();
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  const handleOrderPlaced = (value) => {
+    setOrderPlaced(value); //will be getting the value from useWeb3 hook
+    alert("Order Placed Successfully!");
+    router.reload();
+  };
+    const {sellOrder, setapproval} = useWeb3({ onOrderPlaced: handleOrderPlaced });
     const [sellPrice, setSellPrice] = useState(0);
     const [quantity, setQuantity] = useState(0);
     const [totalPrice, setTotalPrice] = useState("Total Amount");
@@ -26,7 +38,18 @@ const NFTContentSell = ({
         const newTotalPrice = sellPrice * quantity;
         setTotalPrice(newTotalPrice);
       }, [totalPrice, quantity]);
-    
+      const sellTokens = async (tokenId, totalPrice, quantity) => {
+        try {
+          console.log("setapproval called!");
+          const doneApproval = await setapproval();
+          if (doneApproval){
+            console.log("approval done!")
+          }
+          await sellOrder(tokenId, totalPrice, quantity);
+        } catch (error) {
+          console.error("Failed to fetch data:", error);
+        }
+      }
   return (
     <div className={styles.mainContent}>
       <div className={styles.aboutAsset}>
@@ -95,7 +118,7 @@ const NFTContentSell = ({
             </div>
             <div className={styles.sellNowButton}>
                 <div className={styles.fee}>Fee : 0.472%</div>
-                <div className={styles.sellButton}>Sell Now</div>
+                <div className={styles.sellButton} onClick={()=>sellTokens(tokenId,totalPrice, quantity)}>Sell Now</div>
             </div>
         </div>
       </div>

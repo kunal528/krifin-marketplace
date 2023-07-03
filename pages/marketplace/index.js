@@ -14,35 +14,33 @@ const Marketplace = () => {
   const [object, setObject] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
   const [active, setActive] = useState("buy");
-  const [loading, setLoading] = useState(true);
-  const [isWeb3, setisWeb3] = useState(false);
+  const [nfts, setNfts]  = useState([]);
 
-  const { allOrders } = useWeb3();
+  const { allOrders, getUserNFTs } = useWeb3();
   useEffect(() => {
     const fetchData = async () => {
       try {
+
+        //this firebase is just for the testing and showing some data on the client side
         const response = await fetch("/api/retrieveData");
         const responseData = await response.json();
         setData(responseData);
+
         const orders = await allOrders();
+        //then here, we just need to set the responseData 
         console.log("orders are:", orders);
+
+        //also here itself, I'll be getting all the NFT's owned by the user
+        // Fetch user's ERC1155 NFTs
+        const userNFTs = await getUserNFTs();
+        setNfts(userNFTs);
+        console.log("allNfts are:", nfts);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       }
     };
     fetchData();
   }, []);
-
-
-  const sellData = async (email) => {
-    try {
-      const response = await fetch("/api/retrieveData/");
-      const responseData = await response.json();
-      setData(responseData);
-    } catch (error) {
-      console.error("Failed to fetch data:", error);
-    }
-  }
 
   const handleDocumentClick = async (item) => {
     try {
@@ -141,6 +139,7 @@ const Marketplace = () => {
         ae={object.AE}
         developedBy={object.Developer}
         seller={object.seller}
+        tokenId={object.tokenId}
       />
     ) : (
       <NFTContentSell 
@@ -155,7 +154,8 @@ const Marketplace = () => {
         pretaxYield={object.pretaxYield}
         ae={object.AE}
         developedBy={object.Developer}
-        seller={object.seller}/>
+        seller={object.seller}
+        tokenId={object.tokenId}/>
     )
   ) : (
     <NFTtemplate />
