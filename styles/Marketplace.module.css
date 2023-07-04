@@ -1,135 +1,111 @@
-.container{
-    display: flex;
-    width: 100%;
+.container {
+  display: flex;
 }
-.title{
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: -1rem;
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 14px;
 }
-.searchAssets{
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-    padding: 10px;
-    gap: 30px;
+.sidebar {
+  max-width: 400px;
+  width: 400px;
+  display: flex;
+  height: calc(100vh - 80px);
+  overflow: auto;
+  flex-direction: column;
+  padding: 22px 14px;
+  border-right: 1px solid #d9d9d94d;
 }
-.searchBox{
-    display: flex;
-    flex-direction: row;
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 14px;
 }
-.searchBackground{
-    background: transparent;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    width: 100%
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  height: 40px;
+  background-color: #151515;
+  border-radius: 20px;
+  width: 100%;
+  padding: 0 10px;
 }
 
-.searchContainer {
-    position: relative;
-    display: block;
-    width: 80%;
-  }
-.searchInput{
-    background-color: #151515;
+.searchInput {
+  background: none;
+  border: none;
+  outline: none;
   color: #ffffff;
   border: none;
   width: 100%;
-  border-radius: 20px;
-  padding: 10px 40px 10px 15px;
   font-size: 16px;
 }
 
 .searchButton {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .options{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .option{
-    cursor: pointer;
-  }
-  .activeLineBuy{
-    width: 50%;
-    height: 5px;
-    background-color: #00B746;
-    margin-top: -20px;
-    transition: transform 0.3s ease;
-  }
-  .activeLineSell{
-    width: 50%;
-    height: 5px;
-    background-color: #00B746;
-    margin-top: -20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-  }
-  
-  .allnfts {
-    height: 100vh;
-    overflow-y: scroll;
-  }
-  .allnfts::-webkit-scrollbar {
-    width: 3px;
-  }
-  
-  .allnfts::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 3px;
-  }
-  
-  .allnfts::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-  }
-  
-  .allnfts::-webkit-scrollbar-track {
-    background-color: #151515;
-  }
-  
-  .allnfts::-webkit-scrollbar-track:vertical {
-    border-radius: 3px;
-  }
-  
-  .allnfts::-webkit-scrollbar-track:horizontal {
-    border-radius: 3px;
-  }
-
-  .displayAsset{
-    padding: 30px 30px;
-    
-    flex-basis: 75%;
-  }
-
-  .sellerInfoCards{
-    display: flex;
-    flex-direction: row;
-  }
-.map{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: '30px';
-}
-.mapHeader{
-    font-size: '1.5rem';
+  cursor: pointer;
 }
 
-  /* Optional: Add FontAwesome library for the search icon */
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+}
+
+.option {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.activeLine.buy {
+  width: 50%;
+  height: 5px;
+  margin-bottom: 20px;
+  background-color: #00b746;
+  transition: all 0.3s ease;
+}
+.activeLine.sell {
+  width: 50%;
+  height: 5px;
+  background-color: #ef403c;
+  margin-bottom: 20px;
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+}
+
+.nfts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.displayAsset {
+  padding: 30px 30px;
+}
+
+.sellerInfoCards {
+  display: flex;
+  flex-direction: row;
+}
+.map {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: "30px";
+}
+.mapHeader {
+  font-size: "1.5rem";
+}
+
+/* Optional: Add FontAwesome library for the search icon */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");

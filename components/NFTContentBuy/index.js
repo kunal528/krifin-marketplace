@@ -3,94 +3,86 @@ import styles from '../../styles/NFTContentBuy.module.css'
 import Image from 'next/image'
 import SellerCards from '../cards/SellerCards'
 import useWeb3 from '../../lib/useWeb3'
-import { useRouter } from 'next/router'
-// import {GoogleMap, useLoadScript, Marker} from 
+import { toast } from 'react-toastify'
 
-const NFTContentBuy = ({name, img, city, country, desp, valuation, perNFTValue, id, Type, pretaxYield, ae, seller, developedBy, tokenId}) => {
-  const router = useRouter();
-  const [orderPlaced, setOrderPlaced] = useState(false);
-  const handleOrderPlaced = (value) => {
-    setOrderPlaced(value); //will be getting the value from useWeb3 hook
-    alert("Buy order placed Successfully!");
-    router.reload();
-  };
-    const {buyOrder} = useWeb3({ onOrderPlaced: handleOrderPlaced });
-  const buynow = async(tokenId, quantity, seller)=>{
-    await buyOrder(tokenId, quantity, seller);
+const NFTContentBuy = ({ nft }) => {
+  const { trade } = useWeb3()
+  const handleSubmit = async (order) => {
+    await toast.promise(trade(order.tokenId, order.quantity, order.price, order.seller), {
+      pending: 'Trading Started...',
+      success: 'Trading Successful',
+      error: 'Trading Rejected',
+    })
   }
   return (
-    <div className={styles.mainContent}>
-        <div className={styles.aboutAsset}>
-            <div className={styles.aboutAssetImage}>
-                <div className={styles.aboutAssetTitle}>
-                  <span><p style={{fontSize: '25px', fontWeight: '600'}}>{name ? name : 'Taj Mahal'}</p></span>
-                  <span><p style={{marginLeft:'15px'}}>{city ? city : 'Agra, Uttar Pradesh'}, {country ? country : 'India'}</p></span>
-                </div>
-                <Image src={img ? img : "https://images.pexels.com/photos/3881104/pexels-photo-3881104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} height={350} width={420} style={{borderRadius: '20px', objectFit: 'cover', border: '1.5px solid white'}}/>
-            </div>
-            <div className={styles.aboutAssetDescription}>
-              <div className={styles.investButton} style={{textAlign: 'right'}} onClick={()=>{buynow(tokenId, quantity, seller)}}><span style={{background: '#292929', padding: '10px', marginTop: '30px'}}>INVEST NOW</span></div>
-              <div className={styles.aboutAssetDescriptionTitle} style={{margin: '10px 0px', fontSize: '20px', fontWeight: '400'}}>Description</div>
-              <div className={styles.aboutAssetDescriptionContent} style={{}}>
-              Owners of sneaker NFTs don't actually have a pair of physical sneakers but possess digital 
-              avatars of the shoes in the virtual world. Sneaker NFTs are customisable, as per a report 
-              by CBS News, and customers can purchase different pieces and colours to create their personalised 
-              version... 
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', marginTop: '20px' }}>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                <div style={{ flex: '1', marginBottom: '20px' }}>
-        <p style={{fontSize: '20px', fontWeight: '450', marginTop: '12px'}}>Asset Valuation</p>
-        <p style={{marginTop: '7px'}}>{valuation ? valuation : '450,000.00'} EUR</p>
-      </div>
-      <div style={{ flex: '1', marginBottom: '20px' }}>
-        <p style={{fontSize: '20px', fontWeight: '450', marginTop: '12px'}}>Proposed Price per Token</p>
-        <p style={{marginTop: '7px'}}>{perNFTValue ? perNFTValue : '980.00'} EUR</p>
-      </div>
-                </div>
-      
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                <div style={{ flex: '1', marginBottom: '20px' }}>
-        <p style={{fontSize: '20px', fontWeight: '450', marginTop: '12px'}}>Number of tokens to Sell</p>
-        <p style={{marginTop: '7px'}}>{id ? id : '2'}</p>
-      </div>
-      <div style={{ flex: '1', marginBottom: '20px' }}>
-        <p style={{fontSize: '20px', fontWeight: '450', marginTop: '12px'}}>Asset Type</p>
-        <p style={{marginTop: '7px'}}>{Type ? Type : 'Premium'}</p>
-      </div>
-                </div>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                <div style={{ flex: '1', marginBottom: '20px' }}>
-        <p style={{fontSize: '20px', fontWeight: '450', marginTop: '12px'}}>Pre Tax Yield</p>
-        <p style={{marginTop: '7px'}}>{pretaxYield ? pretaxYield : '...'}</p>
-      </div>
-      <div style={{ flex: '1', marginBottom: '20px' }}>
-        <p style={{fontSize: '20px', fontWeight: '450', marginTop: '12px'}}>Active Earning</p>
-        <p style={{marginTop: '7px'}}>{ae ? ae : '0'}</p>
-      </div>
-                </div>
-    </div>
-            </div>
+    <div className={styles.container}>
+      <div className={styles.row}>
+        <div>
+          <div className={styles.title}>
+            {nft.name}
+            <span className={styles.place}>
+              {nft.city},{" "}
+              {nft.country}
+            </span>
+          </div>
+          <img
+            src={nft.image}
+            alt="NFT Image"
+            className={styles.image}
+          />
         </div>
-        <div className={styles.sellerInfoCards}>
-          <SellerCards title="Developed By" info={developedBy ? developedBy : "Shah Jahn"}/>
-          <SellerCards title="Seller" info={seller ? seller : "Frank Von De"}/>
-          <SellerCards title="Active for selling since" info="12 May 2023, 14:25 GMT"/>
-        </div>
-        <div className={styles.map}>
-          <div className={styles.mapHeader} style={{fontSize: '1.5rem', marginTop: '20px'}}>Location</div>
-          <div className={styles.mapImage} style={{marginTop: '10px', objectFit: 'cover'}}>
-            <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.89884905916!2d77.04382579448074!3d28.527553996178817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1688357558043!5m2!1sen!2sin"
-        width="1100"
-        height="350"
-        style={{ border: 0 }}
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
+        <div style={{ flex: 1 }}>
+          <div className={styles.header}>Description</div>
+          <div className={styles.content} style={{
+            marginBottom: '30px'
+          }}>
+            {nft.description}
+          </div>
+          <div className={styles.stats}>
+            <div className={styles.stat}>
+              <div className={styles.header}>Asset Valuation</div>
+              <div className={styles.content}>{nft.totalAssetValue} EUR</div>
+            </div>
+            <div className={styles.stat}>
+              <div className={styles.header}>Asset Type</div>
+              <div className={styles.content}>{nft.assetType}</div>
+            </div>
+            <div className={styles.stat}>
+              <div className={styles.header}>Pre Tax Yield</div>
+              <div className={styles.content}>{nft.apy ?? "5%"}</div>
+            </div>
+            <div className={styles.stat}>
+              <div className={styles.header}>Active Earning</div>
+              <div className={styles.content}>{nft.activeEarning ? 'Yes' : 'No'}</div>
+            </div>
           </div>
         </div>
+      </div>
+      <div className={styles.header}>Orders:</div>
+      <div>
+        <div className={styles.tableHeader}>
+          <div className={styles.tableHeaderData} style={{ flex: '0.20' }}>Quantity</div>
+          <div className={styles.tableHeaderData} style={{ flex: '0.20' }}>Price</div>
+          <div className={styles.tableHeaderData} style={{ flex: '0.45' }}>Seller</div>
+          <div className={styles.tableHeaderData} style={{ flex: '0.15' }}></div>
+        </div>
+        {
+          nft.orders.map((item, i) => {
+            return <div key={i} className={styles.tableRow}>
+              <div style={{ flex: '0.20' }}>{item.quantity}</div>
+              <div style={{ flex: '0.20' }}>{item.price} MATIC</div>
+              <div style={{ flex: '0.45' }}>{item.seller}</div>
+              <div style={{ flex: '0.15' }}><div className={styles.button} onClick={() => handleSubmit(item)}>Buy</div></div>
+            </div>
+          })
+        }
+      </div>
+      <div className={styles.map}>
+        <div className={styles.mapHeader} style={{ fontSize: '1.5rem', marginTop: '20px' }}>Location</div>
+        <div className={styles.mapImage} style={{ marginTop: '10px', objectFit: 'cover' }}>
+          <img src="/png/map.png" style={{ objectFit: 'cover', height: '300px', width: '100%' }} />
+        </div>
+      </div>
     </div>
   )
 }
