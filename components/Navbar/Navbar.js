@@ -2,44 +2,43 @@ import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Navbar.module.css'
 import Link from 'next/link'
 import useWeb3 from '../../lib/useWeb3'
-import useFirebase from '../../lib/useFirebase'
+// import useFirebase from '../../lib/useFirebase'
 import { useRouter } from 'next/router';
 
 
 
 const Navbar = () => {
-    const { account } = useWeb3()
+    const { account, disconnectWallet, connectWallet } = useWeb3()
     const router = useRouter();
     let userData;
-    const {login, logout} = useFirebase();
+    // const {login, logout} = useFirebase();
     const [showDropdown, setShowDropdown] = React.useState(false);
     const [acc, setAcc] = useState(null);
+    // useEffect(() => {
+    //     if (!acc) {
+    //         userData = JSON.parse(localStorage.getItem('userloggedAcc'));
+    //         setAcc(userData); // Update the acc state after login
+    //       console.log("account logged in now:", acc);
+    //     }
+    //     else{
+    //         console.log("account already loggedin:", acc);
+    //     }
+    //   }, [acc]);
     useEffect(() => {
-        if (!acc) {
-            userData = JSON.parse(localStorage.getItem('userloggedAcc'));
-            setAcc(userData); // Update the acc state after login
-          console.log("account logged in now:", acc);
-        }
-        else{
-            console.log("account already loggedin:", acc);
-        }
-      }, [acc]);
+      if(account){
+        console.log("account logged in now:", account);  
+      }
+      else if(!account){
+        console.log("account not logged in now:");
+      }
+    }, [account])
       const accountLogin = async () => {
-        try {
-          const res = await login(); // Wait for the login process to complete
-          if(res){
-            userData = JSON.parse(localStorage.getItem('userloggedAcc'));
-            console.log("userData is:", userData);
-            setAcc(userData); // Update the acc state after login
-          }
-        } catch (error) {
-          console.error('Error logging in:', error);
-        }
+        await connectWallet(); // Wait for the login process to complete
       };
 
       const accountLogout = async () => {
         try {
-          await logout(); // Wait for the logout process to complete
+          await disconnectWallet(); // Wait for the logout process to complete
           setAcc(null); // Update the acc state after logout
           router.push('/'); // Redirect to '/another-page'
         } catch (error) {
@@ -60,7 +59,7 @@ const Navbar = () => {
                 <Link href="/map" className={styles.menuItem}>Map</Link>
                 {account ?
                     <Link href="/profile"><div className={styles.connectButton}>{account.toString().substring(0, 3) + '...' + account.toString().substring(account.length -3)}</div></Link>
-                    : <div className={styles.connectButton}>Connect Wallet</div>}
+                    : <div className={styles.connectButton} onClick={()=>accountLogin()}>Connect Wallet</div>}
                 {/* {acc ? <Link href="/profile" className={styles.menuItem}><img src={acc.photoURL} height={35} width={35} style={{borderRadius: '100%'}}/></Link>: 
                 <div className={styles.connectButton} onClick={() => { accountLogin() }}>Login</div>} */}
                 {/* dropdown of chains */}

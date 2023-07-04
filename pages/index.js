@@ -6,6 +6,7 @@ import NFTCard from '../components/cards/NFTCard';
 import Image from 'next/image';
 import AssetCards from '../components/cards/AssetCards';
 import TopInvestCard from '../components/cards/TopInvestCard';
+import Link from 'next/link';
 
 export default function Home() {
   const [filters, setFilters] = useState([
@@ -80,11 +81,11 @@ export default function Home() {
 
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <div className={styles.buttonOutlined}>More NFTs</div>
+        <Link href="/invest"><div className={styles.buttonOutlined}>More NFTs</div></Link>
         </div>
       </div>
       <div className={styles.benefitsSection}>
-        <div className={styles.benefitsHeader}>Buy the most interesting web3 Assets here...</div>
+        <div className={styles.benefitsHeader}>Why invest with us?</div>
         <div className={styles.benefits}>
           <div className={styles.benefit}>
             <img src="./png/secure_invest.png" alt="Benefit" className={styles.benefitLogo} style={{height: '60px', width: '60px'}}/>

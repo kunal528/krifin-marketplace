@@ -1,21 +1,58 @@
-.investmain{
+.investmain {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* margin-top: 10px; */
-}
-.investcardtotinvest{
+  }
+  
+  .investcardtotinvest {
     font-size: 10px;
     display: flex;
     align-items: center;
     margin-top: 10px;
     gap: 7px;
-}
-.investcardno{
+  }
+  
+  .investcardno {
     font-size: 20px;
     text-align: center;
-}
-.profitorloss{
+  }
+  
+  .profitorloss {
     display: flex;
     justify-content: flex-end;
     width: 100px;
-}
+  }
+  
+  /* Mobile view */
+  @media (max-width: 768px) {
+    .investmain {
+      grid-template-columns: 1fr 3fr;
+      gap: 10px;
+    }
+  
+    .investcardno {
+      font-size: 16px;
+    }
+  
+    .investcardimg {
+      display: flex;
+      align-items: center;
+    }
+  
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+  
+    .investcardtotinvest {
+      font-size: 8px;
+      margin-top: 5px;
+    }
+  
+    .profitorloss {
+      width: auto;
+    }
+  }
+  
