@@ -59,10 +59,10 @@ const Navbar = () => {
                 <Link href="/contact" className={styles.menuItem}>Contact</Link>
                 <Link href="/map" className={styles.menuItem}>Map</Link>
                 {account ?
-                    <div className={styles.connectButton}>{account.toString().substring(0, 3) + '...' + account.toString().substring(account.length -3)}</div>
+                    <Link href="/profile"><div className={styles.connectButton}>{account.toString().substring(0, 3) + '...' + account.toString().substring(account.length -3)}</div></Link>
                     : <div className={styles.connectButton}>Connect Wallet</div>}
-                {acc ? <Link href="/profile" className={styles.menuItem}><img src={acc.photoURL} height={35} width={35} style={{borderRadius: '100%'}}/></Link>: 
-                <div className={styles.connectButton} onClick={() => { accountLogin() }}>Login</div>}
+                {/* {acc ? <Link href="/profile" className={styles.menuItem}><img src={acc.photoURL} height={35} width={35} style={{borderRadius: '100%'}}/></Link>: 
+                <div className={styles.connectButton} onClick={() => { accountLogin() }}>Login</div>} */}
                 {/* dropdown of chains */}
                 
                 <div className={styles.connectButton} onClick={() => { setShowDropdown(val => !val) }}>
@@ -76,7 +76,7 @@ const Navbar = () => {
                     <Link href="https://www.krifin.in/" target='_blank' className={styles.dropdownItem}>House of Krifin</Link>
                     <Link href="https://www.metaversecouncil.io/" target='_blank' className={styles.dropdownItem}>Metaverse Council</Link>
                     <Link href="/partners" className={styles.dropdownItem}>Partners</Link>
-                    {acc && <div className={styles.dropdownItem} onClick={() => { accountLogout() }}>Logout</div>}
+                    {account && <div className={styles.dropdownItem} onClick={() => { accountLogout() }}>Logout</div>}
                 </div>
             </div>
         </div>

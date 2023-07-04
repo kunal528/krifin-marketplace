@@ -1,0 +1,21 @@
+.investmain{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* margin-top: 10px; */
+}
+.investcardtotinvest{
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 7px;
+}
+.investcardno{
+    font-size: 20px;
+    text-align: center;
+}
+.profitorloss{
+    display: flex;
+    justify-content: flex-end;
+    width: 100px;
+}

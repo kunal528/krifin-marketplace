@@ -4,6 +4,8 @@ import Layout from '../components/Layout';
 import { useState } from 'react';
 import NFTCard from '../components/cards/NFTCard';
 import Image from 'next/image';
+import AssetCards from '../components/cards/AssetCards';
+import TopInvestCard from '../components/cards/TopInvestCard';
 
 export default function Home() {
   const [filters, setFilters] = useState([
@@ -187,10 +189,29 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.randomAssetsColTwo}>
-        <Image src="/png/cards.png" width={400} height={550} />
+        {/* <Image src="/png/cards.png" width={400} height={550} /> */}
+        <AssetCards name={"Lotus Temple"} percentage={"11"} loc={"Delhi, India"} image={"https://images.pexels.com/photos/5209177/pexels-photo-5209177.jpeg?auto=compress&cs=tinysrgb&w=600"}/>
+        <AssetCards name={"The Futr Abstr"} percentage={"12.3"} loc={"1 of 8"} image={"https://images.pexels.com/photos/175771/pexels-photo-175771.jpeg?auto=compress&cs=tinysrgb&w=600"}/>
+        <AssetCards name={"Leaf Mount"} percentage={"2.5"} loc={"1 of 8"} image={"https://images.pexels.com/photos/4086523/pexels-photo-4086523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}/>
         </div>
         <div className={styles.randomAssetsColThree}>
-          <Image src="/png/topinvest.png" width={400} height={550} />
+          <p className={styles.colthreeheading}>Top Investments</p>
+          <p className={styles.daysLeft} style={{color: '#3D00B7'}}>Last 7 days</p>
+          <TopInvestCard no={"1"} name="Earth 3.0" totInvest={"19739.39"} pnl={true} pnlVal={"25.53%"}
+          image={"https://images.pexels.com/photos/2090653/pexels-photo-2090653.jpeg?auto=compress&cs=tinysrgb&w=600"} />
+          <hr style={{color: 'white', width: '100%', height: '3px'}} />
+          <TopInvestCard no={"2"} name="Island Resort" totInvest={"2,769.39"} pnl={false} pnlVal={"10.52%"}
+          image={"https://images.pexels.com/photos/2581922/pexels-photo-2581922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} />
+          <hr style={{color: 'white', width: '100%', height: '3px'}} />
+          <TopInvestCard no={"3"} name="Frensware" totInvest={"9,232.39"} pnl={true} pnlVal={"2.52%"}
+          image={"https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?auto=compress&cs=tinysrgb&w=600"} />
+          <hr style={{color: 'white', width: '100%', height: '3px'}} />
+          <TopInvestCard no={"4"} name="PunkArt" totInvest={"3,769.39"} pnl={true} pnlVal={"1.52%"}
+          image={"https://images.pexels.com/photos/6361842/pexels-photo-6361842.png?auto=compress&cs=tinysrgb&w=600"} />
+          <hr style={{color: 'white', width: '100%', height: '3px'}} />
+          <TopInvestCard no={"5"} name="Art Crypto" totInvest={"10,769.39"} pnl={false} pnlVal={"2.52%"}
+          image={"https://images.pexels.com/photos/2086361/pexels-photo-2086361.jpeg?auto=compress&cs=tinysrgb&w=600"} />
+          {/* <Image src="/png/topinvest.png" width={400} height={550} /> */}
         </div>
       </div>
       <div className={styles.partnerOfferSection}>
