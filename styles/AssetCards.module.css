@@ -55,8 +55,11 @@
   /* Mobile view */
   @media (max-width: 768px) {
     .main {
-      flex-direction: column;
-      gap: 15px;
+      flex-direction: row;
+      gap: 30px;
+      width: 600px;
+      margin-left: 100px;
+      flex-grow: 1;
     }
   
     .image {
@@ -68,11 +71,12 @@
   
     .content {
       gap: 10px;
-      padding: 10px 0px;
+      padding: 0px 0px;
+      width: 200px;
     }
   
     .name {
-      font-size: 18px;
+      font-size: 30px;
     }
   
     .info {
@@ -88,8 +92,10 @@
     }
   
     .location {
-      text-align: right;
-      margin-bottom: 20px;
+      text-align: left;
+      margin-bottom: 0px;
+      padding: 0px;
+      width: 100px;
     }
   }
   

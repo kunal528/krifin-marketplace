@@ -55,4 +55,41 @@
       width: auto;
     }
   }
+
+  @media (max-width: 768px){
+    .investmain{
+      grid-template-columns: 1fr 1fr 1fr 3fr;
+      gap: 20px;
+    }
+    .investcardno{
+      font-size: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .investcardimg{
+      display: flex;
+      align-items: center;
+    }
+    .content{
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      justify-content: center;
+      gap: 10px;
+    }
+    .investcardname{
+      font-size: 25px;
+    }
+    .investcardtotinvest{
+      font-size: 30px;
+      margin-top: 10px;
+    }
+    .profitorloss{
+      width: auto;
+      font-size: 20px;
+      
+    }
+  }
   

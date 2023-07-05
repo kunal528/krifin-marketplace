@@ -19,7 +19,7 @@ export default function Home() {
     { name: 'Show more +', selected: false },
   ])
   return (
-    <div>
+    <div className={styles.mainClass}>
       <div className={styles.mainSection}>
         <div style={{ maxWidth: '562px' }}>
           <div className={styles.header}>Buy, Sell and Invest in Real Estate Tokens & REIT</div>
