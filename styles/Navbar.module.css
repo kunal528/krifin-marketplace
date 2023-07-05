@@ -154,5 +154,11 @@
     .mobileMenu {
       top: 90px;
     }
+    .dropdownItem {
+      font-size: 15px;
+    }
+    .dropdownHeader{
+      font-size: 15px;
+    } 
   }
   
