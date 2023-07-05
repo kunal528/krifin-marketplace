@@ -39,7 +39,7 @@ const About = () => {
                         The  primary use case of this platform is tokenization of real world assets - Art, Collectibles, Copyright Licenses, Equities, Financial Instruments, Precious Metals, and Real Estate etc..
                     </div>
                 </div>
-                <img src='/png/about-image-2.png' />
+                <img src='/png/about-image-2.png' id="img2"/>
             </div>
             <div className={styles.contentSection}>
                 <div style={{ maxWidth: '600px' }}>
@@ -60,7 +60,7 @@ const About = () => {
                         Luxury Asset Loan
                     </div>
                 </div>
-                <img src='/png/about-image-3.png' />
+                <img src='/png/about-image-3.png' id='img3'/>
             </div>
             <div className={styles.contentSection}>
                 <div style={{ maxWidth: '600px' }}>
@@ -86,7 +86,7 @@ const About = () => {
                         </ol>
                     </div>
                 </div>
-                <img src='/png/about-image-4.png' />
+                <img src='/png/about-image-4.png' id='img4'/>
             </div>
             <div className={styles.contentSection}>
                 <div style={{ maxWidth: '600px' }}>
@@ -104,7 +104,7 @@ const About = () => {
                         Here is a table summarizing the key differences between NFT loans and NFT equity:
                     </div>
                 </div>
-                <img src='/png/about-image-5.png' />
+                <img src='/png/about-image-5.png' id='img5'/>
             </div>
             <div className={styles.table}>
                 <div className={styles.tableHeader}>
@@ -150,8 +150,8 @@ const About = () => {
                     <div className={styles.headerItem}>Accessing cash quickly</div>
                 </div>
             </div>
-            <div className={styles.description} style={{ textAlign: 'center', marginBottom:'100px' }}>It is important to do your research and understand the risks involved before choosing between an NFT loan and NFT equity.</div>
-            <div className={styles.description}>
+            <div className={styles.enddescription} style={{ textAlign: 'center', marginBottom:'100px' }}>It is important to do your research and understand the risks involved before choosing between an NFT loan and NFT equity.</div>
+            <div className={styles.enddescription}>
                 <b style={{ fontSize: '20px' }}>Which is Right for You?</b>
                 <br />
                 <br />

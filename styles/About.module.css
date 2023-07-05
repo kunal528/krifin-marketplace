@@ -11,6 +11,10 @@
   margin-bottom: 100px;
 }
 
+.content{
+  max-width: '500px';
+}
+
 .title {
   font-size: 48px;
   font-weight: 600;
@@ -133,7 +137,108 @@
   padding: 0px 60px;
 }
 
-@media (max-width: 767px) {
+.enddescription{
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 35px;
+}
 
+@media (max-width: 768px) {
+  .mainSection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 100px;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-left: 300px;
+  }
+
+  .title {
+    font-size: 30px;
+    width: 200px;
+    font-weight: 600;
+    line-height: 50px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 35px;
+  }
+  .button {
+    padding: 20px 12px;
+    border-radius: 45px;
+    background: #3d00b7;
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0.065em;
+    text-align: left;
+    cursor: pointer;
+  }
+  .contentSection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 60px;
+    align-items: center;
+
+    position: relative;
+    margin-bottom: 100px;
+    margin-left: 300px;
+  }
+  .index {
+    font-size: 150px;
+    font-weight: 700;
+    line-height: 240px;
+    letter-spacing: 0px;
+    text-align: left;
+    opacity: 0.1;
+    position: absolute;
+    top: 0px;
+    left: -400px;
+  }
+  .krifinSection {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 250px;
+    /* margin-left: 20px; */
+  }
+  .table {
+    background: #333333;
+    border-radius: 25px;
+    /* padding: 10px; */
+    margin-bottom: 50px;
+    /* text-align: center; */
+    width: 700px;
+    margin-left: -70px;
+    
+  }
+  .contentDescription {
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .contentTitle{
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  .enddescription {
+    width: 400px;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 35px;
+    /* margin-right: -100px; */
+    margin-left: 100px;
+  }
 }
 
