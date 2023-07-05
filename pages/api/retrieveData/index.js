@@ -20,3 +20,4 @@ const retrieveData = async (req, res) => {
 };
 
 export default retrieveData;
+
