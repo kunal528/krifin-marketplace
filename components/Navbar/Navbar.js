@@ -116,9 +116,6 @@ const Navbar = () => {
           </Link>
           
   <div>
-    <Link href="/about" className={`${styles.hiddendropdownItem} ${styles.dropdownItem}`}>
-      About
-    </Link>
     <Link href="/invest" className={`${styles.hiddendropdownItem} ${styles.dropdownItem}`}>
       Invest
     </Link>
