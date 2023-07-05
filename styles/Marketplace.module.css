@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+}
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 14px;
+}
+.sidebar {
+  max-width: 400px;
+  width: 400px;
+  display: flex;
+  height: calc(100vh - 80px);
+  overflow: auto;
+  flex-direction: column;
+  padding: 22px 14px;
+  border-right: 1px solid #d9d9d94d;
+}
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  height: 40px;
+  background-color: #151515;
+  border-radius: 20px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.searchButton {
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+}
+
+.option {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.activeLine.buy {
+  width: 50%;
+  height: 5px;
+  margin-bottom: 20px;
+  background-color: #00b746;
+  transition: all 0.3s ease;
+}
+.activeLine.sell {
+  width: 50%;
+  height: 5px;
+  background-color: #ef403c;
+  margin-bottom: 20px;
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+}
+
+.nfts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.displayAsset {
+  padding: 30px 30px;
+}
+
+.sellerInfoCards {
+  display: flex;
+  flex-direction: row;
+}
+.map {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: "30px";
+}
+.mapHeader {
+  font-size: "1.5rem";
+}
+
+/* Optional: Add FontAwesome library for the search icon */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");

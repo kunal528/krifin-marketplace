@@ -108,8 +108,34 @@
 .buttonSection {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-between;
   margin-top: 50px;
+  gap: 60px;
+}
+
+
+.input {
+  background: #2c2c2c;
+  outline: none;
+  border: none;
+  max-width: 600px;
+  flex: 1;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  border-radius: 10px;
+  text-align: left;
+  padding: 12px 16px;
+  color: white;
+}
+
+.input::placeholder {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #b2b2b2;
 }
 
 .buy {

@@ -24,6 +24,7 @@
   margin-bottom: 60px;
 }
 
+
 .filters {
   display: flex;
   gap: 0 15px;
@@ -49,4 +50,18 @@
 .filter:hover {
   background: #3d00b7;
   color: white;
+}
+
+@media (max-width: 768px){
+  .filters{
+    display: none;
+  }
+  .nfts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    justify-content: center;
+    margin-bottom: 60px;
+    width: 480px;
+  }
 }

@@ -1,0 +1,56 @@
+.container {
+  padding: 9px;
+  background: #151515;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  border-radius: 10px;
+  width: 100%;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 7px;
+}
+
+.apy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #00ac4f;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 10px;
+  letter-spacing: 0em;
+  text-align: left;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.quantity {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 10px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #00ac4f;
+}
+.price {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: right;
+}

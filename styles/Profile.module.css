@@ -83,3 +83,13 @@
   justify-content: center;
   margin-bottom: 60px;
 }
+
+@media (max-width: 768px) {
+  .main {
+    display: flex;
+    width: 760px;
+  }
+  .bio {
+    font-size: 20px;
+  }
+}
