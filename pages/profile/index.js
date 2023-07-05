@@ -3,7 +3,7 @@ import UserNFTCard from '../../components/cards/UserNFTCard'
 import userData from '../../data/Userdata.json'
 import Image from 'next/image'
 import styles from '../../styles/Profile.module.css'
-import Layout from '../../components/layout'
+import Layout from '../../components/Layout'
 
 const Profile = () => {
   const [filters, setFilters] = useState([
