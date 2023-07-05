@@ -111,7 +111,7 @@ const Navbar = () => {
           >
             Metaverse Council
           </Link>
-          <Link href="/partners" className={styles.dropdownItem}>
+          <Link href="/#" className={styles.dropdownItem}>
             Partners
           </Link>
           
