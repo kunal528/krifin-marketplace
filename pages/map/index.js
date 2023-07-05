@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Navbar from '../../components/Navbar/Navbar';
 import styles from '../../styles/Map.module.css'
 import Image from 'next/image';
+import Layout from '../../components/Layout';
 
 // import styles from '../../styles/Map.module.css'
 const MapComponent = () => {
@@ -28,7 +29,7 @@ const MapComponent = () => {
     
   return (
     <div >
-        <Navbar />
+        {/* <Navbar /> */}
         <div className={styles.content}>
         <div className={styles.data}>
         <p style={{fontSize: '30px'}}>CADASTRAL MAPPING </p>
@@ -37,7 +38,7 @@ const MapComponent = () => {
         a digital form of global land records that show all the boundaries of different parts of land pieces based on their length, area, and direction. With these maps, 
     you can view the ownership status of land pieces in different regions based on your requirements.
         </p>
-        <div style={{ display: 'flex', flexDirection:'row', alignItems: 'center', margin: '0 auto'}}>
+        <div style={{ display: 'flex', flexDirection:'row', alignItems: 'center', margin: '0 auto'}} className={styles.searchdisp}>
       <div style={{ paddingRight: '10px' }}>
       </div>
       
@@ -70,3 +71,6 @@ const MapComponent = () => {
 }
 
 export default MapComponent
+MapComponent.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>
+}
