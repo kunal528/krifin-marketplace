@@ -336,7 +336,7 @@
       line-height: 50px;
       letter-spacing: 0em;
       text-align: center;
-      margin-left: 180px; 
+      margin-left: 150px; 
       width: 100vw;
     }
     .nfts {
@@ -352,30 +352,7 @@
     }
   
     .filters {
-      display: flex;
-      gap: 0 15px;
-      margin-bottom: 50px;
-    }
-  
-    .filter {
-      padding: 10px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 17px;
-      letter-spacing: 0em;
-      background: #dcdcdc33;
-      border-radius: 50px;
-      cursor: pointer;
-    }
-  
-    .filter.active {
-      background: #3d00b7;
-      color: white;
-    }
-  
-    .filter:hover {
-      background: #3d00b7;
-      color: white;
+      display: none;
     }
   
     .buttonOutlined {
