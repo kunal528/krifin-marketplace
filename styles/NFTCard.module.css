@@ -106,3 +106,61 @@
   text-align: left;
   cursor: pointer;
 }
+
+@media (max-width: 767px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    background: #222222;
+    border-radius: 13px;
+    padding: 12px;
+    width: 400.95px;
+    height: 500px;
+    position: relative;
+    border: 1px solid #eaeaea;
+  }
+  .image {
+    height: 350px;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    border-radius: 13px;
+    margin-bottom: 25px;
+  }
+  .investButton {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+  }
+  .price {
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 100px;
+    letter-spacing: 0em;
+    color: #5539a8;
+    background: white;
+    cursor: pointer;
+  }
+  .place {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    color: #838383;
+  }
+  .title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+}

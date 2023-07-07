@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../styles/NFTContentBuy.module.css'
 import Image from 'next/image'
 import SellerCards from '../cards/SellerCards'
