@@ -7,9 +7,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     padding: 0 110px;
     margin-bottom: 100px;
+    /* flex-basis: 1; */
   }
 
   .header {
@@ -142,7 +143,7 @@
   }
 
   .benefitsHeader {
-    max-width: 398px;
+    /* max-width: 398px; */
     font-size: 28px;
     font-weight: 700;
     line-height: 41px;
@@ -150,22 +151,73 @@
     text-align: left;
   }
 
-  .benefits {
+  .allbenefits {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 40px 60px;
+    width: 100%;
+  }
+
+  .benefits{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: 0%;
+    flex-grow: 1;
+    /* gap: 100px; */
+    flex: 1 1;
   }
 
   .benefit {
     display: flex;
+    flex-grow: 1;
     gap: 0 15px;
+    
+    
   }
 
-  .benefitLogo {
-    width: 36px;
-    height: 36px;
+  /* logos have been separated as they need to have different sizes because of the way in which they  */
+  /* are the be presented and can be controlled individually if needed*/
+  .benefitLogo1{
+    width: 80px;
+    height: 100px;
   }
+  .benefitLogo2 {
+    width: 150px;
+    height: 120px;
+  }
+  .benefitLogo3 {
+    width: 100px;
+    height: 70px;
+    margin-left: -20px;
+  }
+  .benefitLogo4 {
+    width: 150px;
+    height: 70px;
+  }
+  .benefitLogo5 {
+    width: 120px;
+    height: 120px;
+    margin-left: -40px;
+  }
+  .benefitLogo6 {
+    width: 130px;
+    height: 130px;
+    margin-left: 20px;
+  }
+  .benefitLogo7 {
+    width: 120px;
+    height: 120px;
+    margin-left: -40px;
+  }
+
+  .benefitLogo8 {
+    width: 130px;
+    height: 130px;
+    margin-left: 20px;
+  }
+
 
   .benefitTitle {
     font-size: 20px;
@@ -214,13 +266,17 @@
   }
 
   .partnerOfferSection {
-    padding: 0 110px;
-    margin-bottom: 150px;
+    padding: 10px;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
     align-items: center;
+    flex-grow: 1;
+  }
+
+  .partnerOfferContent{
+    padding: 50px;
+    text-align: justify;
   }
 
   .partnerOfferHeader {
@@ -228,10 +284,12 @@
     font-weight: 700;
     line-height: 47px;
     letter-spacing: 0em;
-    text-align: left;
-    margin-bottom: 80px;
+    /* text-align: left; */
+    margin-bottom: 40px;
     margin-top: 40px;
   }
+
+  
 
   .benefitsColOne {
     display: flex;
@@ -253,7 +311,7 @@
     align-items: center;
     justify-content: space-evenly;
     gap: 30px;
-    height: 100%;
+    /* height: 100%; */
     width: 95%;
     padding: 0 30px;
     margin: 100px auto;
@@ -266,8 +324,11 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    
-    margin-bottom: 100px;
+    height: inherit;
+    margin-bottom: 10px;
+    padding-left: 2%;
+    flex-grow: 1;
+    margin-right: 10px;
   }
 
   .randomAssetsColOneData {
@@ -294,16 +355,35 @@
     color: "white";
   }
 
+  .placeDetailHeading{
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .placeDetailLoc{
+    font-size: 10px;
+    margin-top: 8px;
+    color: white;
+  }
+  .priceDetailHeading{
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .priceDetailValue{
+    font-size: 15px;
+    font-weight: 600;
+  }
+
   .randomAssetsColTwo {
-    margin-top: -100px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: flex-start; */
-    /* justify-content: space-between; */
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-grow: 1;
   }
 
   .randomAssetsColThree{
-    margin-top: -100px;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -312,17 +392,231 @@
     /* padding-top: 30px; */
   }
 
-  @media (max-width: 767px) {
+  .coloneImg{
+    width: 400px;
+    height: 450px;
+    border-radius: 20px;
+  }
+
+  .coloneProfileImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 0.7px solid black;
+    object-fit: cover;
+  }
+
+  .partnerOfferDescription{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #565656;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 1300px) {
+
+  /* logos have been separated as they need to have different sizes because of the way in which they  */
+  /* are the be presented and can be controlled individually if needed*/
+  .benefitLogo1{
+    width: 60px;
+    height: 80px;
+  }
+  .benefitLogo2 {
+    width: 100px;
+    height: 100px;
+  }
+  .benefitLogo3 {
+    width: 80px;
+    height: 50px;
+    margin-left: -20px;
+  }
+  .benefitLogo4 {
+    width: 100px;
+    height: 50px;
+  }
+  .benefitLogo5 {
+    width: 100px;
+    height: 100px;
+    margin-left: -40px;
+  }
+  .benefitLogo6 {
+    width: 100px;
+    height: 100px;
+  }
+  .benefitLogo7 {
+    width: 100px;
+    height: 100px;
+    margin-left: -40px;
+  }
+
+  .benefitLogo8 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .placeDetailHeading{
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .placeDetailLoc{
+    font-size: 10px;
+    margin-top: 8px;
+    color: white;
+  }
+  .priceDetailHeading{
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .priceDetailValue{
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .header{
+    font-size: 35px;
+  }
+  .statTitle{
+    font-size: 30px;
+  }
+  .statDesc{
+    font-size: 20px;
+  }
+  .discoverHeader{
+    font-size: 30px;
+    margin-bottom: 45px;
+  }
+  .discoverSection {
+    padding: 0 110px;
+    margin-bottom: 80px;
+  }
+  .partnerOfferHeader {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 47px;
+    letter-spacing: 0em;
+    /* text-align: left; */
+    margin-bottom: 25px;
+    margin-top: 0px;
+  }
+  .partnerOfferDescription{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #565656;
+    margin-bottom: 20px;
+  }
+  .button {
+    padding: 5px 12px;
+    border-radius: 45px;
+    background: #3d00b7;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0.065em;
+    text-align: left;
+    cursor: pointer;
+  }
+  }
+
+
+
+
+
+  @media (max-width: 1170px) {
+    .randomAssets {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 30px;
+      /* height: 100%; */
+      /* flex-wrap: wrap; */
+      width: 95%;
+      padding: 0 30px;
+      margin: 100px auto;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      width: 100vw  ;
+      /* background: blue; */
+    }
+    
+      .partnerOfferSection {
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        align-items: center;
+        flex-grow: 1;
+        margin-bottom: 50px;
+      }
+      .partnerOfferHeader {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 47px;
+        letter-spacing: 0em;
+        /* text-align: left; */
+        margin-bottom: 12px;
+        margin-top: 0px;
+      }
+      .partnerOfferImg{
+        width: 500px  
+      }
+      .coloneImg{
+        width: 350px;
+        height: 400px;
+        border-radius: 20px;
+      }
+      .statTitle{
+        font-size: 30px;
+      }
+      .statDesc{
+        font-size: 18px;
+      }
+  }
+
+
+  @media (max-width: 900px) {
     .mainClass{
-      padding: 20px;
+      padding: 0px;
     }
 
     .mainSection {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      margin-left: 80px;
+    }
+    .header{
+      margin-left: 100px;
+    }
+    .description {
+      letter-spacing: 0em;
+      color: #565656;
+      margin-bottom: 20px;
+      margin-left: 0px;
+      width: 500px;
+      text-align: justify;
+      font-size: 25px;
+      margin-left: 100px;      
+    }
+    .button{
+      margin-left: 0px;
+      width: 250px;
+      font-size: 20px;
+      text-align: center;
+      margin-left: 100px;
+    }
+    .stats{
+        margin-left: 100px;
+    }
+    .statTitle{
+      font-size: 30px;
     }
     .discoverSection {
       padding: 0;
@@ -336,19 +630,19 @@
       line-height: 50px;
       letter-spacing: 0em;
       text-align: center;
-      margin-left: 150px; 
+      margin-left: 100px; 
       width: 100vw;
     }
     .nfts {
       width: 100vw;
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: column;
+      /* flex-wrap: wrap; */
       /* gap: 80px; */
       align-items: center;
       justify-content: center;
       margin: auto auto;
-      margin-left: 150px;
+      margin-left: 100px;
     }
   
     .filters {
@@ -377,21 +671,23 @@
       padding: 30px 60px;
       display: flex;
       flex-direction: column;
-      width: 500px;
+      width: 80vw;
       text-align: center;
-      margin-left: 100px;
+      /* margin: 20px auto; */
       border-radius: 20px;
-      margin-bottom: 100px;
+      margin-bottom: 0px;
       /* margin: 50px auto; */
+      margin-left: 11rem;
       justify-content: center;
       align-items: center;
       gap: 100px 60px;
+      margin-bottom: 100px;
       /* flex-wrap: wrap; */
     }
   
     .benefitsHeader {
       max-width: 398px;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
       line-height: 41px;
       letter-spacing: 0em;
@@ -410,39 +706,78 @@
       gap: 0 15px;
     }
   
-    .benefitLogo {
-      width: 36px;
-      height: 36px;
+    .benefitLogo1 {
+      width: 80px;
+      height: 100px;
+      margin-left: 50px;
+    }
+    .benefitLogo2 {
+      width: 120px;
+      height: 120px;
+      margin-left: 10px;
+    }
+    .benefitLogo3 {
+      width: 100px;
+      height: 70px;
+      margin-left: 30px;
+    }
+    .benefitLogo4 {
+      width: 150px;
+      height: 80px;
+      margin-left: -20px;
+    }
+    .benefitLogo5 {
+      width: 150px;
+      height: 150px;
+      margin-left: -10px;
+    }
+    .benefitLogo6 {
+      width: 120px;
+      height: 120px;
+      margin-left: 10px;
+    }
+    .benefitLogo7 {
+      width: 120px;
+      height: 150px;
+      margin-left: 10px;
+    }
+    .benefitLogo8 {
+      width: 120px;
+      height: 150px;
+      margin-left: 10px;
     }
   
     .benefitTitle {
-      font-size: 20px;
+      font-size: 25px;
       font-weight: 700;
       line-height: 26px;
       letter-spacing: 0em;
-      text-align: left;
+      text-align: justify;
       margin-bottom: 12px;
+      margin-left: 30px;
     }
   
     .benefitDesc {
-      font-size: 14px;
+      font-size: 20px;
       font-weight: 400;
       line-height: 22px;
       letter-spacing: 0em;
-      text-align: left;
-      max-width: 203px;
+      text-align: justify;
+      max-width: 100%;
       color: #9f9191;
+      margin-left: 30px;
     }
     .randomAssets {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
-      gap: 30px;
-      height: 100%;
+      gap: 0px;
+      /* height: 100%; */
       width: 100vw;
       padding: 0 30px;
-      margin: auto 150px;
+      margin: auto 0px;
+      margin-left: 100px;
       
       /* background: blue; */
     }
@@ -450,10 +785,20 @@
     .randomAssetsColOne {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       width: 100vw;
-      margin-bottom: 150px;
+      margin-bottom: 50px;
+      /* margin-left: 180px; */
+    }
+
+    .coloneImg{
+      height: 500px;
+      width: 500px;
+    }
+    .coloneProfileImg{
+      height: 100px;
+      width: 100px;
     }
   
     .randomAssetsColOneData {
@@ -467,6 +812,16 @@
       flex-direction: column;
       text-align: left;
       margin-left: 10px;
+      /* flex-grow: 1; */
+      /* height: 100%; */
+    }
+    .placeDetailHeading{
+      font-size: 30px;
+    }
+
+    .placeDetailLoc{
+      font-size: 20px;
+      margin-top: 30px;
     }
   
     .priceDetail {
@@ -479,9 +834,17 @@
       /* color: #3A3A3A; */
       color: "white";
     }
+    .priceDetailHeading{
+      font-size: 20px;
+    }
+    .priceDetailValue{
+      font-size: 20px;
+    }
   
     .randomAssetsColTwo {
       margin-top: 0px;
+      gap: 30px;
+      /* margin-left: 100px; */
       /* display: flex; */
       /* flex-direction: column; */
       /* align-items: flex-start; */
@@ -504,34 +867,49 @@
       padding: 0px;
       margin-bottom: 150px;
       display: flex;
+      flex-direction: column;
       gap: 20px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
-      margin-left: 100px;
+      margin-left: 150px;
       width: 100%;
     }
   
     .partnerOfferHeader {
-      font-size: 32px;
+      font-size: 35px;
       font-weight: 700;
       line-height: 47px;
       letter-spacing: 0em;
       text-align: left;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
       margin-top: 40px;
-      margin-left: 30px;
+      /* margin-left: 30px; */
       width: 600px;
     }
-    .description{
-      margin-left: 30px;
+    .partnerOfferdescription{
       width: 500px;
-      text-align: justify;
-    } 
-    .button{
-      margin-left: 30px;
-      width: 250px;
+      color: #636363;
+      line-height: 35px;
+      font-size: 25px;
     }
+    .partnerOfferImg{
+      width: 600px  
+    }
+    .connectButton{
+    padding: 10px 20px;
+    border-radius: 45px;
+    background: #3d00b7;
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0.065em;
+    text-align: left;
+    cursor: pointer;
+    }
+    
   }
+
 
 
