@@ -406,14 +406,12 @@
     object-fit: cover;
   }
 
-  .partnerOfferDescription{
+  
+  .partnerOfferdescription{
+    width: 500px;
+    color: #636363;
+    line-height: 35px;
     font-size: 20px;
-    font-weight: 400;
-    line-height: 32px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #565656;
-    margin-bottom: 20px;
   }
   @media (max-width: 1300px) {
 
@@ -520,6 +518,18 @@
     text-align: left;
     cursor: pointer;
   }
+  .connectButton{
+    padding: 10px 12px;
+  border-radius: 45px;
+  background: #3d00b7;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0.065em;
+  text-align: left;
+  cursor: pointer;
+  }
   }
 
 
@@ -575,6 +585,18 @@
       }
       .statDesc{
         font-size: 18px;
+      }
+      .connectButton{
+        padding: 10px 12px;
+      border-radius: 45px;
+      background: #3d00b7;
+      color: white;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 29px;
+      letter-spacing: 0.065em;
+      text-align: left;
+      cursor: pointer;
       }
   }
 
@@ -897,11 +919,11 @@
       width: 600px  
     }
     .connectButton{
-    padding: 10px 20px;
+      padding: 10px 12px;
     border-radius: 45px;
     background: #3d00b7;
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 29px;
     letter-spacing: 0.065em;
