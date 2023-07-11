@@ -83,7 +83,7 @@ const Map = () => {
 
   return (
     <div style={{ marginBottom: '20px', marginLeft: '40px' }}>
-      <MapContainer style={{ height: "65vh", width: "80vw", borderRadius: '20px' }} center={[40.8054, 4.0241]} zoom={4} scrollWheelZoom={true}>
+      <MapContainer className={styles.mapcontain} style={{ height: "65vh", width: "80vw", borderRadius: '20px' }} center={[40.8054, 4.0241]} zoom={4} scrollWheelZoom={true}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
