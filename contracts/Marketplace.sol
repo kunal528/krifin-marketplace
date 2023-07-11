@@ -15,8 +15,7 @@ contract FNFT is ERC1155, Ownable {
 
     address marketplaceAddress;
 
-
-    constructor() ERC1155("https://magnificent-figolla-1b1175.netlify.app/api/nft?id={id}") {}
+    constructor() ERC1155("https://admin.krifin.in/api/nft?id={id}") {}
 
     function changeMarketplaceAddress(address _marketplaceAddress)
         public
@@ -25,31 +24,33 @@ contract FNFT is ERC1155, Ownable {
         marketplaceAddress = _marketplaceAddress;
     }
 
-    function mint(uint256 _totalSupply, string memory _uri) public {
+    function mint(uint256 _totalSupply) public onlyOwner {
         require(msg.sender != address(0), "to address is invalid");
         _tokenIds.increment();
-        _mint(msg.sender, _tokenIds.current(), _totalSupply, "");
-        // Approve the contract to manage the tokens
-        setApprovalForAll(marketplaceAddress, true);
+        _mint(marketplaceAddress, _tokenIds.current(), _totalSupply, "");
     }
 }
 
-contract FNFTMarketplace is Ownable, ERC1155Holder {
+contract Marketplace is Ownable, ERC1155Holder {
     using SafeMath for uint256;
 
     struct NFTListing {
         uint256 tokenId;
-        address seller;
         uint256 price;
         uint256 quantity;
         bool active;
+        uint256 payoutId;
+    }
+
+    struct PayoutGroup {
+        address[] addresses;
+        uint256[] percentages;
     }
 
     address public nftAddress;
     address public discountContractAddress;
-    address public contractOwner;
-    uint256 public contractOwnerPercentage;
     mapping(uint256 => NFTListing) public nftListings;
+    mapping(uint256 => PayoutGroup) payoutGroups;
 
     event NFTListed(uint256 tokenId, address indexed seller);
     event NFTSale(
@@ -59,17 +60,21 @@ contract FNFTMarketplace is Ownable, ERC1155Holder {
         uint256 quantity
     );
     event NFTListingCancelled(uint256 tokenId, address indexed seller);
+    event PayoutGroupCreated(
+        uint256 payoutId,
+        address[] addresses,
+        uint256[] percentages
+    );
+    event PayoutGroupUpdated(
+        uint256 payoutId,
+        address[] addresses,
+        uint256[] percentages
+    );
+    event PayoutGroupRemoved(uint256 payoutId);
 
-    constructor(
-        address _nftAddress,
-        address _discountContractAddress,
-        address _contractOwner,
-        uint256 _contractOwnerPercentage
-    ) {
+    constructor(address _nftAddress, address _discountContractAddress) {
         nftAddress = _nftAddress;
         discountContractAddress = _discountContractAddress;
-        contractOwner = _contractOwner;
-        contractOwnerPercentage = _contractOwnerPercentage;
     }
 
     function setNFTAddress(address _nftAddress) external onlyOwner {
@@ -83,49 +88,40 @@ contract FNFTMarketplace is Ownable, ERC1155Holder {
         discountContractAddress = _discountContractAddress;
     }
 
-    function setContractOwner(
-        address _contractOwner
-    ) external onlyOwner {
-        require(_contractOwner != address(0), "Invalid contract owner address");
-
-        contractOwner = _contractOwner;
-    }
-
-    function setContractPercentage(uint256 _contractOwnerPercentage)
-        external
-        onlyOwner
-    {
-        require(
-            _contractOwnerPercentage <= 100,
-            "Invalid contract owner percentage"
-        );
-
-        contractOwnerPercentage = _contractOwnerPercentage;
-    }
-
     function listNFT(
         uint256 tokenId,
         uint256 quantity,
-        uint256 price
+        uint256 price,
+        uint256 payoutId
     ) external {
         require(nftAddress != address(0), "NFT address has not been set");
         require(quantity > 0, "Quantity must be greater than zero");
         require(price > 0, "Price must be greater than zero");
 
         NFTListing storage listing = nftListings[tokenId];
-        require(listing.seller == address(0), "NFT is already listed");
 
         FNFT nftContract = FNFT(nftAddress);
         require(
-            nftContract.balanceOf(msg.sender, tokenId) >= quantity,
+            nftContract.balanceOf(address(this), tokenId) >= quantity,
             "Insufficient NFT balance"
         );
 
         listing.tokenId = tokenId;
-        listing.seller = msg.sender;
         listing.price = price;
         listing.quantity = quantity;
         listing.active = false;
+        listing.payoutId = payoutId; // Assign the specified payoutId to the listing
+
+        emit NFTListed(tokenId, msg.sender);
+    }
+
+    function updateNFT(
+        uint256 tokenId,
+        uint256 newPrice,
+        uint256 newPayoutId
+    ) external {
+        nftListings[tokenId].price = newPrice;
+        nftListings[tokenId].payoutId = newPayoutId;
 
         emit NFTListed(tokenId, msg.sender);
     }
@@ -134,10 +130,6 @@ contract FNFTMarketplace is Ownable, ERC1155Holder {
         require(nftAddress != address(0), "NFT address has not been set");
 
         NFTListing storage listing = nftListings[tokenId];
-        require(
-            listing.seller == msg.sender,
-            "You are not the seller of this NFT"
-        );
         require(!listing.active, "NFT is already on sale");
 
         listing.active = true;
@@ -147,10 +139,6 @@ contract FNFTMarketplace is Ownable, ERC1155Holder {
 
     function removeNFTFromSale(uint256 tokenId) external {
         NFTListing storage listing = nftListings[tokenId];
-        require(
-            listing.seller == msg.sender,
-            "You are not the seller of this NFT"
-        );
         require(listing.active, "NFT is not currently on sale");
 
         listing.active = false;
@@ -158,65 +146,73 @@ contract FNFTMarketplace is Ownable, ERC1155Holder {
         emit NFTListingCancelled(tokenId, msg.sender);
     }
 
-    function purchaseTokenWithDiscount(uint256 tokenId, uint256 _quantity,uint256 _discount)
-        external
-        payable
-    {
-        FNFT nftContract = FNFT(nftAddress);
-        require(nftAddress != address(0), "NFT address has not been set");
-        require(_quantity > 0, "Quantity is less than 1");
-
-        NFTListing storage listing = nftListings[tokenId];
-        require(listing.active, "NFT is not available for sale");
-        require(listing.price > 0, "NFT price is not set");
-
-        uint256 totalPrice = listing.price.mul(_quantity);
-        uint256 discount = DiscountContract(discountContractAddress).balanceOf(
-            msg.sender,
-            _discount
-        );
-
-        require(discount > 0, "You don't own this discount coupon");
-
-        uint256 discountPrice = DiscountContract(discountContractAddress).getDiscount(_discount);
+    function createPayoutGroup(
+        uint256 payoutId,
+        address[] memory addresses,
+        uint256[] memory percentages
+    ) external onlyOwner {
         require(
-            msg.value >= totalPrice.sub(discountPrice),
-            "Insufficient payment"
-        );
-        totalPrice = totalPrice.sub(discountPrice);
-
-        // Burn the discount NFT
-        DiscountContract(discountContractAddress).burn(msg.sender, tokenId, 1);
-
-        nftContract.safeTransferFrom(
-            listing.seller,
-            msg.sender,
-            listing.tokenId,
-            _quantity,
-            ""
-        );
-        address seller = listing.seller;
-        uint256 contractOwnerAmount = totalPrice
-            .mul(contractOwnerPercentage)
-            .div(100);
-        uint256 sellerAmount = totalPrice.sub(contractOwnerAmount);
-
-        (bool sellerSuccess, ) = payable(seller).call{value: sellerAmount}("");
-        require(sellerSuccess, "Payment transfer to seller failed");
-
-        (bool contractOwnerSuccess, ) = payable(contractOwner).call{
-            value: contractOwnerAmount
-        }("");
-        require(
-            contractOwnerSuccess,
-            "Payment transfer to contract owner failed"
+            addresses.length == percentages.length,
+            "Invalid input lengths"
         );
 
+        for (uint256 i = 0; i < addresses.length; i++) {
+            require(addresses[i] != address(0), "Invalid address");
+            require(percentages[i] > 0, "Invalid percentage");
+        }
 
-        emit NFTSale(tokenId, msg.sender, totalPrice, _quantity);
+        payoutGroups[payoutId] = PayoutGroup(addresses, percentages);
+
+        emit PayoutGroupCreated(payoutId, addresses, percentages);
     }
 
-    function purchaseToken(uint256 tokenId, uint256 quantity) external payable {
+    function updatePayoutGroup(
+        uint256 payoutId,
+        address[] memory addresses,
+        uint256[] memory percentages
+    ) external onlyOwner {
+        require(
+            addresses.length == percentages.length,
+            "Invalid input lengths"
+        );
+        require(
+            payoutGroups[payoutId].addresses.length > 0,
+            "Payout group does not exist"
+        );
+
+        for (uint256 i = 0; i < addresses.length; i++) {
+            require(addresses[i] != address(0), "Invalid address");
+            require(percentages[i] > 0, "Invalid percentage");
+        }
+
+        payoutGroups[payoutId] = PayoutGroup(addresses, percentages);
+
+        emit PayoutGroupUpdated(payoutId, addresses, percentages);
+    }
+
+    function removePayoutGroup(uint256 payoutId) external onlyOwner {
+        require(
+            payoutGroups[payoutId].addresses.length > 0,
+            "Payout group does not exist"
+        );
+
+        delete payoutGroups[payoutId];
+
+        emit PayoutGroupRemoved(payoutId);
+    }
+
+    function delistNFT(uint256 tokenId) external {
+        delete nftListings[tokenId];
+
+        emit NFTListingCancelled(tokenId, msg.sender);
+    }
+
+    function purchaseTokenWithDiscount(
+        uint256 tokenId,
+        uint256 quantity,
+        uint256 _discount,
+        uint256 payoutId
+    ) external payable {
         FNFT nftContract = FNFT(nftAddress);
         require(nftAddress != address(0), "NFT address has not been set");
         require(quantity > 0, "Quantity is less than 1");
@@ -226,33 +222,113 @@ contract FNFTMarketplace is Ownable, ERC1155Holder {
         require(listing.price > 0, "NFT price is not set");
 
         uint256 totalPrice = listing.price.mul(quantity);
-        require(msg.value >= totalPrice, "Insufficient payment");
+        uint256 discount = DiscountContract(discountContractAddress).balanceOf(
+            msg.sender,
+            _discount
+        );
 
-        address seller = listing.seller;
-        uint256 contractOwnerAmount = totalPrice
-            .mul(contractOwnerPercentage)
-            .div(100);
-        uint256 sellerAmount = totalPrice.sub(contractOwnerAmount);
+        require(discount > 0, "You don't own this discount coupon");
 
-        (bool sellerSuccess, ) = payable(seller).call{value: sellerAmount}("");
-        require(sellerSuccess, "Payment transfer to seller failed");
-
-        (bool contractOwnerSuccess, ) = payable(contractOwner).call{
-            value: contractOwnerAmount
-        }("");
+        uint256 discountPrice = DiscountContract(discountContractAddress)
+            .getDiscount(_discount);
         require(
-            contractOwnerSuccess,
-            "Payment transfer to contract owner failed"
+            msg.value >= totalPrice.sub(discountPrice),
+            "Insufficient payment"
+        );
+        totalPrice = totalPrice.sub(discountPrice);
+
+        // Burn the discount NFT
+        DiscountContract(discountContractAddress).burn(msg.sender, tokenId, 1);
+
+        // Transfer funds to the payout group addresses
+        PayoutGroup storage payoutGroup = payoutGroups[payoutId];
+        require(
+            payoutGroup.addresses.length > 0,
+            "Payout group does not exist"
         );
 
         nftContract.safeTransferFrom(
-            listing.seller,
+            address(this),
             msg.sender,
             tokenId,
             quantity,
             ""
         );
 
+        uint256 totalPercentage;
+        address[] memory addresses = payoutGroup.addresses;
+        uint256[] memory percentages = payoutGroup.percentages;
+
+        for (uint256 i = 0; i < addresses.length; i++) {
+            require(addresses[i] != address(0), "Invalid address");
+            require(percentages[i] > 0, "Invalid percentage");
+            totalPercentage = totalPercentage.add(percentages[i]);
+
+            (bool success, ) = payable(addresses[i]).call{
+                value: totalPrice.mul(percentages[i]).div(100)
+            }("");
+            require(success, "Payment transfer failed");
+        }
+
+        require(totalPercentage == 100, "Total percentage is not equal to 100");
+
+        emit NFTSale(tokenId, msg.sender, totalPrice, quantity);
+    }
+
+    function getPayoutGroup(uint256 tokenId)
+        external
+        view
+        returns (address[] memory, uint256[] memory)
+    {
+        NFTListing storage listing = nftListings[tokenId];
+        PayoutGroup storage payoutGroup = payoutGroups[listing.payoutId];
+        return (payoutGroup.addresses, payoutGroup.percentages);
+    }
+
+    function purchaseToken(uint256 tokenId, uint256 quantity) external payable {
+        FNFT nftContract = FNFT(nftAddress);
+        require(nftAddress != address(0), "NFT address hasnot been set");
+        require(quantity > 0, "Quantity is less than 1");
+
+        NFTListing storage listing = nftListings[tokenId];
+        require(listing.active, "NFT is not available for sale");
+        require(listing.price > 0, "NFT price is not set");
+
+        uint256 totalPrice = listing.price.mul(quantity);
+        require(msg.value >= totalPrice, "Insufficient payment");
+
+        // Transfer funds to the payout group addresses
+        uint256 payoutId = listing.payoutId;
+        PayoutGroup storage payoutGroup = payoutGroups[payoutId];
+        require(
+            payoutGroup.addresses.length > 0,
+            "Payout group does not exist"
+        );
+
+        uint256 totalPercentage;
+        address[] memory addresses = payoutGroup.addresses;
+        uint256[] memory percentages = payoutGroup.percentages;
+
+        for (uint256 i = 0; i < addresses.length; i++) {
+            require(addresses[i] != address(0), "Invalid address");
+            require(percentages[i] > 0, "Invalid percentage");
+            totalPercentage = totalPercentage.add(percentages[i]);
+
+            (bool success, ) = payable(addresses[i]).call{
+                value: totalPrice.mul(percentages[i]).div(100)
+            }("");
+            require(success, "Payment transfer failed");
+        }
+
+        nftContract.safeTransferFrom(
+            address(this),
+            msg.sender,
+            tokenId,
+            quantity,
+            ""
+        );
+
+        require(totalPercentage == 100, "Total percentage is not equal to 100");
 
         emit NFTSale(tokenId, msg.sender, totalPrice, quantity);
     }
