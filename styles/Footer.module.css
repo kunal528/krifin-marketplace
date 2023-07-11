@@ -3,6 +3,7 @@
   padding: 45px 55px;
   gap: 30px 116px;
   justify-content: center;
+  width: 100%;
 }
 
 .logo {
@@ -120,6 +121,8 @@
     padding: 30px 55px;
     margin-left: 180px;
     margin-top: -100px;
+    /* width: 100%; */
+    /* margin: auto; */
     /* font-size: 100px; */
   }
   .description {
@@ -148,18 +151,12 @@
     cursor: pointer;
   }
   .footerOptionlist{
-    /* margin-left: -3px; */
-    padding: 25px;
+    width: 100%; 
   }
   .footerAlignment{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-evenly;
-    width: 10%;
-    flex-grow: 1;
-    margin-left: 110px;
-    /* justify-content: space-between; */
-    /* gap: 80px; */
   }
 }
