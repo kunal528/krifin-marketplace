@@ -2,6 +2,10 @@
   padding: 75px 115px;
 }
 
+.searchClass{
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
 .mainSection {
   display: flex;
   justify-content: center;
@@ -332,7 +336,9 @@
     align-items: center;
     justify-content: center;
   }
-
+  .searchClass{
+    display: none;
+  }
   
   .content{
     max-width: 700px;
@@ -506,6 +512,6 @@
   .footerClass{
     margin-left: -90px;
     font-size: 20px;
-    margin-bottom: -200px;
+    margin-bottom: 0px;
   }
 }
