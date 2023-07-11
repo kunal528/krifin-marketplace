@@ -506,5 +506,6 @@
   .footerClass{
     margin-left: -90px;
     font-size: 20px;
+    margin-bottom: -200px;
   }
 }
