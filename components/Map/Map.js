@@ -82,7 +82,7 @@ const Map = () => {
   }
 
   return (
-    <div style={{ marginBottom: '200px', marginLeft: '40px' }}>
+    <div className={styles.mapmaincontainer}> 
       <MapContainer className={styles.mapcontain} style={{ height: "65vh", width: "80vw", borderRadius: '20px' }} center={[40.8054, 4.0241]} zoom={4} scrollWheelZoom={true}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
