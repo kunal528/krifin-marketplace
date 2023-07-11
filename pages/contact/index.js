@@ -8,13 +8,13 @@ const Contact = () => {
             <div className={styles.header1}>CONTACT</div>
             <div className={styles.header2}>This platform also serves as the official metaverse mapping and authorisation platform for the metaverse council and we are responsible for assigning the metaverse ID to every web3 virtual world in the ecosystem. </div>
             <div className={styles.contactSection}>
-                <div style={{ maxWidth: '538px' }}>
+                <div className={styles.contactHeader}>
                     <div className={styles.title}>Let’s Talk</div>
                     <div className={styles.subtitle}>Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project  and provide help</div>
                     <div className={styles.emailTitle}>Email</div>
                     <div className={styles.email}>hokmetaverse@gmail.com</div>
                 </div>
-                <div style={{ maxWidth: '538px', display: 'flex', flexDirection: 'column', width: '100%' }}>
+                <div style={{ maxWidth: '538px', display: 'flex', flexDirection: 'column', width: '100%' }} className={styles.formFields}>
                     <div className={styles.inputTitle}>Name</div>
                     <input type="text" className={styles.input} />
                     <div className={styles.inputTitle}>Email</div>

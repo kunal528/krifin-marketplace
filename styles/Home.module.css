@@ -945,5 +945,357 @@
     
   }
 
+  @media (max-width: 400px) {
+    .mainClass{
+      /* padding: 100px; */
+      /* margin-left: 50px; */
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* align-items: center; */
+      /* justify-content: center; */
+      width: 100vw;
+    }
+
+    .mainSection {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-left: 140px;
+    }
+    .header{
+      margin-left: 50px;
+      text-align: center;
+    }
+    .description {
+      letter-spacing: 0em;
+      color: #565656;
+      margin-bottom: 20px;
+      margin-left: 0px;
+      width: 500px;
+      text-align: justify;
+      font-size: 25px;
+      margin-left: 50px;      
+    }
+    .button{
+      margin-left: 0px;
+      width: 250px;
+      font-size: 20px;
+      text-align: center;
+      margin-left: 50px;
+    }
+    .stats{
+        margin-left: 50px;
+    }
+    .statTitle{
+      font-size: 30px;
+    }
+    .discoverSection {
+      padding: 0;
+      /* margin: 20px auto; */
+      /* margin-bottom: 100px; */
+    }
+  
+    .discoverHeader {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 50px;
+      letter-spacing: 0em;
+      text-align: center;
+      margin-left: 150px; 
+      width: 100vw;
+    }
+    .nfts {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      /* flex-wrap: wrap; */
+      /* gap: 80px; */
+      align-items: center;
+      justify-content: center;
+      margin: auto auto;
+      margin-left: 150px;
+    }
+  
+    .filters {
+      display: none;
+    }
+  
+    .buttonOutlined {
+      padding: 12px 60px;
+      width: 100%;
+      border-radius: 45px;
+      background: transparent;
+      color: #3d00b7;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 26px;
+      margin-top: 50px;
+      margin-left: 150px;
+      letter-spacing: 0em;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #3d00b7;
+    }
+    .benefitsSection {
+      margin: 0px;
+      background: #d9e0ec33;
+      padding: 30px 30px;
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      text-align: center;
+      /* margin: 20px auto; */
+      border-radius: 20px;
+      margin-bottom: 0px;
+      /* margin: 50px auto; */
+      margin-left: 9.5rem;
+      justify-content: center;
+      align-items: center;
+      gap: 10px 30px;
+      margin-bottom: 100px;
+      /* flex-wrap: wrap; */
+    }
+  
+    .benefitsHeader {
+      max-width: 398px;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 41px;
+      letter-spacing: 0em;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+  
+    .benefits {
+      display: flex;
+      flex-direction: column;
+      /* flex-wrap: wrap; */
+      gap: 40px 100px;
+    }
+  
+    .benefit {
+      display: flex;
+      flex-direction: column;
+      gap: 0 15px;
+    }
+  
+    .benefitLogo1 {
+      width: 80px;
+      height: 100px;
+      margin-left: 120px;
+      margin-bottom: 30px;
+    }
+    .benefitLogo2 {
+      width: 180px;
+      height: 150px;
+      margin-left: 80px;
+      margin-bottom: 30px;
+    }
+    .benefitLogo3 {
+      width: 120px;
+      height: 80px;
+      margin-left: 90px;
+      margin-bottom: 30px;
+    }
+    .benefitLogo4 {
+      width: 220px;
+      height: 100px;
+      margin-left: 60px;
+      margin-bottom: 30px;
+    }
+    .benefitLogo5 {
+      width: 180px;
+      height: 180px;
+      margin-left: 50px;
+      margin-bottom: 30px;
+    }
+    .benefitLogo6 {
+      width: 150px;
+      height: 150px;
+      margin-left: 100px;
+      margin-bottom: 30px;
+    }
+    .benefitLogo7 {
+      width: 150px;
+      height: 180px;
+      margin-left: 100px;
+      margin-bottom: 30px;
+    }
+    .benefitLogo8 {
+      width: 150px;
+      height: 180px;
+      margin-left: 100px;
+      margin-bottom: 30px;
+    }
+  
+    .benefitTitle {
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: 0em;
+      text-align: justify;
+      margin-bottom: 12px;
+      margin-left: 30px;
+    }
+  
+    .benefitDesc {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0em;
+      text-align: left;
+      max-width: 100%;
+      color: #9f9191;
+      margin-left: 30px;
+    }
+    .randomAssets {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 0px;
+      /* height: 100%; */
+      width: 100vw;
+      padding: 0 30px;
+      margin: auto 0px;
+      margin-left: 150px;
+      
+      /* background: blue; */
+    }
+  
+    .randomAssetsColOne {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100vw;
+      margin-bottom: 50px;
+      /* margin-left: 180px; */
+    }
+
+    .coloneImg{
+      height: 500px;
+      width: 500px;
+    }
+    .coloneProfileImg{
+      height: 100px;
+      width: 100px;
+      margin-top: 10px;
+    }
+  
+    .randomAssetsColOneData {
+      display: grid;
+      grid-template-columns: 0fr 1fr auto;
+      margin-top: 20px;
+    }
+  
+    .placeDetail {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-left: 10px;
+      /* flex-grow: 1; */
+      /* height: 100%; */
+    }
+    .placeDetailHeading{
+      font-size: 30px;
+    }
+
+    .placeDetailLoc{
+      font-size: 20px;
+      margin-top: 30px;
+    }
+  
+    .priceDetail {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-left: 80px;
+      margin-top: 10px;
+      justify-content: space-between;
+      /* color: #3A3A3A; */
+      color: "white";
+    }
+    .priceDetailHeading{
+      font-size: 20px;
+    }
+    .priceDetailValue{
+      font-size: 20px;
+    }
+  
+    .randomAssetsColTwo {
+      margin-top: 0px;
+      gap: 30px;
+      /* margin-left: 100px; */
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* align-items: flex-start; */
+      /* justify-content: space-between; */
+    }
+  
+    .randomAssetsColThree{
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 0px solid white;
+      padding: 0px 30px 0px;
+      width: 600px;
+      font-size: 25px;
+      padding-top: 0px;
+      margin-bottom: 100px;
+    }
+    .partnerOfferSection {
+      padding: 0px;
+      margin-bottom: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 150px;
+      width: 100%;
+    }
+  
+    .partnerOfferHeader {
+      font-size: 35px;
+      font-weight: 700;
+      line-height: 47px;
+      letter-spacing: 0em;
+      text-align: center;
+      margin-bottom: 60px;
+      margin-top: 40px;
+      /* margin-left: 30px; */
+      width: 600px;
+    }
+    .partnerOfferdescription{
+      width: 500px;
+      color: #636363;
+      line-height: 35px;
+      font-size: 25px;
+      margin-left: 50px;
+    }
+    .partnerOfferImg{
+      width: 600px  
+    }
+    .connectButton{
+    padding: 10px 12px;
+    border-radius: 45px;
+    background: #3d00b7;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0.065em;
+    text-align: left;
+    cursor: pointer;
+    margin-left: 50px;
+    }
+    
+  }
+
 
 

@@ -160,3 +160,50 @@
     justify-content: space-evenly;
   }
 }
+
+@media (max-width: 400px){
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin-bottom: 300px;
+    margin-left: 150px;
+    margin-top: -100px;
+    width: 100vw;
+  }
+  .description {
+    font-size: 20px;
+    line-height: 30px;
+    color: #565656;
+    margin-bottom: 50px;
+    flex-grow: 1;
+    width: 100vw;
+  }
+  .header {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    color: white;
+    margin-bottom: 30px;
+  }
+  .menuItem {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #3d3d3d;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  .footerOptionlist{
+    width: 100%; 
+  }
+  .footerAlignment{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+}
