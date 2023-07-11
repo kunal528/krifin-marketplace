@@ -34,7 +34,7 @@ const MapComponent = () => {
         <div className={styles.data}>
         <p style={{fontSize: '30px'}}>CADASTRAL MAPPING </p>
         </div>
-        <p style={{textAlign: 'center'}}>
+        <p className={styles.mapContent}>
         a digital form of global land records that show all the boundaries of different parts of land pieces based on their length, area, and direction. With these maps, 
     you can view the ownership status of land pieces in different regions based on your requirements.
         </p>

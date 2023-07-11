@@ -6,14 +6,16 @@ const AssetCards = ({name, percentage, loc, image}) => {
   return (
     <div className={styles.main}>
         <div className={styles.image}>
-            <Image src={image} height={150} width={150} style={{objectFit: 'cover', borderRadius: '10%'}}/>
+            <Image src={image} height={150} width={150} className={styles.assetImg}/>
         </div>
         <div className={styles.content}>
             <div className={styles.name}>{name}</div>
             <div className={styles.info}>
-                <Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" height={35} width={35} style={{borderRadius: '100%', objectFit: 'cover'}}/>
+                
+                <Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" width={20} height={20} className={styles.assetprofileImg}/>
+                
                 <div className={styles.statButton}>
-                    <Image src="/png/green_eth.png" height={20} width={15} style={{marginRight: '5px'}}/> 
+                    <Image src="/png/green_eth.png" height={20} width={15}  /> 
                     <p className={styles.statButtonContent}>{percentage}% APY</p>
                 </div>
             </div>
