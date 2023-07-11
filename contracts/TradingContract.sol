@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./Discount.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "./Marketplace.sol";
 
 contract TradingContract is Ownable {
     using SafeMath for uint256;
@@ -13,19 +14,15 @@ contract TradingContract is Ownable {
         uint256 tokenId;
         uint256 price;
         uint256 quantity;
-        address owner;
     }
-
     mapping(uint256 => mapping(address => Order)) public orders;
     ERC1155 public nftContract;
     DiscountContract public discountContract;
-    address public contractOwner;
-    uint256 public contractOwnerPercentage;
+    Marketplace public marketplaceContract;
     uint256 public royaltyPercentage;
     uint256 public totalTokens;
-    mapping(uint256 => address[]) public sellers; 
-
-
+    mapping(uint256 => address[]) public sellers;
+ 
     event OrderPlaced(
         address indexed seller,
         uint256 tokenId,
@@ -35,50 +32,41 @@ contract TradingContract is Ownable {
 
     event OrderCancelled(uint256 orderId, address indexed seller);
 
-    event OrderPurchased(uint256 orderId, address indexed buyer, uint256 quantity, uint256 price);
+    event OrderPurchased(
+        uint256 orderId,
+        address indexed buyer,
+        uint256 quantity,
+        uint256 price
+    );
 
-    constructor(address _nftContractAddress, address _discountAddress) {
-        contractOwner = msg.sender;
-        contractOwnerPercentage = 10;
+    constructor(
+        address _nftContractAddress,
+        address _discountAddress,
+        address _marketplaceAddress
+    ) {
         nftContract = ERC1155(_nftContractAddress);
         discountContract = DiscountContract(_discountAddress);
+        marketplaceContract = Marketplace(_marketplaceAddress);
         royaltyPercentage = 1;
     }
 
-    function setContractOwner(
-        address _contractOwner
-    ) external onlyOwner {
-        require(_contractOwner != address(0), "Invalid contract owner address");
-
-        contractOwner = _contractOwner;
-    }
-
-    function setContractPercentage(uint256 _contractOwnerPercentage)
-        external
-        onlyOwner
-    {
-        require(
-            _contractOwnerPercentage <= 100,
-            "Invalid contract owner percentage"
-        );
-
-        contractOwnerPercentage = _contractOwnerPercentage;
-    }
-
     function setRoyalty(uint256 percentage) external onlyOwner {
-        require(
-            percentage <= 100,
-            "Invalid royalty percentage"
-        );
+        require(percentage <= 100, "Invalid royalty percentage");
         royaltyPercentage = percentage;
     }
 
-    function sell(address owner,uint256 tokenId, uint256 price, uint256 quantity) external {
+    function sell(
+        uint256 tokenId,
+        uint256 price,
+        uint256 quantity
+    ) external {
         require(tokenId > 0, "Invalid tokenId");
         require(price > 0, "Price must be greater than zero");
         require(quantity > 0, "Quantity must be greater than zero");
-        require(nftContract.balanceOf(msg.sender, tokenId) >= quantity, "Insufficient tokens to sell");
-
+        require(
+            nftContract.balanceOf(msg.sender, tokenId) >= quantity,
+            "Insufficient tokens to sell"
+        );
 
         Order storage order = orders[tokenId][msg.sender];
         require(order.price == 0, "An order for this token already exists");
@@ -87,14 +75,25 @@ contract TradingContract is Ownable {
         order.price = price;
         order.quantity = quantity;
         order.seller = msg.sender;
-        order.owner = owner;
 
-        sellers[tokenId].push(msg.sender);
+        if (sellers[tokenId].length == 0) {
+            sellers[tokenId].push(msg.sender);
+        } else {
+            bool sellerExists = false;
+            for (uint256 i = 0; i < sellers[tokenId].length; i++) {
+                if (sellers[tokenId][i] == msg.sender) {
+                    sellerExists = true;
+                    break;
+                }
+            }
+            if (!sellerExists) {
+                sellers[tokenId].push(msg.sender);
+            }
+        }
 
         if (tokenId > totalTokens) {
             totalTokens = tokenId;
         }
-
 
         emit OrderPlaced(msg.sender, tokenId, price, quantity);
     }
@@ -104,11 +103,16 @@ contract TradingContract is Ownable {
         require(order.price > 0, "No active order found for this token");
 
         delete orders[tokenId][msg.sender];
+        removeSeller(tokenId, order.seller);
 
         emit OrderCancelled(tokenId, msg.sender);
     }
 
-    function purchase(uint256 tokenId, uint256 quantity, address seller) external payable {
+    function purchase(
+        uint256 tokenId,
+        uint256 quantity,
+        address seller
+    ) external payable {
         require(quantity > 0, "Quantity must be greater than zero");
         Order storage order = orders[tokenId][seller];
         require(order.price > 0, "No active order found for this token");
@@ -123,34 +127,51 @@ contract TradingContract is Ownable {
         // Calculate seller amount
         uint256 sellerAmount = totalPrice.sub(royaltyAmount);
 
-        // Transfer NFT from seller to buyer
-        nftContract.safeTransferFrom(order.seller, msg.sender, order.tokenId, quantity, "");
+        nftContract.safeTransferFrom(
+            order.seller,
+            msg.sender,
+            order.tokenId,
+            quantity,
+            ""
+        );
 
-        // Transfer payment to seller
-        (bool sellerSuccess, ) = payable(order.seller).call{value: sellerAmount}("");
+
+        // Distribute royalties to the payout group
+        (
+            address[] memory addresses,
+            uint256[] memory percentages
+        ) = marketplaceContract.getPayoutGroup(tokenId);
+        for (uint256 i = 0; i < addresses.length; i++) {
+            address payoutAddress = addresses[i];
+            uint256 payoutPercentage = percentages[i];
+            uint256 payoutShare = royaltyAmount.mul(payoutPercentage).div(100);
+
+            // Transfer royalty share to the payout address
+            (bool payoutSuccess, ) = payable(payoutAddress).call{
+                value: payoutShare
+            }("");
+            require(payoutSuccess, "Payment transfer to payout group failed");
+        }
+
+        // Transfer remaining amount to the seller
+        (bool sellerSuccess, ) = payable(seller).call{value: sellerAmount}("");
         require(sellerSuccess, "Payment transfer to seller failed");
-
-        uint256 contractOwnerAmount = royaltyAmount
-            .mul(contractOwnerPercentage)
-            .div(100);
-        uint256 ownerAmount = royaltyAmount.sub(contractOwnerAmount);
-        // Transfer royalty to contract owner
-        (bool royaltySuccess, ) = payable(contractOwner).call{value: contractOwnerAmount}("");
-        require(royaltySuccess, "Payment transfer to royalty owner failed");
-
-        (bool ownerSuccess, ) = payable(order.owner).call{value: ownerAmount}("");
-        require(ownerSuccess, "Payment transfer to seller failed");
 
         order.quantity -= quantity;
         if (order.quantity <= 0) {
-        delete orders[tokenId][msg.sender];
-    }
-
+            delete orders[tokenId][seller];
+            removeSeller(tokenId, seller);
+        }
 
         emit OrderPurchased(tokenId, msg.sender, quantity, totalPrice);
     }
 
-    function purchase(uint256 tokenId, uint256 quantity,address seller, uint256 _discount) external payable {
+    function purchase(
+        uint256 tokenId,
+        uint256 quantity,
+        address seller,
+        uint256 discountTokenId
+    ) external payable {
         require(quantity > 0, "Quantity must be greater than zero");
         Order storage order = orders[tokenId][seller];
         require(order.price > 0, "No active order found for this token");
@@ -158,78 +179,98 @@ contract TradingContract is Ownable {
 
         uint256 totalPrice = order.price.mul(quantity);
         // Check for discount
-        require(msg.value >= totalPrice, "Insufficient payment");
-        // Calculate royalty amount
-        uint256 royaltyAmount = totalPrice.mul(royaltyPercentage).div(100);
-
-        // Calculate seller amount
-        uint256 sellerAmount = totalPrice.sub(royaltyAmount);
-
-        uint256 discount = discountContract.balanceOf(
-            msg.sender,
-            _discount
-        );
-
-        require(discount > 0, "You don't own this discount coupon");
-
-        uint256 discountPrice = discountContract.getDiscount(_discount);
+        uint256 discountPrice = discountContract.getDiscount(discountTokenId);
         require(
             msg.value >= totalPrice.sub(discountPrice),
             "Insufficient payment"
         );
-        totalPrice = totalPrice.sub(discountPrice);
-        order.quantity -= quantity;
 
-        if (order.quantity <= 0) {
-        delete orders[tokenId][seller];
-        }
+        // Calculate royalty amount
+        uint256 royaltyAmount = totalPrice.mul(royaltyPercentage).div(100);
+
+        // Calculate seller amount
+        uint256 sellerAmount = totalPrice.sub(royaltyAmount).sub(discountPrice);
+
         // Burn the discount NFT
-        discountContract.burn(msg.sender, tokenId, 1);
+        discountContract.burn(msg.sender, discountTokenId, 1);
 
-        // Transfer NFT from seller to buyer
-        nftContract.safeTransferFrom(order.seller, msg.sender, order.tokenId, quantity, "");
+        nftContract.safeTransferFrom(
+            order.seller,
+            msg.sender,
+            order.tokenId,
+            quantity,
+            ""
+        );
 
-        emit OrderPurchased(tokenId, msg.sender, quantity, totalPrice);
-        // Transfer payment to seller
-        (bool sellerSuccess, ) = payable(order.seller).call{value: sellerAmount}("");
+
+        // Retrieve payout group details from marketplace contract
+        (
+            address[] memory addresses,
+            uint256[] memory percentages
+        ) = marketplaceContract.getPayoutGroup(tokenId);
+        require(addresses.length == percentages.length, "Invalid payout group");
+
+        // Distribute royalties to the payout group
+        for (uint256 i = 0; i < addresses.length; i++) {
+            address payoutAddress = addresses[i];
+            uint256 payoutPercentage = percentages[i];
+            uint256 payoutShare = royaltyAmount.mul(payoutPercentage).div(100);
+
+            // Transfer royalty share to the payout address
+            (bool payoutSuccess, ) = payable(payoutAddress).call{
+                value: payoutShare
+            }("");
+            require(payoutSuccess, "Payment transfer to payout group failed");
+        }
+
+        // Transfer remaining amount to the seller
+        (bool sellerSuccess, ) = payable(seller).call{value: sellerAmount}("");
         require(sellerSuccess, "Payment transfer to seller failed");
 
-        uint256 contractOwnerAmount = royaltyAmount
-            .mul(contractOwnerPercentage)
-            .div(100);
-        uint256 ownerAmount = royaltyAmount.sub(contractOwnerAmount);
-        // Transfer royalty to contract owner
-        (bool royaltySuccess, ) = payable(contractOwner).call{value: contractOwnerAmount}("");
-        require(royaltySuccess, "Payment transfer to royalty owner failed");
+        order.quantity -= quantity;
+        if (order.quantity <= 0) {
+            delete orders[tokenId][seller];
+            removeSeller(tokenId, seller);
+        }
 
-        (bool ownerSuccess, ) = payable(order.owner).call{value: ownerAmount}("");
-        require(ownerSuccess, "Payment transfer to seller failed");
-
-        
-
+        emit OrderPurchased(tokenId, msg.sender, quantity, totalPrice);
     }
-
 
     function getAllOrders() external view returns (Order[] memory) {
         uint256 orderCount = 0;
         for (uint256 tokenId = 1; tokenId <= totalTokens; tokenId++) {
-            for (uint256 i = 0; i < sellers[tokenId].length; i++) {
-                if (orders[tokenId][sellers[tokenId][i]].price > 0) {
-                    orderCount++;
-                }
-            }
+            orderCount += sellers[tokenId].length;
         }
 
         Order[] memory allOrders = new Order[](orderCount);
         uint256 index = 0;
         for (uint256 tokenId = 1; tokenId <= totalTokens; tokenId++) {
-            for (uint256 i = 0; i < sellers[tokenId].length; i++) {
-                if (orders[tokenId][sellers[tokenId][i]].price > 0) {
-                    allOrders[index] = orders[tokenId][sellers[tokenId][i]];
+            address[] storage sellerList = sellers[tokenId];
+            for (uint256 i = 0; i < sellerList.length; i++) {
+                Order storage order = orders[tokenId][sellerList[i]];
+                if (order.price > 0) {
+                    allOrders[index] = order;
                     index++;
                 }
             }
         }
 
         return allOrders;
-    }}
+    }
+
+    function removeSeller(uint256 tokenId, address seller) internal {
+        address[] storage sellerList = sellers[tokenId];
+        require(sellerList.length > 0, "No sellers for this tokenId");
+
+        for (uint256 i = 0; i < sellerList.length; i++) {
+            if (sellerList[i] == seller) {
+                if (sellerList.length > 1) {
+                    sellerList[i] = sellerList[sellerList.length - 1];
+                }
+                sellerList.pop();
+                break;
+            }
+        }
+        sellers[tokenId] = sellerList;
+    }
+}
