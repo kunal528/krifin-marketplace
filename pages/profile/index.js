@@ -4,6 +4,8 @@ import userData from '../../data/Userdata.json'
 import Image from 'next/image'
 import styles from '../../styles/Profile.module.css'
 import Layout from '../../components/Layout'
+import Footer from '../../components/Footer/Footer'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Profile = () => {
 
@@ -24,6 +26,9 @@ const Profile = () => {
   // }, []);
   return (
     <div style={{width: '100vw'}}>
+      <div className={styles.navClass}>
+        <Navbar />
+      </div>
       {/* <div className={styles.assets}>
         {userERC1155Tokens.map((token, i) => (
           // Render each ERC1155 token
@@ -53,13 +58,11 @@ const Profile = () => {
         </div>
       ))}
 
-
+              <div className={styles.footerClass}>
+              <Footer />
+              </div>
     </div>
   )
 }
 
 export default Profile
-
-Profile.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
-}
