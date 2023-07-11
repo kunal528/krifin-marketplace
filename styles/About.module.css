@@ -5,7 +5,7 @@
 .mainSection {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 60px;
   align-items: center;
   margin-bottom: 100px;
@@ -48,7 +48,7 @@
 .contentSection {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 60px;
   align-items: flex-start;
   position: relative;
@@ -107,8 +107,9 @@
 .table {
   background: #333333;
   border-radius: 25px;
-  padding: 20px;
+  padding: 0px;
   margin-bottom: 50px;
+  width: 100%;
 }
 
 .tableHeader {
@@ -137,56 +138,99 @@
   padding: 0px 60px;
 }
 
-.enddescription{
-  font-size: 18px;
-  line-height: 23px;
+.enddescription {
+  width: 80%;
+  font-size: 22px;
+  line-height: 30px;
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
   margin-bottom: 35px;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: -100px; */
+  margin-left: 100px;
+}
+.enddescriptionpara {
+  width: 80%;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: justify;
+  margin-bottom: 80px;
+  margin-left: 100px;
+  /* margin-right: -100px; */
+  /* margin-left: 100px; */
+}
+.sectionContent{
+  max-width: 600px;
+}
+.content{
+  max-width: 690px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .container{
+    padding: 75px 60px;
+    margin-left: 100px;
+    width: 100vw;
+  }
+  .content{
+    max-width: 700px;
+  }
   .mainSection {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
     flex-wrap: nowrap;
     gap: 100px;
     align-items: center;
-    margin-bottom: 100px;
-    margin-left: 300px;
+    /* margin-bottom: ; */
+    margin-left: 0px;
+    text-align: justify;
+    /* margin: 100px auto; */
+    margin-bottom: 0px;
   }
 
   .title {
-    font-size: 30px;
-    width: 200px;
+    font-size: 35px;
     font-weight: 600;
-    line-height: 50px;
+    line-height: 61px;
     letter-spacing: 0em;
     text-align: left;
     margin-bottom: 35px;
   }
+  
+  .description {
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 35px;
+  }
+  
   .button {
-    padding: 20px 12px;
+    padding: 12px 60px;
     border-radius: 45px;
     background: #3d00b7;
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 29px;
     letter-spacing: 0.065em;
     text-align: left;
     cursor: pointer;
   }
-  .contentSection {
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 60px;
-    align-items: center;
+  
+  
 
-    position: relative;
-    margin-bottom: 100px;
-    margin-left: 300px;
+  .contentSection{
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 100vw;
+    margin-left: 0px;
+    align-items: center;
+    justify-content: center;
   }
   .index {
     font-size: 150px;
@@ -207,16 +251,7 @@
     width: 250px;
     /* margin-left: 20px; */
   }
-  .table {
-    background: #333333;
-    border-radius: 25px;
-    /* padding: 10px; */
-    margin-bottom: 50px;
-    /* text-align: center; */
-    width: 700px;
-    margin-left: -70px;
-    
-  }
+  
   .contentDescription {
     font-size: 25px;
     line-height: 30px;
@@ -231,14 +266,19 @@
     margin-bottom: 30px;
   }
   .enddescription {
-    width: 400px;
-    font-size: 20px;
+    width: 100%;
+    font-size: 25px;
     line-height: 30px;
     letter-spacing: 0em;
-    text-align: left;
+    text-align: justify;
     margin-bottom: 35px;
+    margin-top: 100px;
     /* margin-right: -100px; */
-    margin-left: 100px;
+    /* margin-left: 100px; */
+  }
+  
+  .verticalDivider{
+    height: 500px;
   }
   .tableHeader {
     display: flex;
@@ -252,7 +292,7 @@
   
   .verticalDivider {
     width: 1px;
-    height: 140px;
+    height: 180px;
     background: #ffffff;
   }
   
@@ -262,11 +302,21 @@
   }
   
   .tableRow {
-    font-size: 18px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     gap: 0 60px;
     padding: 0px 60px;
+  }
+  .enddescriptionpara {
+    width: 100%;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: justify;
+    margin-bottom: 80px;
+    /* margin-right: -100px; */
+    /* margin-left: 100px; */
   }
 }
 
