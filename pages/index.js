@@ -1,13 +1,13 @@
 import styles from '../styles/Home.module.css'
 import data from '../data/Data.json'
 import Layout from '../components/Layout';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NFTCard from '../components/cards/NFTCard';
-import Image from 'next/image';
+// import Image from 'next/image';
 import AssetCards from '../components/cards/AssetCards';
 import TopInvestCard from '../components/cards/TopInvestCard';
 import Link from 'next/link';
-
+import Image from 'next/image';
 export default function Home() {
   const [filters, setFilters] = useState([
     { name: 'All Categories', selected: true },
@@ -18,10 +18,13 @@ export default function Home() {
     { name: 'Home rental', selected: false },
     { name: 'Show more +', selected: false },
   ])
+  useEffect(()=>{
+
+  })
   return (
     <div className={styles.mainClass}>
       <div className={styles.mainSection}>
-        <div style={{ maxWidth: '562px' }}>
+        <div>
           <div className={styles.header}>Buy, Sell and Invest in Real Estate Tokens & REIT</div>
           <div className={styles.description}>Invest like the top 1%  and earn passive dividends on our curated investment opportunities</div>
           <div style={{ display: 'flex', marginBottom: '30px' }}>
@@ -86,111 +89,95 @@ export default function Home() {
       </div>
       <div className={styles.benefitsSection}>
         <div className={styles.benefitsHeader}>Why invest with us?</div>
-        <div className={styles.benefits}>
-          <div className={styles.benefit}>
-            <img src="./png/secure_invest.png" alt="Benefit" className={styles.benefitLogo} style={{height: '60px', width: '60px'}}/>
+        <div className={styles.allbenefits}>
+          <div className={styles.benefits}>
+            <div className={styles.benefit}>
+            <img src="./png/secure_invest.png" alt="Benefit" className={styles.benefitLogo1}/>
             <div>
               <div className={styles.benefitTitle}>Secure Investments </div>
-              <div className={styles.benefitDesc}>Non- Market linked returns along with blockchain protection for every transaction.</div>
+              <div className={styles.benefitDesc}>Non-Market linked returns along with blockchain protection for every transaction.</div>
             </div>
-          </div>
-          <div className={styles.benefit} style={{marginTop: '45px'}}>
-            <img src="./png/ft.png" alt="Benefit" className={styles.benefitLogo} style={{height: '60px', width: '100px', marginLeft: '-40px'}}/>
-            <div>
-              <div className={styles.benefitTitle}>Fast Transactions</div>
-              <div className={styles.benefitDesc}>Our transactions are executed in T+0 Time Schedule.  Our Blockchain based platform  can provide fast transactions by eliminating the need for intermediaries.</div>
             </div>
-            
-          </div>
-          <div className={styles.benefit}>
-            <img src="./png/afford.png" alt="Benefit" className={styles.benefitLogo} style={{height: '100px', width: '100px', marginLeft: '-40px'}}/>
-            <div>
-              <div className={styles.benefitTitle}>Affordable</div>
-              <div className={styles.benefitDesc}>Non- Market linked returns along with blockchain protection for every transaction. </div>
-            </div>
-          </div>
-          <div className={styles.benefit} style={{marginTop: '45px'}}>
-            <img src="./png/legal.png" alt="Benefit" className={styles.benefitLogo} style={{height: '80px', width: '80px', marginLeft: '-20px'}}/>
-            <div>
-              <div className={styles.benefitTitle}>Legal Compliance</div>
-              <div className={styles.benefitDesc}>Non- Market linked returns along with blockchain protection for every transaction.</div>
-            </div>
-          </div>
-          </div>
-          <div className={styles.benefits}>
-          <div className={styles.benefit}>
-            <img src="./png/roi.png" alt="Benefit" className={styles.benefitLogo} style={{height: '100px', width: '120px', marginLeft: '-20px'}}/>
+            <div className={styles.benefit}>
+            <img src="./png/roi.png" alt="Benefit" className={styles.benefitLogo2} />
             <div>
               <div className={styles.benefitTitle}>Stable ROI</div>
               <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
             </div>
+            </div>
           </div>
-          <div className={styles.benefit}>
-            <img src="./png/p2p.png" alt="Benefit" className={styles.benefitLogo} style={{height: '60px', width: '120px', marginLeft: '-20px'}}/>
+          <div className={styles.benefits}>
+            <div className={styles.benefit}>
+            <img src="./png/ft.png" alt="Benefit" className={styles.benefitLogo3} />
+            <div>
+              <div className={styles.benefitTitle}>Fast Transactions</div>
+              <div className={styles.benefitDesc}>Non- Market linked returns along with blockchain protection for every transaction.</div>
+            </div>
+            </div>
+            <div className={styles.benefit}>
+            <img src="./png/p2p.png" alt="Benefit" className={styles.benefitLogo4} />
             <div>
               <div className={styles.benefitTitle}>P2P Trade</div>
               <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
             </div>
-            
+            </div>
           </div>
-          <div className={styles.benefit} style={{marginTop: '20px'}}>
-            <img src="./png/liquidity.png" alt="Benefit" className={styles.benefitLogo} style={{height: '80px', width: '100px', marginLeft: '0px'}}/>
+          <div className={styles.benefits}>
+            <div className={styles.benefit}>
+            <img src="./png/afford.png" alt="Benefit" className={styles.benefitLogo5}/>
+            <div>
+              <div className={styles.benefitTitle}>Affordable</div>
+              <div className={styles.benefitDesc}>Non- Market linked returns along with blockchain protection for every transaction.</div>
+            </div>
+            </div>
+            <div className={styles.benefit}>
+            <img src="./png/liquidity.png" alt="Benefit" className={styles.benefitLogo6} />
             <div>
               <div className={styles.benefitTitle}>24 X 7 Liquidity</div>
               <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
             </div>
+            </div>
           </div>
-          <div className={styles.benefit}>
-            <img src="./png/transparent.png" alt="Benefit" className={styles.benefitLogo} style={{height: '100px', width: '100px', marginLeft: '0px'}}/>
+          <div className={styles.benefits}>
+            <div className={styles.benefit}>
+            <img src="./png/legal.png" alt="Benefit" className={styles.benefitLogo7}/>
+            <div>
+              <div className={styles.benefitTitle}>Legal Compliance</div>
+              <div className={styles.benefitDesc}>Non- Market linked returns along with blockchain protection for every transaction.</div>
+            </div>
+            </div>
+            <div className={styles.benefit}>
+            <img src="./png/transparent.png" alt="Benefit" className={styles.benefitLogo8} />
             <div>
               <div className={styles.benefitTitle}>Transparent</div>
               <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
             </div>
-          </div>
-          </div>
-          {/* <div className={styles.benefit}>
-            <img src="./png/benefit.png" alt="Benefit" className={styles.benefitLogo} />
-            <div>
-              <div className={styles.benefitTitle}>Benefits</div>
-              <div className={styles.otherBenefits}>
-                <div>
-                  <div className={styles.otherBenefitsHeader}>Affordable</div>
-                </div>
-                <div>
-                  <div className={styles.otherBenefitsHeader}>24 x 7 Liquidity</div>
-                  <div className={styles.otherBenefitsDesc}>P2P Trade</div>
-                </div>
-                <div>
-                  <div className={styles.otherBenefitsHeader}>Legal Compliance</div>
-                </div>
-                <div>
-                  <div className={styles.otherBenefitsHeader}>Fast Transactions</div>
-                  <div className={styles.otherBenefitsDesc}>Our transactions are executed in T+0 Time Schedule)</div>
-                </div>
-              </div>
             </div>
-          </div> */}
+          </div>
+          
+          
+          
+          </div>
+          
         
       </div>
-      {/* don't touch other areas and code the css bottom */}
-      {/* this is in progress... needs to be completed */}
+      
       <div className={styles.randomAssets}>
         <div className={styles.randomAssetsColOne}>
-          <img src="https://images.pexels.com/photos/284991/pexels-photo-284991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={400} height={450} style={{ borderRadius: '20px' }} />
+          <img src="https://images.pexels.com/photos/284991/pexels-photo-284991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" className={styles.coloneImg}/>
           <div className={styles.randomAssetsColOneData}>
-            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" width={50} height={50} style={{ borderRadius: '100%', border: '0.7px solid black', objectFit: 'cover' }} />
+            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" className={styles.coloneProfileImg}/>
             <div className={styles.placeDetail}>
-              <p style={{ fontSize: '20px', fontWeight: 400 }}>AVB Mansion</p>
-              <p style={{ fontSize: '10px', marginTop: '8px', color: 'white' }}>Mumbai India</p>
+              <p className={styles.placeDetailHeading}>AVB Mansion</p>
+              <p className={styles.placeDetailLoc}>Mumbai India</p>
             </div>
             <div className={styles.priceDetail}>
-              <p style={{ fontSize: '12px', fontWeight: 400 }}>Valuation</p>
-              <p style={{ fontSize: '15px', fontWeight: 600 }}>25000000EUR</p>
+              <p className={styles.priceDetailHeading}>Valuation</p>
+              <p className={styles.priceDetailValue}>25000000EUR</p>
             </div>
           </div>
         </div>
         <div className={styles.randomAssetsColTwo}>
-        {/* <Image src="/png/cards.png" width={400} height={550} /> */}
         <AssetCards name={"Lotus Temple"} percentage={"11"} loc={"Delhi, India"} image={"https://images.pexels.com/photos/5209177/pexels-photo-5209177.jpeg?auto=compress&cs=tinysrgb&w=600"}/>
         <AssetCards name={"The Futr Abstr"} percentage={"12.3"} loc={"1 of 8"} image={"https://images.pexels.com/photos/175771/pexels-photo-175771.jpeg?auto=compress&cs=tinysrgb&w=600"}/>
         <AssetCards name={"Leaf Mount"} percentage={"2.5"} loc={"1 of 8"} image={"https://images.pexels.com/photos/4086523/pexels-photo-4086523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}/>
@@ -216,12 +203,12 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.partnerOfferSection}>
-        <img src="./png/partner-offer.png" width={562} alt="Partner" />
-        <div style={{ maxWidth: '562px' }}>
+        <img src="./png/partner-offer.png" alt="Partner" className={styles.partnerOfferImg}/>
+        <div className={styles.partnerOfferContent}>
           <div className={styles.partnerOfferHeader}>Want to partner with us ?</div>
-          <div className={styles.description} style={{ marginBottom: '30px' }}>We partner with  open-end real estate investment trust focused on managing a portfolio of retail and mixed-use retail community and neighbourhood centres, generally in the mid-market range of $10 to $50 million, from both primary and secondary markets across Dubai, Europe, and United Kingdom.</div>
+          <div className={styles.partnerOfferdescription} style={{ marginBottom: '30px' }}>We partner with  open-end real estate investment trust focused on managing a portfolio of retail and mixed-use retail community and neighbourhood centres, generally in the mid-market range of $10 to $50 million, from both primary and secondary markets across Dubai, Europe, and United Kingdom.</div>
           <div style={{ display: 'flex', marginBottom: '30px' }}>
-            <div className={styles.button}>Connect Us</div>
+            <div className={styles.connectButton}>Connect Us</div>
           </div>
         </div>
       </div>

@@ -11,8 +11,6 @@ const Profile = () => {
     { name: 'My collection (20)', selected: false },
     { name: 'Favourites (43)', selected: false },
     { name: 'My Activity', selected: false },
-    { name: 'My offer', selected: false },
-    { name: 'My bid', selected: false },
   ])
   // const [userERC1155Tokens, setUserERC1155Tokens] = useState([]);
   // const { getUserERC1155Tokens } = useWeb3();
@@ -25,7 +23,7 @@ const Profile = () => {
   //   fetchUserERC1155Tokens();
   // }, []);
   return (
-    <div>
+    <div style={{width: '100vw'}}>
       {/* <div className={styles.assets}>
         {userERC1155Tokens.map((token, i) => (
           // Render each ERC1155 token

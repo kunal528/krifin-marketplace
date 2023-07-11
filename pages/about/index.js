@@ -6,9 +6,9 @@ const About = () => {
     return (
         <div className={styles.container}>
             <div className={styles.mainSection}>
-                <div style={{ maxWidth: '690px' }}>
+                <div className={styles.content}>
                     <div className={styles.title}>
-                        Buy,Sell And Invest In Luxury Assets Tokens
+                        Buy, Sell And Invest In Luxury Assets Tokens
                     </div>
                     <div className={styles.description}>
                         The world’s first asset - backed NFT marketplace for real  world  luxury assets with ROI where you can buy with your credit card
@@ -20,7 +20,7 @@ const About = () => {
                 <img src='/png/about-image-1.png' />
             </div>
             <div className={styles.contentSection}>
-                <div style={{ maxWidth: '600px' }}>
+                <div className={styles.sectionContent}>
                     <div className={styles.index}>01</div>
                     <div className={styles.krifinSection}>
                         <div className={styles.dash} />
@@ -42,7 +42,7 @@ const About = () => {
                 <img src='/png/about-image-2.png' id="img2"/>
             </div>
             <div className={styles.contentSection}>
-                <div style={{ maxWidth: '600px' }}>
+                <div className={styles.sectionContent}>
                     <div className={styles.index}>02</div>
                     <div className={styles.krifinSection}>
                         <div className={styles.dash} />
@@ -63,7 +63,7 @@ const About = () => {
                 <img src='/png/about-image-3.png' id='img3'/>
             </div>
             <div className={styles.contentSection}>
-                <div style={{ maxWidth: '600px' }}>
+                <div className={styles.sectionContent}>
                     <div className={styles.index}>03</div>
                     <div className={styles.krifinSection}>
                         <div className={styles.dash} />
@@ -89,7 +89,7 @@ const About = () => {
                 <img src='/png/about-image-4.png' id='img4'/>
             </div>
             <div className={styles.contentSection}>
-                <div style={{ maxWidth: '600px' }}>
+                <div className={styles.sectionContent}>
                     <div className={styles.index}>04</div>
                     <div className={styles.krifinSection}>
                         <div className={styles.dash} />
@@ -98,7 +98,7 @@ const About = () => {
                     <div className={styles.contentTitle}>
                         NFT EQUITY   &   NFT LOAN
                     </div>
-                    <div className={styles.contentDescription}>
+                    <div className={styles.description}>
                         The main difference between NFT loans and NFT equity is that with an NFT loan, you are borrowing money against the value of your NFT, while with NFT equity, you are selling a portion of ownership in your NFT.
                         <br />
                         Here is a table summarizing the key differences between NFT loans and NFT equity:
@@ -150,9 +150,9 @@ const About = () => {
                     <div className={styles.headerItem}>Accessing cash quickly</div>
                 </div>
             </div>
-            <div className={styles.enddescription} style={{ textAlign: 'center', marginBottom:'100px' }}>It is important to do your research and understand the risks involved before choosing between an NFT loan and NFT equity.</div>
-            <div className={styles.enddescription}>
-                <b style={{ fontSize: '20px' }}>Which is Right for You?</b>
+            <div className={styles.enddescription} style={{marginBottom:'100px' }}>It is important to do your research and understand the risks involved before choosing between an NFT loan and NFT equity.</div>
+            <div className={styles.enddescriptionpara}>
+                <b className={styles.enddescriptionHeading}>Which is Right for You?</b>
                 <br />
                 <br />
                 The best option for you will depend on your individual circumstances and goals. If you need to access cash quickly, an NFT loan may be a good option. However, if you are looking to raise capital for a long-term project, NFT equity may be a better choice.

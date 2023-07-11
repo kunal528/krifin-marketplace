@@ -41,7 +41,7 @@
   text-align: center;
 }
 
-@media (max-width: 768px){
+@media (max-width: 900px){
   .container {
     display: flex;
     padding: 100px 55px;
@@ -49,8 +49,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 140px;
     width: 500px;
+    margin-left: 250px;
   }
   .input {
     width: 500px;

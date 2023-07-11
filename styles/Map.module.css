@@ -4,9 +4,14 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 0px;
     gap: 30px;
     padding: 0px 50px;
+}
+
+.mapContent{
+  text-align: center;
+  width: 80%;
 }
 
 .search {
@@ -63,19 +68,20 @@
     color: white;
   }
 /* Mobile View Styles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   .content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 550px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    width: 100%;
     margin-top: 0px;
     gap: 30px;
     padding: 0px;
     margin-left: 100px;
     text-align: justify;
+    /* margin: 100px auto; */
     /* margin-right: 100px; */
 }
 .filters{
@@ -86,6 +92,8 @@
   }
 
   .content {
-    padding: 0 20px;
+    padding: 0 0px;
+    font-size: 20px;
+    text-align: justify;
   }
 }

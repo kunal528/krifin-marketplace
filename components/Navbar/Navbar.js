@@ -3,6 +3,7 @@ import styles from '../../styles/Navbar.module.css';
 import Link from 'next/link';
 import useWeb3 from '../../lib/useWeb3';
 import { useRouter } from 'next/router';
+import Blockies from 'react-blockies';
 
 const Navbar = () => {
   const { account, disconnectWallet, connectWallet } = useWeb3();
@@ -72,10 +73,22 @@ const Navbar = () => {
         </Link>
         {account ? (
           <Link href="/profile">
-            <div className={styles.connectButton}>
+            <div > 
+            
+            <div className={styles.connectButton} style={{display: 'flex', gap: '10px'}}>
+            <Blockies
+    seed="Ayush iodj" 
+    size={12} 
+    scale={2} 
+    color="green" 
+    bgColor="#000000" 
+    spotColor="yellow " 
+    className="" 
+  />
               {account.toString().substring(0, 3) +
                 '...' +
                 account.toString().substring(account.length - 3)}
+            </div>
             </div>
           </Link>
         ) : (

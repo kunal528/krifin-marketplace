@@ -1,5 +1,13 @@
-@media (max-width: 768px) {
+.mapmaincontainer{
+  margin-bottom: 100px;
+  margin-left: 40px;
+}
+@media (max-width: 900px) {
   .mapcontain {
     width: 500px;
+  }
+  .mapmaincontainer{
+    margin-bottom: 180px;
+    margin-left: 40px;
   }
 }
