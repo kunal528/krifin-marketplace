@@ -1,9 +1,14 @@
 import React from 'react'
 import styles from '../../styles/About.module.css';
 import Layout from '../../components/Layout';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import Search from '../../components/Search/Search';
 
 const About = () => {
     return (
+        <div>
+            <Navbar />
         <div className={styles.container}>
             <div className={styles.mainSection}>
                 <div className={styles.content}>
@@ -73,7 +78,7 @@ const About = () => {
                         Benefits
                     </div>
                     <div className={styles.contentDescription}>
-                        <ol>
+                        <ol className={styles.listItems}>
                             <li>Invest with the world’s largest blockchain-powered marketplace for Luxury asset NFTs worldwide.</li>
                             <li>Users can easily buy, trade and hold non-fungible tokens (NFT) which are fully asset backed by real-world assets.</li>
                             <li>All the tangible assets are physically stored in a high-security vault in Liechtenstein and are insured by Lloyd’s London.</li>
@@ -158,11 +163,11 @@ const About = () => {
                 The best option for you will depend on your individual circumstances and goals. If you need to access cash quickly, an NFT loan may be a good option. However, if you are looking to raise capital for a long-term project, NFT equity may be a better choice.
             </div>
         </div>
+        <div className={styles.footerClass}>
+        <Footer />
+        </div>
+        </div>
     )
 }
 
 export default About
-
-About.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>
-}
