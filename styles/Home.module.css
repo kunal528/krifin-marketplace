@@ -1294,6 +1294,12 @@
     cursor: pointer;
     margin-left: 50px;
     }
+
+    .footerClass{
+      /* margin-bottom: -200px; */
+      margin-left: -80px;
+      /* margin-right: -100px; */
+    }
     
   }
 

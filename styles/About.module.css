@@ -2,6 +2,10 @@
   padding: 75px 115px;
 }
 
+.searchClass{
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
 .mainSection {
   display: flex;
   justify-content: center;
@@ -274,7 +278,7 @@
     margin-bottom: 35px;
     margin-top: 100px;
     /* margin-right: -100px; */
-    /* margin-left: 100px; */
+    margin-left: 0px;
   }
   
   .verticalDivider{
@@ -316,7 +320,7 @@
     text-align: justify;
     margin-bottom: 80px;
     /* margin-right: -100px; */
-    /* margin-left: 100px; */
+    margin-left: 0px;
   }
 }
 
@@ -332,7 +336,9 @@
     align-items: center;
     justify-content: center;
   }
-
+  .searchClass{
+    display: none;
+  }
   
   .content{
     max-width: 700px;
@@ -500,11 +506,11 @@
     letter-spacing: 0em;
     text-align: justify;
     margin-bottom: 80px;
-    /* margin-right: -100px; */
     margin-left: 0px;
   }
   .footerClass{
-    margin-left: -90px;
+    margin-left: -130px;
     font-size: 20px;
+    margin-bottom: -50px;
   }
 }

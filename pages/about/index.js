@@ -9,6 +9,9 @@ const About = () => {
     return (
         <div>
             <Navbar />
+            <div className={styles.searchClass}>
+                <Search />
+            </div>
         <div className={styles.container}>
             <div className={styles.mainSection}>
                 <div className={styles.content}>

@@ -8,6 +8,9 @@ import AssetCards from '../components/cards/AssetCards';
 import TopInvestCard from '../components/cards/TopInvestCard';
 import Link from 'next/link';
 import Image from 'next/image';
+import Navbar from '../components/Navbar/Navbar';
+import Search from '../components/Search/Search';
+import Footer from '../components/Footer/Footer';
 export default function Home() {
   const [filters, setFilters] = useState([
     { name: 'All Categories', selected: true },
@@ -22,6 +25,11 @@ export default function Home() {
 
   })
   return (
+    <div>
+      <Navbar />
+      <div className={styles.searchClass}>
+        <Search />
+      </div>
     <div className={styles.mainClass}>
       <div className={styles.mainSection}>
         <div>
@@ -213,9 +221,9 @@ export default function Home() {
         </div>
       </div>
     </div>
+    <div className={styles.footerClass}>
+      <Footer />
+    </div>
+    </div>
   )
 }
-
-Home.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
-};

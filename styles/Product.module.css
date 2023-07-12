@@ -1,9 +1,17 @@
 .container {
-  padding: 0 110px;
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  margin: 50px 50px;
+  gap: 20px;
+}
+
+.nftProfile{
+  width: 40vw;
+}
+
+.searchClass{
+  margin-top: 100px;
+  margin-bottom: -50px;
 }
 
 .name {
@@ -18,7 +26,7 @@
 .image {
   border: 2px solid #ffffff;
   border-radius: 40px;
-  height: 688px;
+  height: 80vh;
   width: 100%;
   object-fit: cover;
   margin-bottom: 50px;
@@ -29,16 +37,19 @@
   font-weight: 400;
   line-height: 21px;
   letter-spacing: 0em;
-  text-align: center;
+  text-align: justify;
 }
 
 .card {
   padding: 50px 50px;
   text-align: center;
+  width: 100%;
   flex: 1;
   background: #151515;
   border: 1px solid white;
   border-radius: 30px;
+  margin: 0px;
+  margin-top: 60px;
 }
 
 .header {
@@ -148,4 +159,212 @@
   letter-spacing: 0em;
   text-align: left;
   cursor: pointer;
+}
+
+@media(max-width: 900px){
+  .searchClass{
+    width: 100vw;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    margin: 50px 50px;
+    gap: 20px;
+  }
+  .nftProfile{
+    width: 50vw;
+  }
+  .card {
+    padding: 30px 30px;
+    text-align: center;
+    width: 60vw;
+    flex: 1;
+    background: #151515;
+    border: 1px solid white;
+    border-radius: 30px;
+    margin: 0px;
+    margin-top: 60px;
+  }
+  .subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: justify;
+    margin-bottom: 60px;
+  }
+  .footerClass{
+    margin-top: 150px;
+  }
+}
+
+@media(max-width: 400px){
+  .searchClass{
+    margin-left: -100px;
+    /* margin-right: 1000px; */
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin-left: 150px;
+  }
+  .nftProfile{
+    width: 100vw;
+  }
+  .name {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29px;
+    letter-spacing: 0.22em;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .image {
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    height: 30vh;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 50px;
+  }
+  
+  .description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: justify;
+  }
+  .card {
+    padding: 30px 30px;
+    text-align: center;
+    width: 100vw;
+    flex: 1;
+    background: #151515;
+    border: 1px solid white;
+    border-radius: 30px;
+    margin: 0px;
+    margin-top: 60px;
+  }
+  
+  .header {
+    color: #06dbac;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0.22em;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: justify;
+    margin-bottom: 60px;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .divider {
+    border: 1px solid #ffffff;
+    width: 100%;
+    margin: 40px 0px;
+  }
+  
+  .stats {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .statTitle {
+    font-size: 15px;
+    font-weight: 550;
+    line-height: 21px;
+    color: #06dbac;
+    text-align: left;
+    margin-bottom: 50px;
+    height: 50%;
+  }
+  
+  .statDesc {
+    font-size: 13px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    height: 50%;
+  }
+  
+  .price {
+    padding: 10px 10px;
+    border-radius: 15px;
+    background: #323232;
+  
+    font-size: 12px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  
+  .buttonSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 60px;
+  }
+  
+  
+  .input {
+    background: #2c2c2c;
+    outline: none;
+    border: none;
+    flex: 1;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    border-radius: 10px;
+    text-align: left;
+    padding: 5px 10px;
+    color: white;
+  }
+  
+  .input::placeholder {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #b2b2b2;
+  }
+  
+  .buy {
+    background: linear-gradient(99.74deg, #5539a8 5.23%, #bd00ff 92.7%);
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    padding: 10px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: center;
+    cursor: pointer;
+  }
+  .footerClass{
+    margin-left: -100px;
+    margin-top: 200px;
+  }
 }
