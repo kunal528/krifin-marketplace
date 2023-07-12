@@ -65,3 +65,27 @@
     width: 480px;
   }
 }
+
+@media (max-width: 400px){
+  .container {
+    padding: 0 2rem;
+    width: 100vw;
+  }
+  
+  .discoverSection {
+    padding: 0 110px;
+    margin-bottom: 100px;
+  }
+  .filters{
+    display: none;
+  }
+  .nfts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    justify-content: center;
+    margin-bottom: 60px;
+    width: 480px;
+    margin-left: 0px;
+  }
+}

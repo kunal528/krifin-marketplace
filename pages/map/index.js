@@ -4,6 +4,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import styles from '../../styles/Map.module.css'
 import Image from 'next/image';
 import Layout from '../../components/Layout';
+import Footer from '../../components/Footer/Footer';
+import Search from '../../components/Search/Search';
 
 // import styles from '../../styles/Map.module.css'
 const MapComponent = () => {
@@ -29,7 +31,10 @@ const MapComponent = () => {
     
   return (
     <div >
-        {/* <Navbar /> */}
+        <Navbar />
+        <div className={styles.searchClass}>
+          <Search />
+        </div>
         <div className={styles.content}>
         <div className={styles.data}>
         <p style={{fontSize: '30px'}}>CADASTRAL MAPPING </p>
@@ -66,11 +71,14 @@ const MapComponent = () => {
         
       </div>
       </div>
+      <div className={styles.footerClass}>
+        <Footer />
+      </div>
     </div>
   )
 }
 
 export default MapComponent
-MapComponent.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
-}
+// MapComponent.getLayout = function getLayout(page) {
+//   return <Layout>{page}</Layout>
+// }

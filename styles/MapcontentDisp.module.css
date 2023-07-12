@@ -1,13 +1,32 @@
+.mapcontain {
+  height: 65vh;
+  width: 80vw;
+  border-radius: 20px;
+}
 .mapmaincontainer{
   margin-bottom: 100px;
   margin-left: 40px;
 }
 @media (max-width: 900px) {
   .mapcontain {
-    width: 500px;
+    height: 65vh;
+    width: 80vw;
+    border-radius: 20px;
   }
   .mapmaincontainer{
     margin-bottom: 180px;
     margin-left: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mapcontain {
+    height: 50vh;
+    width: 100vw;
+    border-radius: 20px;
+  }
+  .mapmaincontainer{
+    margin-bottom: 250px;
+    margin-left: 0px;
   }
 }
