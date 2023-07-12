@@ -4,6 +4,9 @@ import styles from '../../styles/Invest.module.css'
 import Layout from '../../components/Layout'
 import useWeb3 from '../../lib/useWeb3'
 import useFirebase from '../../lib/useFirebase'
+import Navbar from '../../components/Navbar/Navbar'
+import Search from '../../components/Search/Search'
+import Footer from '../../components/Footer/Footer'
 
 const Invest = () => {
     const [filters, setFilters] = useState([
@@ -30,6 +33,11 @@ const Invest = () => {
 
 
     return (
+        <div>
+            <Navbar />
+            <div className={styles.searchClass}>
+                <Search />
+            </div>
         <div className={styles.container}>
             <div className={styles.discoverSection}>
                 <div className={styles.filters}>
@@ -49,15 +57,11 @@ const Invest = () => {
                 </div>
             </div>
         </div>
+        <div className={styles.footerClass}>
+                <Footer />
+            </div>
+        </div>
     )
 }
 
 export default Invest
-
-Invest.getLayout = function getLayout(page) {
-    return (
-        <Layout>
-            {page}
-        </Layout>
-    )
-}
