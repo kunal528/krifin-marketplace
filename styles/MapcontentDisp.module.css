@@ -21,8 +21,8 @@
 
 @media (max-width: 400px) {
   .mapcontain {
-    height: 50vh;
-    width: 100vw;
+    height: 60vh;
+    width: 120vw;
     border-radius: 20px;
   }
   .mapmaincontainer{

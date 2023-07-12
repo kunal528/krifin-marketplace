@@ -81,13 +81,14 @@
     padding: 0 0px;
     font-size: 20px;
     text-align: left;
-    margin-left: 60px;
+    margin-left: 90px;
     flex-grow: 1;
     /* margin: 100px auto; */
     /* margin-right: 100px; */
 }
 .mapContent{
   text-align: justify;
+  width: 100%;
 }
 
 .filters{
@@ -98,9 +99,10 @@
   }
 
   .searchClass{
-    margin-left: -90px;
+    margin-left: -60px;
   }
   .footerClass{
-    margin-left: -80px;
+    margin-left: -130px;
+    margin-bottom: -30px;
   }
 }

@@ -5,7 +5,7 @@ import Link from 'next/link'
 const Footer = () => {
     return (
         <div className={styles.container}>
-            <div style={{ maxWidth: '500px' }}>
+            <div>
                 <img src="/png/logo.png" alt="Logo" className={styles.logo} />
                 <div className={styles.description}>The world’s first and largest digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive digital items.</div>
                 <div className={styles.socials}>

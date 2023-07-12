@@ -78,7 +78,7 @@ const Map = () => {
   }, [mapping]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div style={{marginBottom: '250px', marginTop: '250px'}}>Loading...</div>;
   }
 
   return (
