@@ -31,8 +31,13 @@ const Product = () => {
     }
 
     if (!nft) {
-        return <div>Loading</div>
-    }
+        return (
+          <div className={styles.loading}>
+            <div className={styles.loader} />
+            <h3 style={{marginLeft: '30px'}}>Loading</h3>
+          </div>
+        );
+      }
     return (
         <div>
             <Navbar />

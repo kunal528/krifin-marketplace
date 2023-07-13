@@ -55,16 +55,16 @@ export default function Home() {
         </div>
         <img src="./png/home.png" alt="Hero" />
       </div>
-      <div className={styles.discoverSection}>
-        <div className={styles.discoverHeader}>Discover more Assets</div>
-        <div className={styles.filters}>
+      {/* <div className={styles.discoverSection}>
+        <div className={styles.discoverHeader}>Discover more Assets</div> */}
+        {/* <div className={styles.filters}>
           {
             filters.map((filter, index) => (
               <div key={index} className={styles.filter + ' ' + (filter.selected && styles.active)}>{filter.name}</div>
             ))
           }
-        </div>
-        <div className={styles.nfts}>
+        </div> */}
+        {/* <div className={styles.nfts}>
           {
             Array(12).fill(0).map((_, index) => (
               <NFTCard key={index} nft={{
@@ -90,11 +90,11 @@ export default function Home() {
             ))
           }
 
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        </div> */}
+        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Link href="/invest"><div className={styles.buttonOutlined}>More NFTs</div></Link>
         </div>
-      </div>
+      </div> */}
       <div className={styles.benefitsSection}>
         <div className={styles.benefitsHeader}>Why invest with us?</div>
         <div className={styles.allbenefits}>

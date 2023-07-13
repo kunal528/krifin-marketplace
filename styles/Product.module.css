@@ -160,6 +160,26 @@
   text-align: left;
   cursor: pointer;
 }
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 @media(max-width: 900px){
   .searchClass{
@@ -200,7 +220,7 @@
 
 @media(max-width: 400px){
   .searchClass{
-    margin-left: -100px;
+    margin-left: -70px;
     /* margin-right: 1000px; */
   }
   .container {
@@ -210,7 +230,7 @@
     align-items: center;
     justify-content: center;
     padding: 0px;
-    margin-left: 150px;
+    margin-left: 200px;
   }
   .nftProfile{
     width: 100vw;
@@ -234,9 +254,9 @@
   }
   
   .description {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 25px;
     letter-spacing: 0em;
     text-align: justify;
   }
@@ -265,7 +285,7 @@
   .subtitle {
     font-size: 16px;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 23px;
     letter-spacing: 0em;
     text-align: justify;
     margin-bottom: 60px;
@@ -354,8 +374,10 @@
     background: linear-gradient(99.74deg, #5539a8 5.23%, #bd00ff 92.7%);
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     border-radius: 20px;
-    padding: 10px 10px;
+    padding: 5px 5px;
     font-size: 12px;
     font-weight: 500;
     line-height: 12px;
@@ -364,7 +386,7 @@
     cursor: pointer;
   }
   .footerClass{
-    margin-left: -100px;
+    margin-left: -150px;
     margin-top: 200px;
   }
 }
