@@ -4,7 +4,7 @@ import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { useState, useEffect } from 'react';
 import styles from '../../styles/MapcontentDisp.module.css';
-import useFirebase from '../../lib/useFirebase';
+
 import { useRouter } from 'next/router';
 
 const Map = ({ allnftsdata }) => {

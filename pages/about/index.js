@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/About.module.css';
-import Layout from '../../components/Layout';
+
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Search from '../../components/Search/Search';

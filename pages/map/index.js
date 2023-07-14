@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react'
 import dynamic from "next/dynamic";
 import Navbar from '../../components/Navbar/Navbar';
 import styles from '../../styles/Map.module.css'
-import Image from 'next/image';
-import Layout from '../../components/Layout';
+
 import Footer from '../../components/Footer/Footer';
-import Search from '../../components/Search/Search';
+
 import useFirebase from '../../lib/useFirebase';
 
-// import styles from '../../styles/Map.module.css'
 const MapComponent = () => {
   const [allnftsdata, setAllnftsdata] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -128,6 +126,4 @@ const MapComponent = () => {
 }
 
 export default MapComponent
-// MapComponent.getLayout = function getLayout(page) {
-//   return <Layout>{page}</Layout>
-// }
+

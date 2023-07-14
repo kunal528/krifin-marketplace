@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from '../../styles/Product.module.css'
-import Layout from '../../components/Layout'
+
 import useFirebase from '../../lib/useFirebase'
 import useWeb3 from '../../lib/useWeb3'
 import { useRouter } from 'next/router'

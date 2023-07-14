@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/Contact.module.css'
-import Layout from '../../components/Layout'
+
 import Footer from '../../components/Footer/Footer'
 import Navbar from '../../components/Navbar/Navbar'
 
