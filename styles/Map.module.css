@@ -126,4 +126,10 @@
     margin-left: -130px;
     margin-bottom: -30px;
   }
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+  }
 }
