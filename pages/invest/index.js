@@ -14,7 +14,7 @@ const Invest = () => {
     { name: "Land", selected: false },
     { name: "Commercial REITs", selected: false },
     { name: "Residential REITs", selected: false },
-    { name: "Office rental", selected: false },
+    { name: "Office REITs", selected: false },
     { name: "Home rental", selected: false },
     { name: "Show more +", selected: false },
   ]);

@@ -5,15 +5,13 @@ import "leaflet-defaulticon-compatibility";
 import { useState, useEffect } from 'react';
 import styles from '../../styles/MapcontentDisp.module.css';
 import useFirebase from '../../lib/useFirebase';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const Map = () => {
+const Map = ({ allnftsdata }) => {
   const [lati, setLati] = useState([]);
   const [long, setLong] = useState([]);
   const [mapping, setMapping] = useState({});
   const [loading, setLoading] = useState(true);
-  const {getNFTs, filterNFTs} = useFirebase();
   const [data, setData] = useState([])
   const [itemId, setItemId] = useState([]);
   const router = useRouter();
@@ -57,9 +55,8 @@ const Map = () => {
   
   useEffect(() => {
     let isMounted = true; // Flag to check if the component is still mounted
-    const fetchData = async () => {
-      const allnfts = await getNFTs();
-      setData(allnfts)
+    const fetchData = () => {
+      setData(allnftsdata)
       if (isMounted) {
         setLoading(false);
       }
