@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from '../../styles/Product.module.css'
-import Layout from '../../components/Layout'
+
 import useFirebase from '../../lib/useFirebase'
 import useWeb3 from '../../lib/useWeb3'
 import { useRouter } from 'next/router'
@@ -31,8 +31,13 @@ const Product = () => {
     }
 
     if (!nft) {
-        return <div>Loading</div>
-    }
+        return (
+          <div className={styles.loading}>
+            <div className={styles.loader} />
+            <h3 style={{marginLeft: '30px'}}>Loading</h3>
+          </div>
+        );
+      }
     return (
         <div>
             <Navbar />

@@ -1,13 +1,9 @@
 import styles from '../styles/Home.module.css'
-import data from '../data/Data.json'
-import Layout from '../components/Layout';
 import { useEffect, useState } from 'react';
-import NFTCard from '../components/cards/NFTCard';
-// import Image from 'next/image';
+
 import AssetCards from '../components/cards/AssetCards';
 import TopInvestCard from '../components/cards/TopInvestCard';
-import Link from 'next/link';
-import Image from 'next/image';
+
 import Navbar from '../components/Navbar/Navbar';
 import Search from '../components/Search/Search';
 import Footer from '../components/Footer/Footer';
@@ -54,46 +50,6 @@ export default function Home() {
           </div>
         </div>
         <img src="./png/home.png" alt="Hero" />
-      </div>
-      <div className={styles.discoverSection}>
-        <div className={styles.discoverHeader}>Discover more Assets</div>
-        <div className={styles.filters}>
-          {
-            filters.map((filter, index) => (
-              <div key={index} className={styles.filter + ' ' + (filter.selected && styles.active)}>{filter.name}</div>
-            ))
-          }
-        </div>
-        <div className={styles.nfts}>
-          {
-            Array(12).fill(0).map((_, index) => (
-              <NFTCard key={index} nft={{
-                "id": 1,
-                "name": "Taj Mahal",
-                "image": "https://images.pexels.com/photos/3881104/pexels-photo-3881104.jpeg?auto=compress&cs=tinysrgb&w=600",
-                "address": "",
-                "assetType": "utility",
-                "perNFTvalue": "980.00",
-                "pretaxYield": "20.5",
-                "AE": 1,
-                "AEStablePeriod": "",
-                "RepaymentSession": "",
-                "Developer": "",
-                "CurrentMajorHolder": "",
-                "Management": "",
-                "city": "Delhi",
-                "country": "India",
-                "Description": "",
-                "CalltoAction": "",
-                "type": "Premium"
-              }} />
-            ))
-          }
-
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <Link href="/invest"><div className={styles.buttonOutlined}>More NFTs</div></Link>
-        </div>
       </div>
       <div className={styles.benefitsSection}>
         <div className={styles.benefitsHeader}>Why invest with us?</div>
