@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NFTCard from "../../components/cards/NFTCard";
 import styles from "../../styles/Invest.module.css";
-import Layout from "../../components/Layout";
-import useWeb3 from "../../lib/useWeb3";
+
 import useFirebase from "../../lib/useFirebase";
 import Navbar from "../../components/Navbar/Navbar";
 import Search from "../../components/Search/Search";
