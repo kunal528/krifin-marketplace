@@ -15,9 +15,9 @@ const Map = ({ allnftsdata }) => {
   const [data, setData] = useState([])
   const [itemId, setItemId] = useState([]);
   const router = useRouter();
-  
 
-  useEffect(()=>{
+
+  useEffect(() => {
     console.log("data updated is:", data);
     const displayData = async () => {
       // data here is basically from the database
@@ -51,8 +51,8 @@ const Map = ({ allnftsdata }) => {
       }
     }
     displayData();
-  },[data])
-  
+  }, [data])
+
   useEffect(() => {
     let isMounted = true; // Flag to check if the component is still mounted
     const fetchData = () => {
@@ -95,13 +95,13 @@ const Map = ({ allnftsdata }) => {
 
   if (loading) {
     <div className={styles.loading}>
-              <div className={styles.loader} />
-              <h3 style={{marginLeft: '30px'}}>Loading</h3>
+      <div className={styles.loader} />
+      <h3 style={{ marginLeft: '30px' }}>Loading</h3>
     </div>
   }
 
   return (
-    <div className={styles.mapmaincontainer}> 
+    <div className={styles.mapmaincontainer}>
       <MapContainer className={styles.mapcontain} center={[23.054805, 72.5964358]} zoom={10} scrollWheelZoom={true}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -115,19 +115,19 @@ const Map = ({ allnftsdata }) => {
             animate={true}
           >
             <Popup>
-  {mapping[`${lat},${long[i]}`] && mapping[`${lat},${long[i]}`].map((obj, j) => {
-    console.log("obj is:", obj);
-    return (
-      <div className={styles.card} onClick={() => handleCardClick(obj.id)}>
-        <img src={obj.image} alt={obj.name} height="100px" width="100px" style={{borderRadius: '20px', border: '3px solid black'}}/>
-        <div className={styles.content}>
-          <div style={{fontSize: '20px', fontWeight: '500'}}>{obj.name}</div>
-          <div style={{fontSize: '15px', fontWeight: '350', marginTop: '20px'}}>{obj.assetType}</div>
-        </div>
-      </div>
-    );
-  })}
-</Popup>
+              {mapping[`${lat},${long[i]}`] && mapping[`${lat},${long[i]}`].map((obj, j) => {
+                console.log("obj is:", obj);
+                return (
+                  <div key={i} className={styles.card} onClick={() => handleCardClick(obj.id)}>
+                    <img src={obj.image} alt={obj.name} height="100px" width="100px" style={{ borderRadius: '20px', border: '3px solid black' }} />
+                    <div className={styles.content}>
+                      <div style={{ fontSize: '20px', fontWeight: '500' }}>{obj.name}</div>
+                      <div style={{ fontSize: '15px', fontWeight: '350', marginTop: '20px' }}>{obj.assetType}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </Popup>
           </Marker>
         ))}
       </MapContainer>
