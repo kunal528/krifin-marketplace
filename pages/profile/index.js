@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import UserNFTCard from '../../components/cards/UserNFTCard'
 import userData from '../../data/Userdata.json'
-import Image from 'next/image'
+
 import styles from '../../styles/Profile.module.css'
-import Layout from '../../components/Layout'
+
+import Footer from '../../components/Footer/Footer'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Profile = () => {
 
@@ -12,24 +14,13 @@ const Profile = () => {
     { name: 'Favourites (43)', selected: false },
     { name: 'My Activity', selected: false },
   ])
-  // const [userERC1155Tokens, setUserERC1155Tokens] = useState([]);
-  // const { getUserERC1155Tokens } = useWeb3();
-  // useEffect(() => {
-  //   const fetchUserERC1155Tokens = async () => {
-  //     const tokens = await getUserERC1155Tokens();
-  //     setUserERC1155Tokens(tokens);
-  //   };
-
-  //   fetchUserERC1155Tokens();
-  // }, []);
+  
   return (
     <div style={{width: '100vw'}}>
-      {/* <div className={styles.assets}>
-        {userERC1155Tokens.map((token, i) => (
-          // Render each ERC1155 token
-          <UserNFTCard key={i} token={token} />
-        ))}
-      </div> */}
+      <div className={styles.navClass}>
+        <Navbar />
+      </div>
+      
       {userData.map((data, i) => (
         <div key={'dashboard'} className={styles.main}>
           <img src="/png/banner.png" className={styles.banner} alt="banner image" />
@@ -53,13 +44,11 @@ const Profile = () => {
         </div>
       ))}
 
-
+              <div className={styles.footerClass}>
+              <Footer />
+              </div>
     </div>
   )
 }
 
 export default Profile
-
-Profile.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
-}

@@ -139,8 +139,35 @@
     transition: all 0.5s ease;
   }
 
-  @media (max-width: 1300px) {
-    
+  @media (max-width: 800px) {
+    .container {
+      padding: 30px 10px;
+      
+      /* padding-top: 50px; */
+    }
+    .logo{
+      height: 40px;
+      width: 200px;
+      margin-top: 10px;
+    }
+    .menuItem {
+      display: none;
+      z-index: 2;
+      position: absolute;
+    }
+    .hiddendropdownItem{
+        display: block;
+        text-align: center;
+    }
+    .mobileMenu {
+      top: 30px;
+    }
+    .dropdownItem {
+      font-size: 15px;
+    }
+    .dropdownHeader{
+      font-size: 15px;
+    } 
   }
   
   @media (max-width: 400px) {

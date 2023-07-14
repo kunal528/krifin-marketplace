@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import styles from '../../styles/Product.module.css'
-import Layout from '../../components/Layout'
+
 import useFirebase from '../../lib/useFirebase'
 import useWeb3 from '../../lib/useWeb3'
 import { useRouter } from 'next/router'
+import Navbar from '../../components/Navbar/Navbar'
+import Search from '../../components/Search/Search'
+import Footer from '../../components/Footer/Footer'
 
 const Product = () => {
     const [quantity, setQuantity] = React.useState(0)
@@ -28,11 +31,21 @@ const Product = () => {
     }
 
     if (!nft) {
-        return <div>Loading</div>
-    }
+        return (
+          <div className={styles.loading}>
+            <div className={styles.loader} />
+            <h3 style={{marginLeft: '30px'}}>Loading</h3>
+          </div>
+        );
+      }
     return (
+        <div>
+            <Navbar />
+            <div className={styles.searchClass}>
+                <Search />
+            </div>
         <div className={styles.container}>
-            <div style={{ maxWidth: '592px' }}>
+            <div className={styles.nftProfile}>
                 <div className={styles.name}>{nft.name}</div>
                 <img src={nft.image} alt="Picture of the author" className={styles.image} />
                 <div className={styles.description}>{nft.description}</div>
@@ -114,11 +127,11 @@ const Product = () => {
             </div>
 
         </div>
+        <div className={styles.footerClass}>
+                <Footer />
+            </div>
+        </div>
     )
 }
 
 export default Product
-
-Product.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>
-}

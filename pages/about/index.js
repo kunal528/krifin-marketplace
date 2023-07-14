@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/About.module.css';
-import Layout from '../../components/Layout';
+
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Search from '../../components/Search/Search';
@@ -9,6 +9,9 @@ const About = () => {
     return (
         <div>
             <Navbar />
+            <div className={styles.searchClass}>
+                <Search />
+            </div>
         <div className={styles.container}>
             <div className={styles.mainSection}>
                 <div className={styles.content}>

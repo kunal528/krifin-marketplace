@@ -3,48 +3,60 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import "leaflet-defaulticon-compatibility";
 import { useState, useEffect } from 'react';
-import data from '../../data/Data.json';
 import styles from '../../styles/MapcontentDisp.module.css';
 
-const Map = () => {
+import { useRouter } from 'next/router';
+
+const Map = ({ allnftsdata }) => {
   const [lati, setLati] = useState([]);
   const [long, setLong] = useState([]);
   const [mapping, setMapping] = useState({});
   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([])
+  const [itemId, setItemId] = useState([]);
+  const router = useRouter();
+
 
   useEffect(() => {
-    let isMounted = true; // Flag to check if the component is still mounted
-
-    const fetchData = async () => {
+    console.log("data updated is:", data);
+    const displayData = async () => {
       // data here is basically from the database
       for (const item of data) {
-        if (item.type === "Premium") {
+        if (item.assetType === "Premium") {
           await new Promise((resolve) => setTimeout(resolve, 300)); // Add 0.3-second delay
-          const res = await fetch(`https://geocode.maps.co/search?q=${item.name}+${item.City}+${item.State}+${item.Pincode}+${item.Country}`);
+          const res = await fetch(`https://geocode.maps.co/search?q=${item.name}+${item.city}+${item.state}+${item.pincode}+${item.country}`);
           const geoData = await res.json();
 
           if (geoData.length === 0) {
-            const res2 = await fetch(`https://geocode.maps.co/search?q=${item.City}+${item.State}+${item.Pincode}+${item.Country}`);
+            const res2 = await fetch(`https://geocode.maps.co/search?q=${item.city}+${item.state}+${item.pincode}+${item.country}`);
             const responseData = await res2.json();
             if (responseData && responseData.length > 0) {
               const { lat, lon } = responseData[0];
-              updateMapping(lat, lon, item.name, item.type, item.image);
+              updateMapping(lat, lon, item.name, item.assetType, item.image, item.id);
             }
           } else {
             if (geoData && geoData.length > 0) {
               const { lat, lon } = geoData[0];
-              updateMapping(lat, lon, item.name, item.type, item.image);
+              updateMapping(lat, lon, item.name, item.assetType, item.image, item.id);
             }
           }
-        } else if (item.type !== "Premium") {
-          const res = await fetch(`https://geocode.maps.co/search?q=${item.City}+${item.State}+${item.Pincode}+${item.Country}`);
+        } else if (item.assetType !== "Premium") {
+          const res = await fetch(`https://geocode.maps.co/search?q=${item.city}+${item.state}+${item.pincode}+${item.country}`);
           const responseData = await res.json();
           if (responseData && responseData.length > 0) {
             const { lat, lon } = responseData[0];
-            updateMapping(lat, lon, item.name, item.type, item.image);
+            updateMapping(lat, lon, item.name, item.assetType, item.image, item.id);
           }
         }
       }
+    }
+    displayData();
+  }, [data])
+
+  useEffect(() => {
+    let isMounted = true; // Flag to check if the component is still mounted
+    const fetchData = () => {
+      setData(allnftsdata)
       if (isMounted) {
         setLoading(false);
       }
@@ -54,10 +66,14 @@ const Map = () => {
     return () => {
       isMounted = false; // Set the flag to false when the component is unmounted
     };
-  }, [data]);
+  }, []);
+  const handleCardClick = (_id) => {
+    router.push(`/product/${_id}`);
+  };
 
-  const updateMapping = (lat, lon, name, type, image) => {
+  const updateMapping = (lat, lon, name, assetType, image, id) => {
     const key = `${lat},${lon}`;
+    setItemId((prevItemId) => [...prevItemId, id]);
     setLati((prevLati) => [...prevLati, lat]);
     setLong((prevLong) => [...prevLong, lon]);
     setMapping((prevMapping) => {
@@ -66,7 +82,7 @@ const Map = () => {
       if (!objectExists) {
         return {
           ...prevMapping,
-          [key]: [...existingObjects, { name, type, image }],
+          [key]: [...existingObjects, { name, assetType, image, id }],
         };
       }
       return prevMapping;
@@ -78,12 +94,15 @@ const Map = () => {
   }, [mapping]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    <div className={styles.loading}>
+      <div className={styles.loader} />
+      <h3 style={{ marginLeft: '30px' }}>Loading</h3>
+    </div>
   }
 
   return (
-    <div className={styles.mapmaincontainer}> 
-      <MapContainer className={styles.mapcontain} style={{ height: "65vh", width: "80vw", borderRadius: '20px' }} center={[40.8054, 4.0241]} zoom={4} scrollWheelZoom={true}>
+    <div className={styles.mapmaincontainer}>
+      <MapContainer className={styles.mapcontain} center={[23.054805, 72.5964358]} zoom={10} scrollWheelZoom={true}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
@@ -96,17 +115,18 @@ const Map = () => {
             animate={true}
           >
             <Popup>
-              {mapping[`${lat},${long[i]}`] && mapping[`${lat},${long[i]}`].map((obj, j) => (
-                <div key={j} className={styles.card}>
-                  <img src={obj.image} alt={obj.name} height="100px" width="100px" style={{borderRadius: '20px', border: '3px solid black'}}/>
-                  <div className={styles.content}>
-                  <div style={{fontSize: '20px', fontWeight: '500'}}>{obj.name}</div>
-                  <div style={{fontSize: '15px', fontWeight: '350', marginTop: '20px'}}>{obj.type}</div>
+              {mapping[`${lat},${long[i]}`] && mapping[`${lat},${long[i]}`].map((obj, j) => {
+                console.log("obj is:", obj);
+                return (
+                  <div key={i} className={styles.card} onClick={() => handleCardClick(obj.id)}>
+                    <img src={obj.image} alt={obj.name} height="100px" width="100px" style={{ borderRadius: '20px', border: '3px solid black' }} />
+                    <div className={styles.content}>
+                      <div style={{ fontSize: '20px', fontWeight: '500' }}>{obj.name}</div>
+                      <div style={{ fontSize: '15px', fontWeight: '350', marginTop: '20px' }}>{obj.assetType}</div>
+                    </div>
                   </div>
-                  
-                  
-                </div>
-              ))}
+                );
+              })}
             </Popup>
           </Marker>
         ))}

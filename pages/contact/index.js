@@ -1,9 +1,13 @@
 import React from 'react'
 import styles from '../../styles/Contact.module.css'
-import Layout from '../../components/Layout'
+
+import Footer from '../../components/Footer/Footer'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Contact = () => {
     return (
+        <div>
+            <Navbar />
         <div className={styles.container}>
             <div className={styles.header1}>CONTACT</div>
             <div className={styles.header2}>This platform also serves as the official metaverse mapping and authorisation platform for the metaverse council and we are responsible for assigning the metaverse ID to every web3 virtual world in the ecosystem. </div>
@@ -43,16 +47,13 @@ const Contact = () => {
                     <div className={styles.submitButton}>Submit</div>
                 </div>
             </div>
+            
+            </div>
+            <div className={styles.footerClass}>
+                <Footer />
+            </div>
         </div>
     )
 }
 
 export default Contact
-
-Contact.getLayout = function getLayout(page) {
-    return (
-        <Layout>
-            {page}
-        </Layout>
-    )
-}
