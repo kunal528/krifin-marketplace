@@ -9,19 +9,65 @@ import Footer from "../../components/Footer/Footer";
 
 const Invest = () => {
   const [filters, setFilters] = useState([
-    { name: "All Categories", selected: true },
-    { name: "Land", selected: false },
-    { name: "Commercial REITs", selected: false },
-    { name: "Residential REITs", selected: false },
-    { name: "Office REITs", selected: false },
-    { name: "Home rental", selected: false },
-    { name: "Show more +", selected: false },
+    { name: "All Categories", selected: true, isVisible: true },
+    { name: "Farm Estates", isVisible: true },
+    { name: "Coffee Estate", isVisible: true },
+    { name: "Orchards", isVisible: true },
+    { name: "Vineyards", isVisible: true },
+    { name: "Fiber farms", isVisible: true },
+    { name: "Forestry plantations" },
+    { name: "Timber plantations" },
+    { name: "Bamboo plantations" },
+    { name: "Rubber plantations" },
+    { name: "Palm oil plantations" },
+    { name: "Sugar cane plantations" },
+    { name: "Cotton plantations" },
+    { name: "Tea plantations" },
+    { name: "Cacao plantations" },
+    { name: "Herb medicinal plantations" },
+    { name: "Fruit plantations" },
+    { name: "Flower plantations" },
+    { name: "Cannabis farms" },
+    { name: "Maple sugar farms" },
+    { name: "Wildflower farms" },
+    { name: "Agritourism farms" },
+    { name: "Educational farms" },
+    { name: "Ecotourism farms" },
+    { name: "Research farms" },
+    { name: "Rehabilitation farms" },
+    { name: "Sustainable farms" },
+    { name: "Organic farms" },
+    { name: "Land" },
+    { name: "Commercial REITs" },
+    { name: "Residential REITs" },
+    { name: "Office REITs" },
+    { name: "Home rental" },
   ]);
 
   const { getNFTs, filterNFTs } = useFirebase();
 
   const [nfts, setNFTs] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const onHandleSelect = (name) => {
+    setFilters(prevFilters => {
+      let updatedFilters = [...prevFilters];
+      let filters = updatedFilters.filter(e => e.isVisible)
+
+      updatedFilters.find(filters => filters.selected).selected = false
+
+      updatedFilters.find(filter => filter.name == filters[filters.length - 1].name).isVisible = false;
+
+      let clickedFilter = updatedFilters.find(filter => filter.name === name);
+
+      if (clickedFilter) {
+        clickedFilter.isVisible = true;
+        clickedFilter.selected = true;
+      }
+
+      return updatedFilters;
+    });
+  }
 
   useEffect(() => {
     fetchData();
@@ -74,7 +120,7 @@ const Invest = () => {
       <div className={styles.container}>
         <div className={styles.discoverSection}>
           <div className={styles.filters}>
-            {filters.map((filter, index) => (
+            {filters.filter(e => e.isVisible).map((filter, index) => (
               <div
                 key={index}
                 className={
@@ -91,13 +137,36 @@ const Invest = () => {
                 {filter.name}
               </div>
             ))}
+            <div className={styles.dropdown}>
+              <div
+                className={
+                  styles.filter
+                }
+                onClick={() => {
+
+                }}
+              >
+                Show More +
+              </div>
+              <select
+                className={styles.showMoreButton}
+                onChange={(e) => {
+                  onHandleSelect(e.target.value)
+                  getParticularNFT(e.target.value);
+                }}
+              >
+                {filters.filter(e => !e.isVisible).map((option, index) => (
+                  <option key={index} value={option.name}>{option.name}</option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className={styles.nfts}>
             {loading ? (
               <div className={styles.loading}>
-              <div className={styles.loader} />
-              <h3 style={{marginLeft: '30px'}}>Loading</h3>
-            </div>
+                <div className={styles.loader} />
+                <h3 style={{ marginLeft: '30px' }}>Loading</h3>
+              </div>
             ) : nfts.length ? (
               nfts.map((nft, index) => (
                 <NFTCard key={index} nft={nft} />

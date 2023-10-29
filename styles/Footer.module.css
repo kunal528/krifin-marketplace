@@ -97,30 +97,36 @@
   align-items: center;
   cursor: pointer;
 }
+
+.footerCol {
+  max-width: 500px;
+}
 .footerAlignment{
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   /* justify-content: space-between; */
-  gap: 120px;
+  gap: 60px;
   /* width: 200px; */
 }
 .footerOptionlist{
   margin-left: 0px;
+  min-width: fit-content;
   /* padding: 25px; */
   /* padding: 0px 30px; */
-  width: 100px;
 }
 
-@media (max-width: 900px){
+@media screen and (max-width: 1000px){
+  .footerCol{ 
+    flex: 1;
+    max-width: auto;
+  }
   .container{
     /* flex-direction: column; */
     flex-wrap: wrap;
     flex-direction: column;
     /* width: 890px; */
     padding: 30px 55px;
-    margin-left: 180px;
-    margin-top: -100px;
     /* width: 100%; */
     /* margin: auto; */
     /* font-size: 100px; */
@@ -161,92 +167,3 @@
   }
 }
 
-@media (max-width: 400px){
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    margin-bottom: 100px;
-  }
-  .description {
-    font-size: 20px;
-    line-height: 30px;
-    color: #565656;
-    margin-bottom: 50px;
-    flex-grow: 1;
-    width: 100vw;
-  }
-  .header {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 23px;
-    letter-spacing: 0em;
-    color: white;
-    margin-bottom: 30px;
-  }
-  .menuItem {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 28px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #3d3d3d;
-    margin-bottom: 15px;
-    cursor: pointer;
-  }
-  .footerOptionlist{
-    width: 100%; 
-  }
-  .footerAlignment{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-evenly;
-  }
-  .inputBox {
-    display: flex;
-    align-items: center;
-    border-radius: 45px;
-    padding: 7px;
-    background: #fff;
-  }
-  
-  .input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    flex: 1;
-    outline: none;
-    padding: 3px 10px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #3d3d3d;
-    border-radius: 45px;
-  }
-  
-  .input::placeholder {
-    color: #959595;
-  }
-  
-  .button {
-    padding: 10px 21px;
-    border: none;
-    outline: none;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0.065em;
-  
-    background: #3d00b7;
-    border-radius: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  
-}

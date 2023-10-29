@@ -4,171 +4,131 @@ import styles from '../../styles/About.module.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Search from '../../components/Search/Search';
+import Link from 'next/link';
 
 const About = () => {
+
+    const krifinBenefits = [
+        "Co-investment: Krifin's co-investment model allows even small investors to get involved in land and agriculture projects.",
+        "Decentralized finance: Krifin uses blockchain technology to create a more transparent and efficient investment process.",
+        "Global reach: Krifin is open to investors from all over the world.",
+        "Wide range of projects: Krifin offers a wide range of land and agriculture projects to invest in.",
+        "Expert team: Krifin has a team of experts in land and agriculture who can help you make informed investment decisions.",
+        "Carbon Sequestration: Krifin partners with agriculture experts to assess the carbon sequestration potential of its land and agriculture projects and generates carbon credits based on the amount of carbon that its projects sequester."
+    ];
     return (
         <div>
             <Navbar />
             <div className={styles.searchClass}>
                 <Search />
             </div>
-        <div className={styles.container}>
-            <div className={styles.mainSection}>
-                <div className={styles.content}>
-                    <div className={styles.title}>
-                        Buy, Sell And Invest In Luxury Assets Tokens
+            <div className={styles.container}>
+                <div className={styles.mainSection}>
+                    <div className={styles.content}>
+                        <div className={styles.title}>
+                            Land Investments – Sustainable, responsible and  Low Risk Returns
+                        </div>
+                        <div className={styles.description}>
+                            Invest with Asia’s first Land Co-Investment Platform - Krifin and invest one of the most stable and highest return asset classes over the last decade.
+                        </div>
+                        <div style={{ display: 'flex' }}>
+                            <Link href={"/invest"} className={styles.button}>Invest Now</Link>
+                        </div>
                     </div>
-                    <div className={styles.description}>
-                        The world’s first asset - backed NFT marketplace for real  world  luxury assets with ROI where you can buy with your credit card
-                    </div>
-                    <div style={{ display: 'flex' }}>
-                        <div className={styles.button}>Shop Now</div>
-                    </div>
+                    <img src='/png/about-image-1.png' />
                 </div>
-                <img src='/png/about-image-1.png' />
-            </div>
-            <div className={styles.contentSection}>
-                <div className={styles.sectionContent}>
-                    <div className={styles.index}>01</div>
-                    <div className={styles.krifinSection}>
-                        <div className={styles.dash} />
-                        <div className={styles.krifinTitle}>House of Krifin</div>
+                <div className={styles.contentSection}>
+                    <div className={styles.sectionContent}>
+                        <div className={styles.index}>01</div>
+                        <div className={styles.krifinSection}>
+                            <div className={styles.dash} />
+                            <div className={styles.krifinTitle}>KRIFIN</div>
+                        </div>
+                        <div className={styles.contentTitle}>
+                            About
+                        </div>
+                        <div className={styles.contentDescription}>
+                            Krifin: The First Land and Agriculture Co-Investment and Decentralized Finance Platform in Asia
+                            <br />
+                            <br />
+                            Krifin is a revolutionary new platform that is making it easier and more accessible than ever to invest in land and agriculture. We are the first platform in Asia to offer co-investment and decentralized finance (DeFi) solutions for these asset classes.
+                            <br />
+                            <br />
+                            Krifin's co-investment platform allows users to pool their resources and invest in land estate plantations and agriculture projects together. This makes it possible for even small investors to get directly involved in these sustainable, impact, High ROI and low risk asset classes, which have traditionally been out of reach for many people.
+                            <br />
+                            <br />
+                            Krifin's DeFi solutions provide investors with a more efficient and transparent way to invest in land and agriculture. By using blockchain technology, Krifin can eliminate many of the middlemen and costs associated with traditional investing.
+                        </div>
                     </div>
-                    <div className={styles.contentTitle}>
-                        About
-                    </div>
-                    <div className={styles.contentDescription}>
-                        Krifin is the world’s first asset-backed Fractional NFT marketplace & DEX for luxury assets with a primary focus on Real Estate, where people can buy, sell and invest in fractions of luxury assets using cryptocurrencies and traditional payments methods.
-                        <br />
-                        <br />
-                        We are creating a new class of financial assets based on product equity which could help provide liquidity to  the luxury assets investments of HNIs and institutional investors by making their investments available as a token to the retail investors.
-                        <br />
-                        <br />
-                        The  primary use case of this platform is tokenization of real world assets - Art, Collectibles, Copyright Licenses, Equities, Financial Instruments, Precious Metals, and Real Estate etc..
-                    </div>
+                    <img src='/png/about-image-2.png' id="img2" />
                 </div>
-                <img src='/png/about-image-2.png' id="img2"/>
-            </div>
-            <div className={styles.contentSection}>
-                <div className={styles.sectionContent}>
-                    <div className={styles.index}>02</div>
-                    <div className={styles.krifinSection}>
-                        <div className={styles.dash} />
-                        <div className={styles.krifinTitle}>House of Krifin</div>
+                <div className={styles.contentSection}>
+                    <div className={styles.sectionContent}>
+                        <div className={styles.index}>02</div>
+                        <div className={styles.krifinSection}>
+                            <div className={styles.dash} />
+                            <div className={styles.krifinTitle}>KRIFIN</div>
+                        </div>
+                        <div className={styles.contentTitle}>
+                            Our Financial Product
+                        </div>
+                        <div className={styles.contentDescription}>
+                            Krifin is a financial product that allows investors to co-invest in land and agriculture projects to generate financial returns and support sustainable development. It is the first Land and agriculture co-investment and decentralized finance platform in Asia and it offers a unique feature of Carbon credit accounting for the agriculture land.
+                        </div>
                     </div>
-                    <div className={styles.contentTitle}>
-                        Our Financial Product
-                    </div>
-                    <div className={styles.contentDescription}>
-                        We are creating a new financial asset class use case for NFTs that goes beyond digital art. Asset-backed NFTs could be the new revolution for equity ownerships of real world assets
-                        <br />
-                        <br />
-                        Luxury Asset Equity
-                        <br />
-                        Luxury Asset Loan
-                    </div>
+                    <img src='/png/about-image-3.png' id='img3' />
                 </div>
-                <img src='/png/about-image-3.png' id='img3'/>
-            </div>
-            <div className={styles.contentSection}>
-                <div className={styles.sectionContent}>
-                    <div className={styles.index}>03</div>
-                    <div className={styles.krifinSection}>
-                        <div className={styles.dash} />
-                        <div className={styles.krifinTitle}>House of Krifin</div>
+                <div className={styles.contentSection}>
+                    <div className={styles.sectionContent}>
+                        <div className={styles.index}>03</div>
+                        <div className={styles.krifinSection}>
+                            <div className={styles.dash} />
+                            <div className={styles.krifinTitle}>KRIFIN</div>
+                        </div>
+                        <div className={styles.contentTitle}>
+                            Benefits
+                        </div>
+                        <div className={styles.contentDescription}>
+                            <ol className={styles.listItems}>
+                                {
+                                    krifinBenefits.map((e, i) => {
+                                        return <li key={i}>{e}</li>
+                                    })
+                                }
+                            </ol>
+                        </div>
                     </div>
-                    <div className={styles.contentTitle}>
-                        Benefits
+                    <img src='/png/about-image-4.png' id='img4' />
+                </div>
+                <div className={styles.contentSection}>
+                    <div className={styles.sectionContent}>
+                        <div className={styles.index}>04</div>
+                        <div className={styles.krifinSection}>
+                            <div className={styles.dash} />
+                            <div className={styles.krifinTitle}>KRIFIN</div>
+                        </div>
+                        <div className={styles.contentTitle}>
+                            How to Get Started with Krifin
+                        </div>
+                        <div className={styles.description}>
+                            Getting started with Krifin is easy. Simply create an account on our website and browse through the available investment opportunities. Once you find a project that you are interested in, you can invest in it directly using cryptocurrency.
+                            <br />
+                            <br />
+                            Krifin is committed to making it easy and accessible for everyone to invest in land and agriculture. We believe that these asset classes have the potential to generate significant wealth for our investors, while also having a positive impact on the world.
+                            <br />
+                            <br />
+                            If you are looking for a way to invest in land and agriculture, Krifin is the perfect platform for you. We offer a wide range of projects to invest in, and our expert team is here to help you make informed investment decisions.
+                            <br />
+                            <br />
+                            Sign up for Krifin today and start investing in your future!
+                        </div>
                     </div>
-                    <div className={styles.contentDescription}>
-                        <ol className={styles.listItems}>
-                            <li>Invest with the world’s largest blockchain-powered marketplace for Luxury asset NFTs worldwide.</li>
-                            <li>Users can easily buy, trade and hold non-fungible tokens (NFT) which are fully asset backed by real-world assets.</li>
-                            <li>All the tangible assets are physically stored in a high-security vault in Liechtenstein and are insured by Lloyd’s London.</li>
-                            <li>All NFTs are 1-1 assets which are broken down into fractional NFTs where a single FNFT value is equal to USD $1 . Therefore, there is a different number of total Fractional NFTs for every different asset due to difference of assets.</li>
-                            <li>All assets are certified by the A.I. algorithm for appraisals</li>
-                            <li>Eliminate counterfeiting while minting an NFT on a multi-chain blockchain network,</li>
-                            <li>“Own To Earn” model.</li>
-                            <li>a focus on luxury assets that hold value well and have a high reselling value.</li>
-                            <li>leverage your proprietary  big data intelligence system and unique algorithm for automated data collecting and data processing, the value of each NFT on our platform is backed by real-world data.</li>
-                        </ol>
-                    </div>
-                </div>
-                <img src='/png/about-image-4.png' id='img4'/>
-            </div>
-            <div className={styles.contentSection}>
-                <div className={styles.sectionContent}>
-                    <div className={styles.index}>04</div>
-                    <div className={styles.krifinSection}>
-                        <div className={styles.dash} />
-                        <div className={styles.krifinTitle}>House of Krifin</div>
-                    </div>
-                    <div className={styles.contentTitle}>
-                        NFT EQUITY   &   NFT LOAN
-                    </div>
-                    <div className={styles.description}>
-                        The main difference between NFT loans and NFT equity is that with an NFT loan, you are borrowing money against the value of your NFT, while with NFT equity, you are selling a portion of ownership in your NFT.
-                        <br />
-                        Here is a table summarizing the key differences between NFT loans and NFT equity:
-                    </div>
-                </div>
-                <img src='/png/about-image-5.png' id='img5'/>
-            </div>
-            <div className={styles.table}>
-                <div className={styles.tableHeader}>
-                    <div className={styles.headerItem}>Features</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>NFT Equity</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>NFT Loan</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={styles.headerItem}>What you are giving up</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>Collateral</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>Ownership</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={styles.headerItem}>How much you can raise</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>Up to the value of your NFT</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>Depends on the investor</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={styles.headerItem}>Control over your NFT</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>You retain full control</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>You share control with the investor</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={styles.headerItem}>Risk</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>The lender can seize your NFT if you default on the loan</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>The investor can sell their stake in your NFT at any time</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={styles.headerItem}>Best for</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>Accessing cash quickly</div>
-                    <div className={styles.verticalDivider} />
-                    <div className={styles.headerItem}>Accessing cash quickly</div>
+                    <img src='/png/about-image-5.png' id='img5' />
                 </div>
             </div>
-            <div className={styles.enddescription} style={{marginBottom:'100px' }}>It is important to do your research and understand the risks involved before choosing between an NFT loan and NFT equity.</div>
-            <div className={styles.enddescriptionpara}>
-                <b className={styles.enddescriptionHeading}>Which is Right for You?</b>
-                <br />
-                <br />
-                The best option for you will depend on your individual circumstances and goals. If you need to access cash quickly, an NFT loan may be a good option. However, if you are looking to raise capital for a long-term project, NFT equity may be a better choice.
+            <div className={styles.footerClass}>
+                <Footer />
             </div>
-        </div>
-        <div className={styles.footerClass}>
-        <Footer />
-        </div>
         </div>
     )
 }
