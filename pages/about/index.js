@@ -16,6 +16,13 @@ const About = () => {
         "Expert team: Krifin has a team of experts in land and agriculture who can help you make informed investment decisions.",
         "Carbon Sequestration: Krifin partners with agriculture experts to assess the carbon sequestration potential of its land and agriculture projects and generates carbon credits based on the amount of carbon that its projects sequester."
     ];
+
+    const whyKrifin = [
+        "High returns: Land and agriculture have historically been very good investments, generating high returns over the long term.",
+        "Low correlation: Land and agriculture are not highly correlated with other asset classes, such as stocks and bonds. This means that they can provide diversification to your investment portfolio.",
+        "Tangible assets: Land and agriculture are tangible assets that have real value. This makes them a good hedge against inflation and other economic risks.",
+        "Social impact: Investing in land and agriculture can help to support rural communities and promote sustainable development.",
+    ]
     return (
         <div>
             <Navbar />
@@ -74,6 +81,18 @@ const About = () => {
                         </div>
                         <div className={styles.contentDescription}>
                             Krifin is a financial product that allows investors to co-invest in land and agriculture projects to generate financial returns and support sustainable development. It is the first Land and agriculture co-investment and decentralized finance platform in Asia and it offers a unique feature of Carbon credit accounting for the agriculture land.
+                            <br/><br/>
+                            <b>Why Invest in Land and Agriculture with Krifin?</b>
+                            <br/><br/>
+                            There are many reasons why investors should consider investing in land and agriculture with Krifin. Here are just a few:
+                            <br/>
+                            <ol className={styles.listItems}>
+                                {
+                                    whyKrifin.map((e, i) => {
+                                        return <li key={i}>{e}</li>
+                                    })
+                                }
+                            </ol>
                         </div>
                     </div>
                     <img src='/png/about-image-3.png' id='img3' />
