@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Footer = () => {
     const description = "Krifin is a revolutionary new platform that is making it easier and more accessible than ever to invest in land and agriculture. We are the first platform in Asia to offer co-investment and decentralized finance (DeFi) solutions for these asset classes."
-    const contactDesc = "Join our mailing list to stay in the loop with our newest investment feature releases, asset drops, and tips and tricks for navigating land investments.”"
+    const contactDesc = "Join our mailing list to stay in the loop with our newest investment feature releases, asset drops, and tips and tricks for navigating land investments."
     return (
         <div className={styles.container}>
             <div className={styles.footerCol}>

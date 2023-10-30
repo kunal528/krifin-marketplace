@@ -6,7 +6,7 @@ const Search = () => {
     const router = useRouter();
     return (
         <div className={styles.container}>
-            <div className={styles.header}>Build your wealth, One token at a time!</div>
+            <div className={styles.header}>Build your wealth, One acre at a time!</div>
             <input type="search" placeholder="Search for the best real estate investment across the  globe..... " className={styles.input} onClick={() => {
                 if (router.pathname !== '/invest')
                     router.push('/invest');

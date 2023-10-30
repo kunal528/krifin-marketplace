@@ -2,10 +2,15 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: black;
+  background-image: url('/2.jpg');
+  background-size: cover; /* Adjust as needed */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional, for a fixed background */
+  background-color: black; /* Fallback background color in case the image doesn't load */
   color: white;
   font-family: "Be Vietnam Pro", sans-serif;
 }
+
 
 a {
   color: inherit;

@@ -29,7 +29,7 @@ export default function Home() {
     <div className={styles.mainClass}>
       <div className={styles.mainSection}>
         <div>
-          <div className={styles.header}>Buy, Sell and Invest in Real Estate Tokens & REIT</div>
+          <div className={styles.header}>Buy, Sell and Invest in Farms Estates, Land Tokens and REITs</div>
           <div className={styles.description}>Invest like the top 1%  and earn passive dividends on our curated investment opportunities</div>
           <div style={{ display: 'flex', marginBottom: '30px' }}>
             <div className={styles.button}>Invest Now</div>
@@ -49,28 +49,60 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <img src="./png/home.png" alt="Hero" />
+        <img src="1.jpeg" alt="Hero" width={400} height={400} style={{borderRadius: '10%'}}/>
       </div>
       <div className={styles.benefitsSection}>
         <div className={styles.benefitsHeader}>Why invest with us?</div>
         <div className={styles.allbenefits}>
           <div className={styles.benefits}>
             <div className={styles.benefit}>
-            <img src="./png/secure_invest.png" alt="Benefit" className={styles.benefitLogo1}/>
+            <img src="./png/secure_invest_bg_remove.png" alt="Benefit" className={styles.benefitLogo1}/>
             <div>
-              <div className={styles.benefitTitle}>Secure Investments </div>
-              <div className={styles.benefitDesc}>Non-Market linked returns along with blockchain protection for every transaction.</div>
+              <div className={styles.benefitTitle}>Easy to use platform </div>
+              <ul>
+                <li><div className={styles.benefitDesc}>Effortless and affordable access</div></li>
+                <li><div className={styles.benefitDesc}>Predictive analytics</div></li>
+                <li><div className={styles.benefitDesc}>Secondary market for 24X7 liquidity </div></li>
+              </ul>
             </div>
             </div>
             <div className={styles.benefit}>
             <img src="./png/roi.png" alt="Benefit" className={styles.benefitLogo2} />
             <div>
-              <div className={styles.benefitTitle}>Stable ROI</div>
-              <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
+              <div className={styles.benefitTitle}>Impact investments</div>
+              <ul>
+                <li><div className={styles.benefitDesc}>Green Investment</div></li>
+                <li><div className={styles.benefitDesc}>Carbon emissions accounting for sustainable practices </div></li>
+                <li><div className={styles.benefitDesc}>Low risk and low volatility</div></li>
+              </ul>
             </div>
             </div>
           </div>
           <div className={styles.benefits}>
+            <div className={styles.benefit}>
+            <img src="./png/legal.png" alt="Benefit" className={styles.benefitLogo7}/>
+            <div>
+              <div className={styles.benefitTitle}>Asset backed investment</div>
+              <ul>
+                <li><div className={styles.benefitDesc}>Get real time data of your assets</div></li>
+                <li><div className={styles.benefitDesc}>Your investments are backed by the land</div></li>
+                <li><div className={styles.benefitDesc}>We use collateral agent for extra security layer</div></li>
+              </ul>
+            </div>
+            </div>
+            <div className={styles.benefit}>
+            <img src="./png/transparent.png" alt="Benefit" className={styles.benefitLogo8} />
+            <div>
+              <div className={styles.benefitTitle}>Global access</div>
+              <ul>
+                <li><div className={styles.benefitDesc}>International investment opportunity for retail investors </div></li>
+                <li><div className={styles.benefitDesc}>Decentralized co-investments based across the world</div></li>
+                <li><div className={styles.benefitDesc}>Custom portfolio management for institutional investors</div></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+          {/* <div className={styles.benefits}>
             <div className={styles.benefit}>
             <img src="./png/ft.png" alt="Benefit" className={styles.benefitLogo3} />
             <div>
@@ -85,8 +117,8 @@ export default function Home() {
               <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
             </div>
             </div>
-          </div>
-          <div className={styles.benefits}>
+          </div> */}
+          {/* <div className={styles.benefits}>
             <div className={styles.benefit}>
             <img src="./png/afford.png" alt="Benefit" className={styles.benefitLogo5}/>
             <div>
@@ -101,23 +133,8 @@ export default function Home() {
               <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
             </div>
             </div>
-          </div>
-          <div className={styles.benefits}>
-            <div className={styles.benefit}>
-            <img src="./png/legal.png" alt="Benefit" className={styles.benefitLogo7}/>
-            <div>
-              <div className={styles.benefitTitle}>Legal Compliance</div>
-              <div className={styles.benefitDesc}>Non- Market linked returns along with blockchain protection for every transaction.</div>
-            </div>
-            </div>
-            <div className={styles.benefit}>
-            <img src="./png/transparent.png" alt="Benefit" className={styles.benefitLogo8} />
-            <div>
-              <div className={styles.benefitTitle}>Transparent</div>
-              <div className={styles.benefitDesc}>Earn upto average 11 % pre-tax yields REIT NFT is the most secured Asset-backed NFTs with real-world properties providing APY 11-25%.</div>
-            </div>
-            </div>
-          </div>
+          </div> */}
+          
           
           
           
@@ -128,12 +145,12 @@ export default function Home() {
       
       <div className={styles.randomAssets}>
         <div className={styles.randomAssetsColOne}>
-          <img src="https://images.pexels.com/photos/284991/pexels-photo-284991.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" className={styles.coloneImg}/>
+          <img src="3.jpg" alt="Picture of the author" className={styles.coloneImg}/>
           <div className={styles.randomAssetsColOneData}>
             <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Picture of the author" className={styles.coloneProfileImg}/>
             <div className={styles.placeDetail}>
-              <p className={styles.placeDetailHeading}>AVB Mansion</p>
-              <p className={styles.placeDetailLoc}>Mumbai India</p>
+              <p className={styles.placeDetailHeading}>Cannabis Farm</p>
+              <p className={styles.placeDetailLoc}>Mumbai, India</p>
             </div>
             <div className={styles.priceDetail}>
               <p className={styles.priceDetailHeading}>Valuation</p>
@@ -142,35 +159,37 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.randomAssetsColTwo}>
-        <AssetCards name={"Lotus Temple"} percentage={"11"} loc={"Delhi, India"} image={"https://images.pexels.com/photos/5209177/pexels-photo-5209177.jpeg?auto=compress&cs=tinysrgb&w=600"}/>
-        <AssetCards name={"The Futr Abstr"} percentage={"12.3"} loc={"1 of 8"} image={"https://images.pexels.com/photos/175771/pexels-photo-175771.jpeg?auto=compress&cs=tinysrgb&w=600"}/>
-        <AssetCards name={"Leaf Mount"} percentage={"2.5"} loc={"1 of 8"} image={"https://images.pexels.com/photos/4086523/pexels-photo-4086523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}/>
+        <AssetCards name={"Tea Plantation"} percentage={"11"} loc={"Himachal, India"} image={"/5.jpg"}/>
+        <AssetCards name={"Vineyard"} percentage={"12.3"} loc={"1 of 8"} image={"/11.jpg"}/>
+        <AssetCards name={"Fiber Farms"} percentage={"2.5"} loc={"2 of 10"} image={"/2.jpg"}/>
         </div>
         <div className={styles.randomAssetsColThree}>
           <p className={styles.colthreeheading}>Top Investments</p>
           <p className={styles.daysLeft} style={{color: '#3D00B7'}}>Last 7 days</p>
-          <TopInvestCard no={"1"} name="Earth 3.0" totInvest={"19739.39"} pnl={true} pnlVal={"25.53%"}
-          image={"https://images.pexels.com/photos/2090653/pexels-photo-2090653.jpeg?auto=compress&cs=tinysrgb&w=600"} />
+          <TopInvestCard no={"1"} name="Farm Estate" totInvest={"19739.39"} pnl={true} pnlVal={"25.53%"}
+          image={"/1.jpeg"} />
           <hr style={{color: 'white', width: '100%', height: '3px'}} />
-          <TopInvestCard no={"2"} name="Island Resort" totInvest={"2,769.39"} pnl={false} pnlVal={"10.52%"}
-          image={"https://images.pexels.com/photos/2581922/pexels-photo-2581922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} />
+          <TopInvestCard no={"2"} name="Flower Plantation" totInvest={"2,769.39"} pnl={false} pnlVal={"10.52%"}
+          image={"/7.jpg"} />
           <hr style={{color: 'white', width: '100%', height: '3px'}} />
-          <TopInvestCard no={"3"} name="Frensware" totInvest={"9,232.39"} pnl={true} pnlVal={"2.52%"}
-          image={"https://images.pexels.com/photos/70441/pexels-photo-70441.jpeg?auto=compress&cs=tinysrgb&w=600"} />
+          <TopInvestCard no={"3"} name="Palm Oil Plantation" totInvest={"9,232.39"} pnl={true} pnlVal={"2.52%"}
+          image={"/18.jpg"} />
           <hr style={{color: 'white', width: '100%', height: '3px'}} />
-          <TopInvestCard no={"4"} name="PunkArt" totInvest={"3,769.39"} pnl={true} pnlVal={"1.52%"}
-          image={"https://images.pexels.com/photos/6361842/pexels-photo-6361842.png?auto=compress&cs=tinysrgb&w=600"} />
+          <TopInvestCard no={"4"} name="Herb plantation" totInvest={"3,769.39"} pnl={true} pnlVal={"1.52%"}
+          image={"/19.jpg"} />
           <hr style={{color: 'white', width: '100%', height: '3px'}} />
-          <TopInvestCard no={"5"} name="Art Crypto" totInvest={"10,769.39"} pnl={false} pnlVal={"2.52%"}
-          image={"https://images.pexels.com/photos/2086361/pexels-photo-2086361.jpeg?auto=compress&cs=tinysrgb&w=600"} />
+          <TopInvestCard no={"5"} name="Cacao Plantation" totInvest={"10,769.39"} pnl={false} pnlVal={"2.52%"}
+          image={"/17.jpg"} />
           {/* <Image src="/png/topinvest.png" width={400} height={550} /> */}
         </div>
       </div>
       <div className={styles.partnerOfferSection}>
-        <img src="./png/partner-offer.png" alt="Partner" className={styles.partnerOfferImg}/>
+        <img src="6.jpg" alt="Partner" width={600} height={600} style={{borderRadius: '5%'}} className={styles.partnerOfferImg}/>
         <div className={styles.partnerOfferContent}>
-          <div className={styles.partnerOfferHeader}>Want to partner with us ?</div>
-          <div className={styles.partnerOfferdescription} style={{ marginBottom: '30px' }}>We partner with  open-end real estate investment trust focused on managing a portfolio of retail and mixed-use retail community and neighbourhood centres, generally in the mid-market range of $10 to $50 million, from both primary and secondary markets across Dubai, Europe, and United Kingdom.</div>
+          <div className={styles.partnerOfferHeader}>How to Get Started with KriFin</div>
+          <div className={styles.partnerOfferdescription} style={{ marginBottom: '30px' }}>Getting started with KriFin is easy. Simply create an account on our website and browse through the available investment opportunities. Once you find a project that you are interested in, you can invest in it directly using your preferred payment method.
+KriFin is committed to making it easy and accessible for everyone to invest in land estates, agricultural plantations and farm projects. We believe that these asset classes have the potential to generate significant wealth for our investors, while also having a positive impact on the world.
+</div>
           <div style={{ display: 'flex', marginBottom: '30px' }}>
             <div className={styles.connectButton}>Connect Us</div>
           </div>
