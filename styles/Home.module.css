@@ -584,9 +584,7 @@
         margin-bottom: 12px;
         margin-top: 0px;
       }
-      .partnerOfferImg{
-        width: 500px  
-      }
+      
       .coloneImg{
         width: 350px;
         height: 400px;
@@ -716,6 +714,7 @@
       align-items: center;
       gap: 100px 60px;
       margin-bottom: 100px;
+      
       /* flex-wrap: wrap; */
     }
   
@@ -1044,7 +1043,7 @@
       padding: 30px 30px;
       display: flex;
       flex-direction: column;
-      width: 100vw;
+      width: 100%;
       text-align: center;
       /* margin: 20px auto; */
       border-radius: 20px;
@@ -1297,7 +1296,7 @@
 
     .footerClass{
       /* margin-bottom: -200px; */
-      margin-left: -80px;
+      margin-left: 120px;
       /* margin-right: -100px; */
     }
     
