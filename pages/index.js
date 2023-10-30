@@ -49,7 +49,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <img src="./png/farm.png" alt="Hero" width={450} height={400} style={{borderRadius: '10%', marginLeft: '30px'}}/>
+        <img src="./png/farm.png" alt="Hero" width={450} height={400} style={{borderRadius: '10%', marginLeft: '60px'}}/>
       </div>
       <div className={styles.benefitsSection}>
         <div className={styles.benefitsHeader}>Why invest with us?
