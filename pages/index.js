@@ -29,7 +29,7 @@ export default function Home() {
     <div className={styles.mainClass}>
       <div className={styles.mainSection}>
         <div>
-          <div className={styles.header}>Buy, Sell and Invest in Farms Estates, Land Tokens and REITs</div>
+          <div className={styles.header}>Buy, Sell and Invest in Farm Estates, Land Tokens and REITs</div>
           <div className={styles.description}>Invest like the top 1%  and earn passive dividends on our curated investment opportunities</div>
           <div style={{ display: 'flex', marginBottom: '30px' }}>
             <div className={styles.button}>Invest Now</div>
@@ -49,24 +49,26 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <img src="1.jpeg" alt="Hero" width={400} height={400} style={{borderRadius: '10%'}}/>
+        <img src="./png/farm.png" alt="Hero" width={450} height={400} style={{borderRadius: '10%'}}/>
       </div>
       <div className={styles.benefitsSection}>
-        <div className={styles.benefitsHeader}>Why invest with us?</div>
+        <div className={styles.benefitsHeader}>Why invest with us?
+          <div className={styles.benefitHeaderDesc}>We believe that land is a relatively high-yield, less volatile and low-risk asset class that can be an excellent choice to diversify your portfolio, especially in light of the rising need for food to feed the burgeoning global population of around 10 billion by 2050. Land investments are sustainable, responsible, provide inflation hedge with high rates of return (12%).</div>
+        </div>
         <div className={styles.allbenefits}>
           <div className={styles.benefits}>
             <div className={styles.benefit}>
             <img src="./png/secure_invest_bg_remove.png" alt="Benefit" className={styles.benefitLogo1}/>
             <div>
               <div className={styles.benefitTitle}>Easy to use platform </div>
-              <ul>
+              <ul style={{marginLeft: '-20px'}}>
                 <li><div className={styles.benefitDesc}>Effortless and affordable access</div></li>
                 <li><div className={styles.benefitDesc}>Predictive analytics</div></li>
                 <li><div className={styles.benefitDesc}>Secondary market for 24X7 liquidity </div></li>
               </ul>
             </div>
             </div>
-            <div className={styles.benefit}>
+            {/* <div className={styles.benefit}>
             <img src="./png/roi.png" alt="Benefit" className={styles.benefitLogo2} />
             <div>
               <div className={styles.benefitTitle}>Impact investments</div>
@@ -76,9 +78,50 @@ export default function Home() {
                 <li><div className={styles.benefitDesc}>Low risk and low volatility</div></li>
               </ul>
             </div>
-            </div>
+            </div> */}
+            
           </div>
           <div className={styles.benefits}>
+          <div className={styles.benefit}>
+            <img src="./png/roi.png" alt="Benefit" className={styles.benefitLogo2} />
+            <div style={{marginLeft: '-15px'}}>
+              <div className={styles.benefitTitle}>Impact investments</div>
+              <ul style={{marginLeft: '-20px'}}>
+                <li><div className={styles.benefitDesc}>Green Investment</div></li>
+                <li><div className={styles.benefitDesc}>Carbon emissions accounting for sustainable practices </div></li>
+                <li><div className={styles.benefitDesc}>Low risk and low volatility</div></li>
+              </ul>
+            </div>
+            </div>
+            </div>
+            
+            <div className={styles.benefits}>
+            <div className={styles.benefit}>
+            <img src="./png/legal.png" alt="Benefit" className={styles.benefitLogo7}/>
+            <div>
+              <div className={styles.benefitTitle}>Asset backed investment</div>
+              <ul style={{marginLeft: '-20px'}}>
+                <li><div className={styles.benefitDesc}>Get real time data of your assets</div></li>
+                <li><div className={styles.benefitDesc}>Your investments are backed by the land</div></li>
+                <li><div className={styles.benefitDesc}>We use collateral agent for extra security layer</div></li>
+              </ul>
+            </div>
+            </div>
+            </div>
+            <div className={styles.benefits}>
+            <div className={styles.benefit}>
+            <img src="./png/transparent.png" alt="Benefit" className={styles.benefitLogo8} />
+            <div>
+              <div className={styles.benefitTitle}>Global access</div>
+              <ul style={{marginLeft: '-20px'}}>
+                <li><div className={styles.benefitDesc}>International investment opportunity for retail investors </div></li>
+                <li><div className={styles.benefitDesc}>Decentralized co-investments based across the world</div></li>
+                <li><div className={styles.benefitDesc}>Custom portfolio management for institutional investors</div></li>
+              </ul>
+            </div>
+            </div>
+            </div>
+          {/* <div className={styles.benefits}>
             <div className={styles.benefit}>
             <img src="./png/legal.png" alt="Benefit" className={styles.benefitLogo7}/>
             <div>
@@ -101,7 +144,7 @@ export default function Home() {
               </ul>
             </div>
             </div>
-          </div>
+          </div> */}
           {/* <div className={styles.benefits}>
             <div className={styles.benefit}>
             <img src="./png/ft.png" alt="Benefit" className={styles.benefitLogo3} />
@@ -159,9 +202,9 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.randomAssetsColTwo}>
-        <AssetCards name={"Tea Plantation"} percentage={"11"} loc={"Himachal, India"} image={"/5.jpg"}/>
-        <AssetCards name={"Vineyard"} percentage={"12.3"} loc={"1 of 8"} image={"/11.jpg"}/>
-        <AssetCards name={"Fiber Farms"} percentage={"2.5"} loc={"2 of 10"} image={"/2.jpg"}/>
+        <AssetCards name={"Tea Plantation"} percentage={"11"} loc={"Himachal, India"} image={"/5.jpg"} profileImg={'/p1.jpg'}/>
+        <AssetCards name={"Vineyard"} percentage={"12.3"} loc={"1 of 8"} image={"/21.jpg"} profileImg={'/p2.jpg'}/>
+        <AssetCards name={"Fiber Farms"} percentage={"2.5"} loc={"2 of 10"} image={"/22.jpg"} profileImg={'/p3.jpg'}/>
         </div>
         <div className={styles.randomAssetsColThree}>
           <p className={styles.colthreeheading}>Top Investments</p>
