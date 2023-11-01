@@ -10,9 +10,9 @@ import Footer from "../../components/Footer/Footer";
 const Invest = () => {
   const [filters, setFilters] = useState([
     { name: "All Categories", selected: true, isVisible: true },
-    { name: "Farm", isVisible: true },
+    { name: "Farms", isVisible: true },
     { name: "Farm Estates", isVisible: true },
-    { name: "Coffee Estate", isVisible: true },
+    { name: "Coffee Estates", isVisible: true },
     { name: "Orchards", isVisible: true },
     { name: "Vineyards", isVisible: true },
     { name: "Fiber farms", },
