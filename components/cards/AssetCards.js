@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../../styles/AssetCards.module.css'
 import Image from 'next/image'
 
-const AssetCards = ({name, percentage, loc, image}) => {
+const AssetCards = ({name, percentage, loc, image, profileImg}) => {
   return (
     <div className={styles.main}>
         <div className={styles.image}>
@@ -12,7 +12,7 @@ const AssetCards = ({name, percentage, loc, image}) => {
             <div className={styles.name}>{name}</div>
             <div className={styles.info}>
                 
-                <Image src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" width={20} height={20} className={styles.assetprofileImg}/>
+                <img src={profileImg} width={20} height={20} className={styles.assetprofileImg}/>
                 
                 <div className={styles.statButton}>
                     <Image src="/png/green_eth.png" height={20} width={15}  /> 

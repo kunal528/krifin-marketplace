@@ -134,21 +134,32 @@
   .benefitsSection {
     margin: 100px 110px 200px;
     background: #d9e0ec33;
-    padding: 100px 60px;
+    padding: 100px 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    gap: 20px 60px;
-    /* flex-wrap: wrap; */
-  }
+    justify-content: space-between;
+    flex: 5 1;
+}
+
 
   .benefitsHeader {
-    /* max-width: 398px; */
+    max-width: 50%;
     font-size: 28px;
     font-weight: 700;
     line-height: 41px;
     letter-spacing: 0em;
     text-align: left;
+    flex-grow: 1;
+  }
+
+  .benefitHeaderDesc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+    text-align: left;
+    max-width: 100%;
+    color: #9f9191;
   }
 
   .allbenefits {
@@ -156,36 +167,33 @@
     flex-direction: column;
     flex-wrap: wrap;
     gap: 40px 60px;
-    width: 100%;
+    justify-content:center;
+    width: 40%;
   }
 
   .benefits{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    flex-basis: 0%;
-    flex-grow: 1;
-    /* gap: 100px; */
-    flex: 1 1;
+    justify-content: end;
+    
   }
 
   .benefit {
     display: flex;
     flex-grow: 1;
-    gap: 0 15px;
-    
-    
+    gap: 0 10%;
   }
 
   /* logos have been separated as they need to have different sizes because of the way in which they  */
   /* are the be presented and can be controlled individually if needed*/
   .benefitLogo1{
-    width: 80px;
-    height: 100px;
+    width: 120px;
+    height: 150px;
   }
   .benefitLogo2 {
     width: 150px;
-    height: 120px;
+    height: 150px;
+    margin-left: -15px;
   }
   .benefitLogo3 {
     width: 100px;
@@ -208,14 +216,14 @@
   }
   .benefitLogo7 {
     width: 120px;
-    height: 120px;
-    margin-left: -40px;
+    height: 150px;
+    /* margin-left: -40px; */
   }
 
   .benefitLogo8 {
-    width: 130px;
-    height: 130px;
-    margin-left: 20px;
+    width: 120px;
+    height: 150px;
+    margin-left: 0px;
   }
 
 
@@ -740,13 +748,13 @@
     }
   
     .benefitLogo1 {
-      width: 80px;
-      height: 100px;
+      width: 120px;
+      height: 150px;
       margin-left: 50px;
     }
     .benefitLogo2 {
       width: 120px;
-      height: 120px;
+      height: 150px;
       margin-left: 10px;
     }
     .benefitLogo3 {
@@ -785,7 +793,7 @@
       font-weight: 700;
       line-height: 26px;
       letter-spacing: 0em;
-      text-align: justify;
+      text-align: left;
       margin-bottom: 12px;
       margin-left: 30px;
     }
@@ -795,7 +803,7 @@
       font-weight: 400;
       line-height: 22px;
       letter-spacing: 0em;
-      text-align: justify;
+      text-align: left;
       max-width: 100%;
       color: #9f9191;
       margin-left: 30px;
@@ -1038,18 +1046,18 @@
       border: 1px solid #3d00b7;
     }
     .benefitsSection {
-      margin: 0px;
+      margin-left: 130px;
       background: #d9e0ec33;
       padding: 30px 30px;
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: 120vw;
       text-align: center;
       /* margin: 20px auto; */
       border-radius: 20px;
       margin-bottom: 0px;
       /* margin: 50px auto; */
-      margin-left: 9.5rem;
+      /* margin-left: 9.5rem; */
       justify-content: center;
       align-items: center;
       gap: 10px 30px;
@@ -1058,7 +1066,7 @@
     }
   
     .benefitsHeader {
-      max-width: 398px;
+      max-width: 100vw;
       font-size: 32px;
       font-weight: 700;
       line-height: 41px;
@@ -1066,12 +1074,20 @@
       text-align: center;
       margin-bottom: 80px;
     }
-  
+
+    .benefitHeaderDesc{
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    .benefitHeaderDesc li{
+      margin-left: 20px;
+    }    
+
     .benefits {
       display: flex;
       flex-direction: column;
       /* flex-wrap: wrap; */
-      gap: 40px 100px;
+      gap: 30px 100px;
     }
   
     .benefit {
@@ -1081,21 +1097,21 @@
     }
   
     .benefitLogo1 {
-      width: 80px;
-      height: 100px;
-      margin-left: 120px;
+      width: 120px;
+      height: 150px;
+      margin-left: 20px;
       margin-bottom: 30px;
     }
     .benefitLogo2 {
       width: 180px;
       height: 150px;
-      margin-left: 80px;
+      margin-left: 0px;
       margin-bottom: 30px;
     }
     .benefitLogo3 {
       width: 120px;
       height: 80px;
-      margin-left: 90px;
+      /* margin-left: 90px; */
       margin-bottom: 30px;
     }
     .benefitLogo4 {
@@ -1119,13 +1135,13 @@
     .benefitLogo7 {
       width: 150px;
       height: 180px;
-      margin-left: 100px;
+      /* margin-left: 100px; */
       margin-bottom: 30px;
     }
     .benefitLogo8 {
       width: 150px;
       height: 180px;
-      margin-left: 100px;
+      /* margin-left: 100px; */
       margin-bottom: 30px;
     }
   
@@ -1134,9 +1150,11 @@
       font-weight: 700;
       line-height: 26px;
       letter-spacing: 0em;
-      text-align: justify;
+      text-align: center;
       margin-bottom: 12px;
-      margin-left: 30px;
+      margin-left: -30px;
+      /* width: 150%; */
+      /* max-width: max-content; */
     }
   
     .benefitDesc {
@@ -1145,9 +1163,9 @@
       line-height: 30px;
       letter-spacing: 0em;
       text-align: left;
-      max-width: 100%;
+      width: 50vw;
       color: #9f9191;
-      margin-left: 30px;
+      margin-left: 0px;
     }
     .randomAssets {
       display: flex;
